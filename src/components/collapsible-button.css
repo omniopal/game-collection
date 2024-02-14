@@ -1,0 +1,138 @@
+.image {
+    width: 100px;
+    margin-right: 1rem;
+}
+
+.list-item-button {
+    display: flex;
+    flex-direction: row;
+}
+
+.collapsible-button {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    flex-wrap: nowrap;
+}
+
+.image-and-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chevron {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.chips {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+.additional-indent {
+    margin-left: 1.5rem;
+    width: calc(100% - 1.5rem);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.title-and-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.pictures {
+    margin-top: 0.2rem;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: rgba(255, 255, 255, .85);
+    margin-left: 3rem;
+    width: calc(100% - 3rem);
+}
+
+.console-release-date {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+h2 {
+    font-size: 1rem;
+    word-wrap: normal;
+    margin: 0;
+    text-align: left;
+}
+
+h4 {
+    padding-left: 2rem;
+    margin-bottom: 0;
+}
+
+p {
+    margin: unset;
+    padding: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+    .chips {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .image {
+        max-width: 125px;
+        max-height: 125px;
+        margin-right: 1.5rem;
+    }
+
+    .additional-indent {
+        margin-left: 3rem;
+        width: calc(100% - 3rem);
+    }
+
+    .game-info {
+        margin-left: 6rem;
+        width: calc(100% - 6rem);
+    }
+
+    .console-release-date {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
+@media screen and (min-width: 1536px) {
+
+}

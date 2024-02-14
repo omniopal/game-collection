@@ -1,0 +1,13 @@
+.modal-image {
+    width: 90%;
+    margin-left: auto;
+}
+
+.title {
+    margin-bottom: 2rem;
+    width: 95%;
+}
+
+.icon-button {
+    background-color: red;
+}
