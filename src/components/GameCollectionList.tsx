@@ -25,7 +25,7 @@ interface Console {
 }
 
 export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
-    const [radioValue, setRadioValue] = useState('my-games');
+    const [radioValue, setRadioValue] = useState('owned-games');
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down('sm'));
     const gameData: { consoles: Console[] } = gameCollectionDataJson;
@@ -41,26 +41,31 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
             </div>
             <div className="form-control">
                 <FormControl>
-                    <RadioGroup className="radio-group" defaultValue="my-games" onChange={handleRadioButtonChange} row={!isSmallBreakpoint}>
+                    <RadioGroup className="radio-group" defaultValue="owned-games" onChange={handleRadioButtonChange} row={!isSmallBreakpoint}>
                         <FormControlLabel
                             className="form-control-label"
-                            value="my-games"
+                            value="owned-games"
                             control={<Radio sx={{ color: 'black', '&.Mui-checked': { color: 'black' } }}/>}
-                            label={<Typography sx={{ fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px'}} className="radio-button-label">Show games I own</Typography>}/>
+                            label={<Typography sx={{ fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px'}} className="radio-button-label">Owned games</Typography>}/>
+                        <FormControlLabel
+                            className="form-control-label"
+                            value="unowned-games"
+                            control={<Radio sx={{ color: 'black', '&.Mui-checked': { color: 'black' } }}/>}
+                            label={<Typography sx={{ fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px' }} className="radio-button-label">Unowned games</Typography>}/>
                         <FormControlLabel
                             className="form-control-label"
                             value="all-games"
                             control={<Radio sx={{ color: 'black', '&.Mui-checked': { color: 'black' } }}/>}
-                            label={<Typography sx={{ fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px' }} className="radio-button-label">Show all Mario games</Typography>}/>
+                            label={<Typography sx={{ fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px' }} className="radio-button-label">All Mario games</Typography>}/>
                     </RadioGroup>
                 </FormControl>
             </div>
             <nav className="game-collection-list">
                 {gameData.consoles.map((console, index) => (
                     <div key={index}>
-                        <CollapsibleButton text={console.name} buttonImage={console.image} consoleReleaseDate={console.releaseDate}>
+                        <CollapsibleButton text={console.name} buttonImage={console.image} consoleReleaseDate={console.releaseDate} top={index === 0} bottom={index === gameData.consoles.length - 1}>
                             {console.games.map((game, gameIndex) => (
-                                ((radioValue === "my-games" && game.hasGame) || radioValue === "all-games") &&
+                                ((radioValue === "owned-games" && game.hasGame) || (radioValue === "unowned-games" && !game.hasGame) || radioValue === "all-games") &&
                                     <div key={gameIndex}>
                                         <CollapsibleButton 
                                             text={game.title}
@@ -71,7 +76,8 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                             rating={game.rating}
                                             additionalIndent />
                                     </div>
-                            ))}
+                                ))
+                            }
                         </CollapsibleButton>
                     </div>
                 ))}

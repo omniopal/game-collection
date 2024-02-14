@@ -23,8 +23,9 @@
     overflow: auto;
     padding-bottom: 4rem;
     background-color: grey;
-    background-image: url("../images/background-image-3.png");
-    background-image: url("../images/background-image-3.png"), linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    background-image: url("../images/background-image.png");
+    background-image: url("../images/background-image.png"), linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    animation: background-slide 80s linear infinite;
 }
 
 .game-info {
@@ -46,8 +47,27 @@
     font-size: 100px;
 }
 
+.radio-group {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (min-width: 600px) {
     .game-collection-list {
         max-width: 75%;
+    }
+
+    .background {
+        animation: background-slide 200s linear infinite;
+    }
+}
+
+@keyframes background-slide {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
     }
 }
