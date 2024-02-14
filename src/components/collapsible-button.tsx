@@ -1,11 +1,8 @@
-import { ExpandLess, ExpandMore, Close as CloseIcon } from '@mui/icons-material';
-import { Chip, Collapse, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { Chip, Collapse, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState, PropsWithChildren } from 'react';
 import './collapsible-button.css';
 import clsx from 'clsx';
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import ModalClose from '@mui/joy/ModalClose'
-import { Modal, Sheet, Typography } from '@mui/joy';
 import { GameImageModalButton } from './game-image-modal-button';
 
 export type ChipInfo = {
@@ -42,7 +39,7 @@ export const CollapsibleButton: React.FC<CollapsibleButtonProps> = (props) => {
             <button className={(clsx("collapsible-button", additionalIndent && "additional-indent"))} onClick={toggleCollapse}>
                 <div className="contents">
                     <div className="image-and-title">
-                        {buttonImage && <img className="image" src={`./images/${buttonImage}`} />}
+                        {buttonImage && <img className={clsx(additionalIndent ? "game-image" : "console-image")} src={`./images/${buttonImage}`} />}
                         <div className="title-and-chips">
                             <h2>{text}</h2>
                             {consoleReleaseDate && <div className="console-release-date">{consoleReleaseDate}</div>}

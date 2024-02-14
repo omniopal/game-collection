@@ -1,5 +1,10 @@
-.image {
+.console-image {
     width: 100px;
+    margin-right: 1rem;
+}
+
+.game-image {
+    width: 80px;
     margin-right: 1rem;
 }
 
@@ -15,8 +20,19 @@
     align-items: center;
     padding: 1rem;
     flex-wrap: nowrap;
+
+    /* Override iOS automatically rounding buttons */
     -webkit-appearance: none;
-    border-radius: 0,
+    border-radius: 0;
+    border: 1px solid grey;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+.collapsible-button:hover {
+    background-color: #e2e2e2;
 }
 
 .image-and-title {
