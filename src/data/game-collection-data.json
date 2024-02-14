@@ -6,32 +6,132 @@
             "releaseDate": "October 18, 1985",
             "games": [
                 {
-                    "title": "Game 1",
-                    "hasGame": true,
-                    "hasCase": true,
-                    "hasManual": false,
-                    "boxArt": "N64.png",
-                    "image": "GameCube.png",
-                    "releaseDate": "1/9/2001",
-                    "rating": "10"
-                },
-                {
-                    "title": "Game 2",
+                    "title": "Golf",
                     "hasGame": false,
-                    "hasCase": true,
+                    "hasCase": false,
                     "hasManual": false,
-                    "boxArt": "sm64 box art.png",
-                    "releaseDate": "10/20/1999",
-                    "rating": "10"
+                    "boxArt": "Golf.webp",
+                    "releaseDate": "October 18, 1985"
                 },
                 {
-                    "title": "Game 3",
+                    "title": "Pinball",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "Pinball.png",
+                    "releaseDate": "October 18, 1985"
+                },
+                {
+                    "title": "Super Mario Bros.",
+                    "hasGame": true,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "SuperMarioBros.jpg",
+                    "releaseDate": "October 18, 1985"
+                },
+                {
+                    "title": "Wrecking Crew",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "WreckingCrew.jpeg",
+                    "releaseDate": "October 18, 1985"
+                },
+                {
+                    "title": "Donkey Kong",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "DonkeyKong.jpeg",
+                    "releaseDate": "June 1, 1986"
+                },
+                {
+                    "title": "Donkey Kong Jr.",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "DonkeyKongJr.png",
+                    "releaseDate": "June 1, 1986"
+                },
+                {
+                    "title": "Mario Bros.",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "MarioBros.webp",
+                    "releaseDate": "June 23, 1986"
+                },
+                {
+                    "title": "Donkey Kong Classics",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "DonkeyKongClassics.jpeg",
+                    "releaseDate": "September 9, 1988"
+                },
+                {
+                    "title": "Super Mario Bros. 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "SuperMarioBros2.jpeg",
+                    "releaseDate": "October 14, 1988"
+                },
+                {
+                    "title": "Super Mario Bros. / Duck Hunt",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "SuperMarioBrosDuckHunt.jpeg",
+                    "releaseDate": "November 1988"
+                },
+                {
+                    "title": "Super Mario Bros. 3",
                     "hasGame": true,
                     "hasCase": true,
                     "hasManual": false,
-                    "boxArt": "sm64 box art.png",
-                    "releaseDate": "10/20/1999",
-                    "rating": "10"
+                    "boxArt": "SuperMarioBros3.webp",
+                    "releaseDate": "February 12, 1990"
+                },
+                {
+                    "title": "Dr. Mario",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "DrMario.webp",
+                    "releaseDate": "October 4, 1990"
+                },
+                {
+                    "title": "Super Mario Bros. / Duck Hunt / World Class Track Meet",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "MarioDuckTrack.jpg",
+                    "releaseDate": "December 1990"
+                },
+                {
+                    "title": "NES Open Tournament Golf",
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": false,
+                    "boxArt": "NESOpenTournamentGolf.jpg",
+                    "releaseDate": "September 29, 1991"
+                },
+                {
+                    "title": "Yoshi",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "Yoshi.jpg",
+                    "releaseDate": "June 1, 1992"
+                },
+                {
+                    "title": "Yoshi's Cookie",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "boxArt": "YoshisCookie.webp",
+                    "releaseDate": "April 1993"
                 }
             ]
         },
