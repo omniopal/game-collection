@@ -2,7 +2,7 @@
     "consoles": [
         {
             "name": "Nintendo Entertainment System",
-            "image": "/NES/NES.png",
+            "image": "/NES/NES.webp",
             "releaseDate": "October 18, 1985",
             "games": [
                 {
@@ -137,13 +137,13 @@
         },
         {
             "name": "Game Boy",
-            "image": "/GB/GB.png",
+            "image": "/GB/GB.webp",
             "releaseDate": "July 31, 1989",
             "games": []
         },
         {
             "name": "Super Nintendo Entertainment System",
-            "image": "/SNES/SNES.png",
+            "image": "/SNES/SNES.webp",
             "releaseDate": "August 23, 1991",
             "games": [
                 {
@@ -168,7 +168,7 @@
         },
         {
             "name": "Nintendo 64",
-            "image": "/N64/N64.png",
+            "image": "/N64/N64.webp",
             "releaseDate": "September 29, 1996",
             "games": [
                 {
@@ -203,19 +203,19 @@
         },
         {
             "name": "Game Boy Color",
-            "image": "/GBC/GBC.png",
+            "image": "/GBC/GBC.webp",
             "releaseDate": "November 18, 1998",
             "games": []
         },
         {
             "name": "Game Boy Advance",
-            "image": "/GBA/GBA.png",
+            "image": "/GBA/GBA.webp",
             "releaseDate": "June 11, 2001",
             "games": []
         },
         {
             "name": "GameCube",
-            "image": "/GC/GameCube.png",
+            "image": "/GC/GameCube.webp",
             "releaseDate": "November 18, 2001",
             "games": [
                 {
@@ -373,31 +373,31 @@
         },
         {
             "name": "Nintendo DS",
-            "image": "/NDS/NDS.png",
+            "image": "/NDS/NDS.webp",
             "releaseDate": "November 21, 2004",
             "games": []
         },
         {
             "name": "Wii",
-            "image": "/Wii/Wii.png",
+            "image": "/Wii/Wii.webp",
             "releaseDate": "November 19, 2006",
             "games": []
         },
         {
             "name": "Nintendo 3DS",
-            "image": "/3DS/3DS.png",
+            "image": "/3DS/3DS.webp",
             "releaseDate": "March 27, 2011",
             "games": []
         },
         {
             "name": "WiiU",
-            "image": "/WiiU/WiiU.png",
+            "image": "/WiiU/WiiU.webp",
             "releaseDate": "November 18, 2012",
             "games": []
         },
         {
             "name": "Switch",
-            "image": "/Switch/Switch.png",
+            "image": "/Switch/Switch.webp",
             "releaseDate": "March 3, 2017",
             "games": []
         }
