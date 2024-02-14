@@ -30,6 +30,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down('sm'));
     const gameData: { consoles: Console[] } = gameCollectionDataJson;
+    let audio = new Audio("./audio/1up.mp3");
 
     const handleRadioButtonChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue((event.target as HTMLInputElement).value);
@@ -38,7 +39,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
     return (
         <div className="background">
             <div className="jacobs-games">
-                <img className="jacobs-games-image" src="./images/jacobs-games.png" />
+                <img className="jacobs-games-image" src="./images/jacobs-games.png" onClick={() => audio.play()} />
             </div>
             <div className="form-control">
                 <FormControl>
