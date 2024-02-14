@@ -36,7 +36,6 @@ export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
                         variant="outlined"
                         sx={{
                             maxWidth: '80%',
-                            maxHeight: '80%',
                             borderRadius: 'md',
                             p: 3,
                             boxShadow: 'lg',
@@ -55,7 +54,9 @@ export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
                         >
                             {text}
                         </Typography>
-                        <img className="modal-image" src={`./images/${image}`} />
+                        <div className="modal-image-container">
+                            <img className="modal-image" src={`./images/${image}`} />
+                        </div>
                     </Sheet>
                 </Modal>
             </>}

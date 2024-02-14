@@ -1,6 +1,12 @@
 .modal-image {
-    width: 90%;
-    margin-left: auto;
+    max-width: 90%;
+    max-height: 50rem;
+}
+
+.modal-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 .title {

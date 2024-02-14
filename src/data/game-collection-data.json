@@ -224,6 +224,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/LuigisMansion.webp",
+                    "image": "/GC/MyCopies/LM.webp",
                     "releaseDate": "November 18, 2001"
                 },
                 {
@@ -232,6 +233,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/SSBM.webp",
+                    "image": "/GC/MyCopies/SSBM.webp",
                     "releaseDate": "December 2, 2001"
                 },
                 {
@@ -240,6 +242,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/SMS.webp",
+                    "image": "/GC/MyCopies/SMS.webp",
                     "releaseDate": "August 26, 2002",
                     "rating": "10"
                 },
@@ -265,6 +268,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MGTT.webp",
+                    "image": "/GC/MyCopies/MGTT.webp",
                     "releaseDate": "July 28, 2003"
                 },
                 {
@@ -273,6 +277,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MP5.webp",
+                    "image": "/GC/MyCopies/MP5.webp",
                     "releaseDate": "November 10, 2003"
                 },
                 {
@@ -281,6 +286,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MKDD.webp",
+                    "image": "/GC/MyCopies/MKDD.webp",
                     "releaseDate": "November 17, 2003"
                 },
                 {
@@ -297,6 +303,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/TTYD.webp",
+                    "image": "/GC/MyCopies/TTYD.webp",
                     "releaseDate": "October 11, 2004"
                 },
                 {
@@ -313,6 +320,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MP6.webp",
+                    "image": "/GC/MyCopies/MP6.webp",
                     "releaseDate": "December 6, 2004"
                 },
                 {
@@ -321,6 +329,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MSB.webp",
+                    "image": "/GC/MyCopies/MSB.webp",
                     "releaseDate": "August 29, 2005"
                 },
                 {
@@ -337,6 +346,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/DDRMM.webp",
+                    "image": "/GC/MyCopies/DDRMM.webp",
                     "releaseDate": "October 24, 2005"
                 },
                 {
@@ -345,6 +355,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/MP7.webp",
+                    "image": "/GC/MyCopies/MP7.webp",
                     "releaseDate": "November 7, 2005"
                 },
                 {
@@ -353,6 +364,7 @@
                     "hasCase": true,
                     "hasManual": true,
                     "boxArt": "/GC/Strikers.webp",
+                    "image": "/GC/MyCopies/Strikers.webp",
                     "releaseDate": "December 5, 2005"
                 }
                 
