@@ -37,7 +37,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
     return (
         <div className="background">
             <div className="jacobs-games">
-                <img className="jacobs-games-image" src="../images/jacobs-games.png" />
+                <img className="jacobs-games-image" src="./images/jacobs-games.png" />
             </div>
             <div className="form-control">
                 <FormControl>
