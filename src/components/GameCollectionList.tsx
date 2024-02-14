@@ -15,6 +15,7 @@ interface Game {
     image?: string;
     releaseDate: string;
     rating?: string;
+    description?: string;
 }
 
 interface Console {
@@ -74,6 +75,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                             modalImage={game.image}
                                             gameReleaseDate={game.releaseDate}
                                             rating={game.rating}
+                                            description={game.description}
                                             additionalIndent />
                                     </div>
                                 ))
