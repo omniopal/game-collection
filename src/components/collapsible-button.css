@@ -31,6 +31,7 @@
     margin-left: auto;
     align-items: center;
     padding-left: 1rem;
+    color: black;
 }
 
 .contents {
@@ -80,6 +81,7 @@
 .console-release-date {
     text-align: left;
     font-size: 0.9rem;
+    color: black;
 }
 
 h2 {
@@ -87,6 +89,7 @@ h2 {
     word-wrap: normal;
     margin: 0;
     text-align: left;
+    color: black;
 }
 
 h4 {
