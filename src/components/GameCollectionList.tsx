@@ -12,6 +12,7 @@ interface Game {
     hasGame: boolean;
     hasCase: boolean;
     hasManual: boolean;
+    hasPlayed: boolean;
     image?: string;
     releaseDate: string;
     rating?: string;
@@ -72,7 +73,12 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                         <CollapsibleButton 
                                             text={game.title}
                                             buttonImage={game.boxArt}
-                                            chipInfo={{ hasGame: game.hasGame, hasBox: game.hasCase, hasManual: game.hasManual }}
+                                            chipInfo={{
+                                                hasGame: game.hasGame,
+                                                hasBox: game.hasCase,
+                                                hasManual: game.hasManual,
+                                                hasPlayed: game.hasPlayed,
+                                            }}
                                             modalImage={game.image}
                                             gameReleaseDate={game.releaseDate}
                                             rating={game.rating}

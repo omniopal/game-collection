@@ -9,6 +9,7 @@ export type ChipInfo = {
     hasGame: boolean;
     hasBox: boolean;
     hasManual: boolean;
+    hasPlayed: boolean;
 }
 
 export type CollapsibleButtonProps = PropsWithChildren & {
@@ -29,7 +30,7 @@ export const CollapsibleButton: React.FC<CollapsibleButtonProps> = (props) => {
     const { text, buttonImage, modalImage, additionalIndent, chipInfo, gameReleaseDate, consoleReleaseDate, rating, description, top, bottom, children } = props;
     const [openButton, setOpenButton] = useState<boolean>(false);
     const theme = useTheme();
-    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
 
     const toggleCollapse = () => {
         setOpenButton(!openButton);
@@ -50,15 +51,21 @@ export const CollapsibleButton: React.FC<CollapsibleButtonProps> = (props) => {
                             <Chip label="Cartridge" color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
                             <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
                             <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />
-                            <GameImageModalButton text={`My copy of ${text}`} image={modalImage} />
+                            <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
+                            {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={modalImage} />}
                             </div>}
                         </div>
                     </div>
-                    {chipInfo && isSmallBreakpoint && <div className="chips">
-                        <Chip label="Cartridge" color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
-                        <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
-                        <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />
-                        <GameImageModalButton text={`My copy of ${text}`} image={modalImage} />
+                    {chipInfo && isSmallBreakpoint && <div className="chips-small-breakpoint">
+                        <div className="chip-space">
+                            <Chip label="Cartridge" color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
+                            <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
+                            <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />
+                        </div>
+                        <div className={clsx("chip-space", "small-breakpoints-bottom-chips")}>
+                            <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
+                            {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={modalImage} />}
+                        </div>
                     </div>}
                 </div>
                 <div className="chevron">

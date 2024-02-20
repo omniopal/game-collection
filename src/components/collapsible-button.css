@@ -64,6 +64,22 @@
     align-items: center;
 }
 
+.chips-small-breakpoint {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: start;
+}
+
+.chip-space {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.small-breakpoints-bottom-chips {
+    margin-top: 0.3rem;
+}
+
 .additional-indent {
     margin-left: 1.5rem;
     width: calc(100% - 1.5rem);
@@ -119,6 +135,11 @@
 
 .game-info-content {
     margin-left: 0.4rem;
+}
+
+.played-and-pics {
+    display: flex;
+    flex-direction: column;
 }
 
 h2 {
