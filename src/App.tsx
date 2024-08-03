@@ -1,4 +1,4 @@
-import { GameCollectionList } from './components/GameCollectionList';
+import { GameCollectionList } from './components/game-collection-list';
 
 function App() {
   return <GameCollectionList />

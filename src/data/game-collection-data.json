@@ -6,24 +6,6 @@
             "releaseDate": "October 18, 1985",
             "games": [
                 {
-                    "title": "Golf",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "/NES/Golf.webp",
-                    "releaseDate": "October 18, 1985"
-                },
-                {
-                    "title": "Pinball",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "/NES/Pinball.png",
-                    "releaseDate": "October 18, 1985"
-                },
-                {
                     "title": "Super Mario Bros.",
                     "hasGame": true,
                     "hasCase": false,
@@ -130,24 +112,6 @@
                     "hasPlayed": false,
                     "boxArt": "/NES/NESOpenTournamentGolf.jpg",
                     "releaseDate": "September 29, 1991"
-                },
-                {
-                    "title": "Yoshi",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "/NES/Yoshi.jpg",
-                    "releaseDate": "June 1, 1992"
-                },
-                {
-                    "title": "Yoshi's Cookie",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "/NES/YoshisCookie.webp",
-                    "releaseDate": "April 1993"
                 }
             ]
         },

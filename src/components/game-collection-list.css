@@ -29,32 +29,8 @@
     padding-bottom: 4rem;
     background-color: grey;
     background-image: url("../images/background-image.png");
-    background-image: url("../images/background-image.png"), linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    background-image: url("../images/background-image.png"), linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(206,147,226,1) 100%);
     animation: background-slide 80s linear infinite;
-}
-
-.game-info {
-    width: 80%;
-    background-color: white;
-}
-
-.form-control {
-    display: flex;
-    justify-content: center;
-}
-
-.form-control-label {
-    padding-left: 1rem;
-}
-
-.radio-button-label {
-    padding: 0;
-    font-size: 100px;
-}
-
-.radio-group {
-    display: flex;
-    justify-content: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -65,6 +41,22 @@
     .background {
         animation: background-slide 200s linear infinite;
     }
+}
+
+@media screen and (min-width: 900px) {
+    .game-collection-list {
+        width: 70%
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .game-collection-list {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    
 }
 
 @keyframes background-slide {
