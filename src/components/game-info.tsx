@@ -55,10 +55,6 @@ export const GameInfo: React.FC<GameInfoProps> = (props) => {
                             {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={personalCopyImage} />}
                         </div>
                     </div>
-                    {/* <div className={clsx("chip-space", "small-breakpoints-bottom-chips")}>
-                        <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
-                        {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={personalCopyImage} />}
-                    </div> */}
             </div>}
         </div>
     )

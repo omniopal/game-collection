@@ -60,7 +60,7 @@ export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
                             </Typography>
                         </div>
                         <div className="modal-image-container">
-                            <Image className="modal-image" src={`/images/${image}`} alt="TODO" sizes="100vw" style={{ width: '100%', height: 'auto', maxHeight: '75vh' }} height={0} width={0} />
+                            <Image className="modal-image" src={`/images/${image}`} alt="TODO" sizes="100vw" style={{ width: '100%', height: 'auto', maxHeight: '75vh' }} height={700} width={500} priority />
                         </div>
                     </Sheet>
                 </Modal>
