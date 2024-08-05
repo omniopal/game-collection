@@ -13,9 +13,24 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "noEmit": true,
-      "jsx": "react-jsx",
-      "typeRoots" : ["src/types"]
+      "jsx": "preserve",
+      "typeRoots": ["src/types"],
+      "baseUrl": ".",
+      "incremental": true,
+      "plugins": [
+        {
+          "name": "next"
+        }
+      ],
+      "strictNullChecks": true
     },
-    "include": ["src"]
+    "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "./dist/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
   }
   

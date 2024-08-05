@@ -2,6 +2,7 @@ import { IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { Modal, ModalClose, Sheet, Typography } from '@mui/joy';
+import Image from 'next/image';
 import './game-image-modal-button.css';
 
 export type GameImageModalProps = {
@@ -30,32 +31,36 @@ export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
                 <Modal
                     open={openModal}
                     onClose={closeModal}
-                    sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}
+                    sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
                     <Sheet
                         variant="outlined"
                         sx={{
                             maxWidth: '80%',
+                            maxHeight: '80%',
                             borderRadius: 'md',
                             p: 3,
                             boxShadow: 'lg',
                             backgroundColor: '#DBDBDB',
                         }}
                     >
-                        <ModalClose sx={{ m: 1, '&:hover': { backgroundColor: '#DBDBDB', color: '#F51B1B' }, }} />
-                        <Typography
-                            className="title"
-                            component="h2"
-                            id="modal-title"
-                            level="h4"
-                            textColor="inherit"
-                            fontWeight="lg"
-                            mb={1}
-                        >
-                            {text}
-                        </Typography>
+                        <div className="title-and-close">
+                            <ModalClose sx={{ m: 1, '&:hover': { backgroundColor: '#DBDBDB', color: '#F51B1B' }, }} />
+                            <Typography
+                                className="title"
+                                display="flex"
+                                component="h2"
+                                id="modal-title"
+                                level="h4"
+                                textColor="inherit"
+                                fontWeight="lg"
+                                mb={1}
+                            >
+                                {text}
+                            </Typography>
+                        </div>
                         <div className="modal-image-container">
-                            <img className="modal-image" src={`./images/${image}`} />
+                            <Image className="modal-image" src={`/images/${image}`} alt="TODO" sizes="100vw" style={{ width: '100%', height: 'auto', maxHeight: '75vh' }} height={0} width={0} />
                         </div>
                     </Sheet>
                 </Modal>

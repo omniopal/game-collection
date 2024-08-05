@@ -159,7 +159,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
+                    "boxArt": "/sm64 box art.png",
                     "releaseDate": "10/20/1999",
                     "rating": "TBD"
                 },
@@ -169,7 +169,7 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
+                    "boxArt": "/sm64 box art.png",
                     "image": "NES.png",
                     "releaseDate": "1/9/2001",
                     "rating": "TBD"
@@ -180,7 +180,7 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
+                    "boxArt": "/sm64 box art.png",
                     "releaseDate": "10/20/1999",
                     "rating": "TBD"
                 }
@@ -209,8 +209,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/LuigisMansion.webp",
-                    "image": "/GC/MyCopies/LM.webp",
+                    "boxArt": "GC/LuigisMansion.webp",
+                    "image": "GC/MyCopies/LM.webp",
                     "releaseDate": "November 18, 2001"
                 },
                 {
@@ -219,8 +219,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/SSBM.webp",
-                    "image": "/GC/MyCopies/SSBM.webp",
+                    "boxArt": "GC/SSBM.webp",
+                    "image": "GC/MyCopies/SSBM.webp",
                     "releaseDate": "December 2, 2001"
                 },
                 {
@@ -229,8 +229,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/SMS.webp",
-                    "image": "/GC/MyCopies/SMS.webp",
+                    "boxArt": "GC/SMS.webp",
+                    "image": "GC/MyCopies/SMS.webp",
                     "releaseDate": "August 26, 2002",
                     "rating": "10",
                     "description": "My favorite game of all time :)"
@@ -241,7 +241,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/GC/MP4.webp",
+                    "boxArt": "GC/MP4.webp",
                     "releaseDate": "October 21, 2002"
                 },
                 {
@@ -250,7 +250,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/GC/WW.webp",
+                    "boxArt": "GC/WW.webp",
                     "releaseDate": "June 23, 2003"
                 },
                 {
@@ -259,8 +259,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MGTT.webp",
-                    "image": "/GC/MyCopies/MGTT.webp",
+                    "boxArt": "GC/MGTT.webp",
+                    "image": "GC/MyCopies/MGTT.webp",
                     "releaseDate": "July 28, 2003"
                 },
                 {
@@ -269,8 +269,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MP5.webp",
-                    "image": "/GC/MyCopies/MP5.webp",
+                    "boxArt": "GC/MP5.webp",
+                    "image": "GC/MyCopies/MP5.webp",
                     "releaseDate": "November 10, 2003"
                 },
                 {
@@ -279,8 +279,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MKDD.webp",
-                    "image": "/GC/MyCopies/MKDD.webp",
+                    "boxArt": "GC/MKDD.webp",
+                    "image": "GC/MyCopies/MKDD.webp",
                     "releaseDate": "November 17, 2003"
                 },
                 {
@@ -289,7 +289,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/GC/WWMPG.webp",
+                    "boxArt": "GC/WWMPG.webp",
                     "releaseDate": "April 5, 2004"
                 },
                 {
@@ -298,8 +298,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/TTYD.webp",
-                    "image": "/GC/MyCopies/TTYD.webp",
+                    "boxArt": "GC/TTYD.webp",
+                    "image": "GC/MyCopies/TTYD.webp",
                     "releaseDate": "October 11, 2004"
                 },
                 {
@@ -308,7 +308,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/GC/MPT.webp",
+                    "boxArt": "GC/MPT.webp",
                     "releaseDate": "November 8, 2004"
                 },
                 {
@@ -317,8 +317,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MP6.webp",
-                    "image": "/GC/MyCopies/MP6.webp",
+                    "boxArt": "GC/MP6.webp",
+                    "image": "GC/MyCopies/MP6.webp",
                     "releaseDate": "December 6, 2004"
                 },
                 {
@@ -327,8 +327,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MSB.webp",
-                    "image": "/GC/MyCopies/MSB.webp",
+                    "boxArt": "GC/MSB.webp",
+                    "image": "GC/MyCopies/MSB.webp",
                     "releaseDate": "August 29, 2005"
                 },
                 {
@@ -337,7 +337,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/GC/SSX.webp",
+                    "boxArt": "GC/SSX.webp",
                     "releaseDate": "October 11, 2005"
                 },
                 {
@@ -346,8 +346,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/DDRMM.webp",
-                    "image": "/GC/MyCopies/DDRMM.webp",
+                    "boxArt": "GC/DDRMM.webp",
+                    "image": "GC/MyCopies/DDRMM.webp",
                     "releaseDate": "October 24, 2005"
                 },
                 {
@@ -356,8 +356,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/MP7.webp",
-                    "image": "/GC/MyCopies/MP7.webp",
+                    "boxArt": "GC/MP7.webp",
+                    "image": "GC/MyCopies/MP7.webp",
                     "releaseDate": "November 7, 2005"
                 },
                 {
@@ -366,8 +366,8 @@
                     "hasCase": true,
                     "hasManual": true,
                     "hasPlayed": true,
-                    "boxArt": "/GC/Strikers.webp",
-                    "image": "/GC/MyCopies/Strikers.webp",
+                    "boxArt": "GC/Strikers.webp",
+                    "image": "GC/MyCopies/Strikers.webp",
                     "releaseDate": "December 5, 2005"
                 }
                 

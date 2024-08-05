@@ -1,8 +1,8 @@
 import { Chip, useMediaQuery, useTheme } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import './game-info.css';
-import clsx from 'clsx';
 import { GameImageModalButton } from './game-image-modal-button';
+import Image from 'next/image';
 
 type ChipInfo = {
     hasGame: boolean;
@@ -21,14 +21,16 @@ type GameInfoProps = PropsWithChildren & {
 };
 
 export const GameInfo: React.FC<GameInfoProps> = (props) => {
-    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType, children } = props;
+    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType } = props;
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
 
     return (
         <div className="game-info">
             <div className="image-and-title">
-                <img className="game-image" src={`./images/${boxArt}`} />
+                <div className="image-container">
+                    <Image className="game-image" src={`/images/${boxArt}`} alt="TODO" objectFit="contain" layout="fill" />
+                </div>
                 <div className="title-and-chips">
                     <h2>{text}</h2>
                     {gameReleaseDate && <div className="game-release-date">{gameReleaseDate}</div>}

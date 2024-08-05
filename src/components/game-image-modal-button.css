@@ -4,16 +4,23 @@
 }
 
 .modal-image-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 }
 
 .title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     width: 95%;
+    justify-content: center;
 }
 
 .icon-button {
     background-color: red;
+}
+
+.title-and-close {
+    /* TODO Find a better way to align everything in the modal */
+    margin-top: -0.4rem;
 }
