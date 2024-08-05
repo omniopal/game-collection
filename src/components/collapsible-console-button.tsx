@@ -3,6 +3,7 @@ import { Collapse } from '@mui/material';
 import React, { useState, useEffect, PropsWithChildren } from 'react';
 import './collapsible-console-button.css';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 export type CollapsibleConsoleButtonProps = PropsWithChildren & {
     consoleIndex: number;
@@ -55,7 +56,9 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
                 ))}
                 onClick={toggleCollapse}>
                 <div className="console-info">
-                    <img className="console-image" src={`./images/${consoleImage}`} />
+                    <div className="console-image-container">
+                        <Image src={`/images/${consoleImage}`} alt="TODO" sizes="100vw" style={{ width: '100px', height: 'auto' }} height={0} width={0} />
+                    </div>
                     <div className="name-and-release-date">
                         <h2>{consoleName}</h2>
                         <div className="console-release-date">{consoleReleaseDate}</div>

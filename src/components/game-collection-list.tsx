@@ -5,6 +5,7 @@ import * as gameCollectionDataJson from '../data/game-collection-data.json';
 import { Filters } from './filters';
 import { GameInfo } from './game-info';
 import { getPhysicalGameType } from '../utils/get-physical-game-type';
+import Image from 'next/image';
 
 type GameCollectionListProps = {};
 
@@ -38,8 +39,8 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
 
     return (
         <div className="background">
-            <div className="jacobs-games">
-                <img className="jacobs-games-image" src="./images/jacobs-games.png" onClick={() => audio.play()} />
+            <div className="jacobs-games" onClick={() => audio.play()}>
+                <Image className="jacobs-games-image" src={'/images/jacobs-games.png'} alt="TODO" sizes="100vw" style={{ width: '100%', height: 'auto' }} height={0} width={0} />
             </div>
             <Filters onChange={handleRadioButtonChange} />
             <nav className="game-collection-list">
