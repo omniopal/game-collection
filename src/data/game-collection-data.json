@@ -2,7 +2,7 @@
     "consoles": [
         {
             "name": "Nintendo Entertainment System",
-            "image": "/NES/NES.webp",
+            "image": "NES/NES.webp",
             "releaseDate": "October 18, 1985",
             "games": [
                 {
@@ -11,7 +11,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": true,
-                    "boxArt": "/NES/SuperMarioBros.jpg",
+                    "boxArt": "NES/SuperMarioBros.jpg",
                     "releaseDate": "October 18, 1985"
                 },
                 {
@@ -20,7 +20,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/WreckingCrew.jpg",
+                    "boxArt": "NES/WreckingCrew.jpg",
                     "releaseDate": "October 18, 1985"
                 },
                 {
@@ -29,7 +29,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/DonkeyKong.jpg",
+                    "boxArt": "NES/DonkeyKong.jpg",
                     "releaseDate": "June 1, 1986"
                 },
                 {
@@ -38,7 +38,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/DonkeyKongJr.jpeg",
+                    "boxArt": "NES/DonkeyKongJr.jpeg",
                     "releaseDate": "June 1, 1986"
                 },
                 {
@@ -47,7 +47,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/MarioBros.webp",
+                    "boxArt": "NES/MarioBros.webp",
                     "releaseDate": "June 23, 1986"
                 },
                 {
@@ -56,7 +56,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/DonkeyKongClassics.jpg",
+                    "boxArt": "NES/DonkeyKongClassics.jpg",
                     "releaseDate": "September 9, 1988"
                 },
                 {
@@ -65,7 +65,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/SuperMarioBros2.jpeg",
+                    "boxArt": "NES/SuperMarioBros2.jpeg",
                     "releaseDate": "October 14, 1988"
                 },
                 {
@@ -74,7 +74,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/SuperMarioBrosDuckHunt.jpg",
+                    "boxArt": "NES/SuperMarioBrosDuckHunt.jpg",
                     "releaseDate": "November 1988"
                 },
                 {
@@ -83,7 +83,7 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": true,
-                    "boxArt": "/NES/SuperMarioBros3.webp",
+                    "boxArt": "NES/SuperMarioBros3.webp",
                     "releaseDate": "February 12, 1990"
                 },
                 {
@@ -92,7 +92,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/DrMario.webp",
+                    "boxArt": "NES/DrMario.webp",
                     "releaseDate": "October 4, 1990"
                 },
                 {
@@ -101,7 +101,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/MarioDuckTrack.jpg",
+                    "boxArt": "NES/MarioDuckTrack.jpg",
                     "releaseDate": "December 1990"
                 },
                 {
@@ -110,20 +110,20 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/NES/NESOpenTournamentGolf.jpg",
+                    "boxArt": "NES/NESOpenTournamentGolf.jpg",
                     "releaseDate": "September 29, 1991"
                 }
             ]
         },
         {
             "name": "Game Boy",
-            "image": "/GB/GB.webp",
+            "image": "GB/GB.webp",
             "releaseDate": "July 31, 1989",
             "games": []
         },
         {
             "name": "Super Nintendo Entertainment System",
-            "image": "/SNES/SNES.webp",
+            "image": "SNES/SNES.webp",
             "releaseDate": "August 23, 1991",
             "games": [
                 {
@@ -150,7 +150,7 @@
         },
         {
             "name": "Nintendo 64",
-            "image": "/N64/N64.webp",
+            "image": "N64/N64.webp",
             "releaseDate": "September 29, 1996",
             "games": [
                 {
@@ -159,7 +159,7 @@
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/sm64 box art.png",
+                    "boxArt": "sm64 box art.png",
                     "releaseDate": "10/20/1999",
                     "rating": "TBD"
                 },
@@ -169,7 +169,7 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/sm64 box art.png",
+                    "boxArt": "sm64 box art.png",
                     "image": "NES.png",
                     "releaseDate": "1/9/2001",
                     "rating": "TBD"
@@ -180,7 +180,7 @@
                     "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "/sm64 box art.png",
+                    "boxArt": "sm64 box art.png",
                     "releaseDate": "10/20/1999",
                     "rating": "TBD"
                 }
@@ -188,19 +188,19 @@
         },
         {
             "name": "Game Boy Color",
-            "image": "/GBC/GBC.webp",
+            "image": "GBC/GBC.webp",
             "releaseDate": "November 18, 1998",
             "games": []
         },
         {
             "name": "Game Boy Advance",
-            "image": "/GBA/GBA.webp",
+            "image": "GBA/GBA.webp",
             "releaseDate": "June 11, 2001",
             "games": []
         },
         {
             "name": "GameCube",
-            "image": "/GC/GameCube.webp",
+            "image": "GC/GameCube.webp",
             "releaseDate": "November 18, 2001",
             "games": [
                 {
@@ -245,15 +245,6 @@
                     "releaseDate": "October 21, 2002"
                 },
                 {
-                    "title": "Wario World",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "GC/WW.webp",
-                    "releaseDate": "June 23, 2003"
-                },
-                {
                     "title": "Mario Golf: Toadstool Tour",
                     "hasGame": true,
                     "hasCase": true,
@@ -282,15 +273,6 @@
                     "boxArt": "GC/MKDD.webp",
                     "image": "GC/MyCopies/MKDD.webp",
                     "releaseDate": "November 17, 2003"
-                },
-                {
-                    "title": "WarioWare, Inc. Mega Party Game$!",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "GC/WWMPG.webp",
-                    "releaseDate": "April 5, 2004"
                 },
                 {
                     "title": "Paper Mario: The Thousand-Year Door",
@@ -332,15 +314,6 @@
                     "releaseDate": "August 29, 2005"
                 },
                 {
-                    "title": "SSX on Tour",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "GC/SSX.webp",
-                    "releaseDate": "October 11, 2005"
-                },
-                {
                     "title": "Dance Dance Revolution: Mario Mix",
                     "hasGame": true,
                     "hasCase": true,
@@ -375,31 +348,31 @@
         },
         {
             "name": "Nintendo DS",
-            "image": "/NDS/NDS.webp",
+            "image": "NDS/NDS.webp",
             "releaseDate": "November 21, 2004",
             "games": []
         },
         {
             "name": "Wii",
-            "image": "/Wii/Wii.webp",
+            "image": "Wii/Wii.webp",
             "releaseDate": "November 19, 2006",
             "games": []
         },
         {
             "name": "Nintendo 3DS",
-            "image": "/3DS/3DS.webp",
+            "image": "3DS/3DS.webp",
             "releaseDate": "March 27, 2011",
             "games": []
         },
         {
             "name": "WiiU",
-            "image": "/WiiU/WiiU.webp",
+            "image": "WiiU/WiiU.webp",
             "releaseDate": "November 18, 2012",
             "games": []
         },
         {
             "name": "Switch",
-            "image": "/Switch/Switch.webp",
+            "image": "Switch/Switch.webp",
             "releaseDate": "March 3, 2017",
             "games": []
         }
