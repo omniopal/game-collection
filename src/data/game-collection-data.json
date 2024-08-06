@@ -460,7 +460,134 @@
             "name": "Game Boy Advance",
             "image": "GBA/GBA.webp",
             "releaseDate": "June 11, 2001",
-            "games": []
+            "games": [
+                {
+                    "title": "Super Mario Advance",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/SuperMarioAdvance.webp",
+                    "releaseDate": "June 11, 2001"
+                },
+                {
+                    "title": "Mario Kart: Super Circut",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/MarioKartSC.webp",
+                    "releaseDate": "August 27, 2001"
+                },
+                {
+                    "title": "Super Mario World",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/SuperMarioWorld.webp",
+                    "releaseDate": "February 11, 2002"
+                },
+                {
+                    "title": "Yoshi's Island: Super Mario Advance 3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/YoshisIsland.webp",
+                    "releaseDate": "September 23, 2002"
+                },
+                {
+                    "title": "Game & Watch Gallery 4",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/GWG4.webp",
+                    "releaseDate": "October 28, 2002"
+                },
+                {
+                    "title": "Super Mario Advance 4: Super Mario Bros. 3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/SMB3.webp",
+                    "releaseDate": "October 11, 2003"
+                },
+                {
+                    "title": "Mario & Luigi: Superstar Saga",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/SuperstarSaga.webp",
+                    "releaseDate": "November 17, 2003"
+                },
+                {
+                    "title": "Mario vs. Donkey Kong",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/MarioVsDonkeyKong.webp",
+                    "releaseDate": "May 24, 2004"
+                },
+                {
+                    "title": "Classic NES Series: Super Mario Bros.",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/SuperMarioBros.webp",
+                    "releaseDate": "June 2, 2004"
+                },
+                {
+                    "title": "Mario Golf: Advance Tour",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/MarioGolfAdvanceTour.webp",
+                    "releaseDate": "June 22, 2004"
+                },
+                {
+                    "title": "Mario Pinball Land",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/MarioPinballLand.webp",
+                    "releaseDate": "October 4, 2004"
+                },
+                {
+                    "title": "Mario Party Advance",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/MarioPartyAdvance.webp",
+                    "releaseDate": "March 28, 2005"
+                },
+                {
+                    "title": "Dr. Mario & Puzzle League",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/DrMarioPuzzleLeague.webp",
+                    "releaseDate": "November 28, 2005"
+                },
+                {
+                    "title": "Mario Tennis: Power Tour",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBA/Mario Tennis Power Tour.webp",
+                    "releaseDate": "December 5, 2005"
+                }
+            ]
         },
         {
             "name": "GameCube",
