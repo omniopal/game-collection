@@ -2,8 +2,10 @@
 const nextConfig = {
     output: 'export', // Outputs a Single-Page Application (SPA).
     distDir: './dist', // Changes the build output directory to `./dist/`.
-    basePath: '/game-collection',
-    assetPrefix: '/game-collection',
+    // TODO
+    images: {
+      unoptimized: true,
+    }
   }
    
   export default nextConfig
