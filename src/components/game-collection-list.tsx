@@ -28,7 +28,7 @@ interface Console {
 }
 
 export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
-    const [radioValue, setRadioValue] = useState('owned-games');
+    const [radioValue, setRadioValue] = useState('all-games');
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const gameData: { consoles: Console[] } = gameCollectionDataJson;
     let audio = new Audio("./audio/1up.mp3");
