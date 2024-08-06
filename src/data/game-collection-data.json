@@ -304,35 +304,94 @@
             "releaseDate": "September 29, 1996",
             "games": [
                 {
-                    "title": "Game 1",
+                    "title": "Super Mario 64",
                     "hasGame": false,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
-                    "releaseDate": "10/20/1999",
-                    "rating": "TBD"
+                    "boxArt": "N64/SuperMario64.png",
+                    "releaseDate": "September 29, 1996"
                 },
                 {
-                    "title": "Game 2 really long title gotta test to make sure everything looks good in edge cases yaknow",
-                    "hasGame": true,
-                    "hasCase": true,
+                    "title": "Mario Kart 64",
+                    "hasGame": false,
+                    "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
-                    "image": "NES.png",
-                    "releaseDate": "1/9/2001",
-                    "rating": "TBD"
+                    "boxArt": "N64/MarioKart64.webp",
+                    "releaseDate": "February 10, 1997"
                 },
                 {
-                    "title": "Game 3",
-                    "hasGame": true,
-                    "hasCase": true,
+                    "title": "Mario Party",
+                    "hasGame": false,
+                    "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
-                    "boxArt": "sm64 box art.png",
-                    "releaseDate": "10/20/1999",
-                    "rating": "TBD"
+                    "boxArt": "N64/MarioParty.webp",
+                    "releaseDate": "February 8, 1999"
+                },
+                {
+                    "title": "Super Smash Bros",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/SuperSmashBros.webp",
+                    "releaseDate": "April 26, 1999"
+                },
+                {
+                    "title": "Mario Golf",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/MarioGolf.webp",
+                    "releaseDate": "July 26, 1999"
+                },
+                {
+                    "title": "Mario Party 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/MarioParty2.webp",
+                    "releaseDate": "January 24, 2000"
+                },
+                {
+                    "title": "Mario Tennis",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/MarioTennis.webp",
+                    "releaseDate": "August 28, 2000"
+                },
+                {
+                    "title": "Paper Mario",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/PaperMario.webp",
+                    "releaseDate": "February 5, 2001"
+                },
+                {
+                    "title": "Mario Party 3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/MarioParty3.webp",
+                    "releaseDate": "May 7, 2001"
+                },
+                {
+                    "title": "Dr. Mario 64",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "N64/DrMario64.webp",
+                    "releaseDate": "April 9, 2001"
                 }
             ]
         },
