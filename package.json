@@ -25,7 +25,7 @@
     "start": "next start",
     "build": "next build",
     "predeploy": "npm run build",
-    "deploy": "npm run build && npm run export && gh-pages -d dist",
+    "deploy": "npm run build && gh-pages -d dist",
     "dev": "next dev"
   },
   "eslintConfig": {
