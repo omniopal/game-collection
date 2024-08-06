@@ -3,6 +3,7 @@ export function getPhysicalGameType(consoleName: string): string {
         "Nintendo Entertainment System",
         "Game Boy",
         "Super Nintendo Entertainment System",
+        "Virtual Boy",
         "Nintendo 64",
         "Game Boy Color",
         "Game Boy Advance",
