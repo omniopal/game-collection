@@ -399,7 +399,53 @@
             "name": "Game Boy Color",
             "image": "GBC/GBC.webp",
             "releaseDate": "November 18, 1998",
-            "games": []
+            "games": [
+                {
+                    "title": "Game & Watch Gallery 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBC/GWG2.webp",
+                    "releaseDate": "November 1, 1998"
+                },
+                {
+                    "title": "Super Mario Bros. Deluxe",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBC/SMBDeluxe.webp",
+                    "releaseDate": "April 30, 1999"
+                },
+                {
+                    "title": "Mario Golf",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBC/MarioGolf.webp",
+                    "releaseDate": "October 5, 1999"
+                },
+                {
+                    "title": "Game & Watch Gallery 3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBC/GWG3.webp",
+                    "releaseDate": "December 6, 1999"
+                },
+                {
+                    "title": "Mario Tennis",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GBC/MarioTennis.webp",
+                    "releaseDate": "January 16, 2001"
+                }
+            ]
         },
         {
             "name": "Game Boy Advance",
