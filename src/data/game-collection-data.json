@@ -155,6 +155,15 @@
                     "hasPlayed": false,
                     "boxArt": "GB/MariosPicross.webp",
                     "releaseDate": "March 16, 1995"
+                },
+                {
+                    "title": "Game & Watch Gallery",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "GB/GWG.webp",
+                    "releaseDate": "May 1997"
                 }
             ]
         },
