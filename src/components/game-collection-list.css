@@ -28,8 +28,8 @@
     overflow: auto;
     padding-bottom: 4rem;
     background-color: grey;
-    background-image: url("../images/background-image.png");
-    background-image: url("../images/background-image.png"), linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(206,147,226,1) 100%);
+    background-image: url("/images/background-image.png");
+    background-image: url("/images/background-image.png"), linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(206,147,226,1) 100%);
     animation: background-slide 80s linear infinite;
 }
 
