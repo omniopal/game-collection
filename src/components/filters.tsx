@@ -16,7 +16,7 @@ export const Filters: React.FC<FiltersProps> = (props) => {
     return (
         <div className="form-control">
                 <FormControl>
-                    <RadioGroup className="radio-group" defaultValue="owned-games" onChange={onChange} row={!isSmallBreakpoint}>
+                    <RadioGroup className="radio-group" defaultValue="all-games" onChange={onChange} row={!isSmallBreakpoint}>
                         <FormControlLabel
                             className="form-control-label"
                             value="owned-games"
