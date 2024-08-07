@@ -1,6 +1,6 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { Collapse } from '@mui/material';
-import React, { useState, PropsWithChildren } from 'react';
+import React, { useState, PropsWithChildren, Children } from 'react';
 import './collapsible-console-button.css';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ export type CollapsibleConsoleButtonProps = PropsWithChildren & {
     top?: boolean;
     bottom?: boolean;
     openIndices: number[];
+    Warning: React.JSX.Element;
     addOpenIndex: (index: number) => void;
     removeOpenIndex: (index: number) => void;
 };
@@ -26,6 +27,7 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
         top,
         bottom,
         openIndices,
+        Warning,
         addOpenIndex,
         removeOpenIndex,
         children
@@ -35,6 +37,10 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
     const isPreviousButtonOpen = openIndices.includes(consoleIndex - 1);
 
     const toggleCollapse = () => {
+        if (Children.count(children) === 0) {
+            console.log('Jacob there are no children!');
+        }
+
         !isOpen ? addOpenIndex(consoleIndex) : removeOpenIndex(consoleIndex);
         setIsOpen(!isOpen);
     };
@@ -45,7 +51,7 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
                 className={(clsx(
                     "collapsible-button",
                     top && "top-button",
-                    bottom && "bottom-button",
+                    bottom && !isOpen && "bottom-button",
                     isOpen && "curve-bottom-left",
                     isPreviousButtonOpen && "curve-top-left",
                 ))}
@@ -64,7 +70,7 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
                 </div>
             </button>
             <Collapse in={isOpen} timeout="auto" unmountOnExit>
-                {children}
+                {Children.count(children) > 0 ? children : Warning}
             </Collapse>
         </>
     )

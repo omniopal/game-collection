@@ -1,0 +1,27 @@
+.warning-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #FF7D7D;
+    opacity: 90%;
+    margin-inline-start: 3rem;
+    width: calc(100% - 3rem);
+    outline: 1px solid grey;
+    height: 5rem;
+}
+
+.last-warning {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.warning-text {
+    margin-inline-start: 2rem;
+    margin-inline-end: 0.3rem;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.face-icon {
+    margin-inline-end: 2rem;
+}
