@@ -1,6 +1,6 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { Collapse } from '@mui/material';
-import React, { useState, useEffect, PropsWithChildren } from 'react';
+import React, { useState, PropsWithChildren } from 'react';
 import './collapsible-console-button.css';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -12,8 +12,9 @@ export type CollapsibleConsoleButtonProps = PropsWithChildren & {
     consoleReleaseDate: string;
     top?: boolean;
     bottom?: boolean;
-    openIndex: number | null;
-    setOpenIndex: () => void;
+    openIndices: number[];
+    addOpenIndex: (index: number) => void;
+    removeOpenIndex: (index: number) => void;
 };
 
 export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> = (props) => {
@@ -24,29 +25,23 @@ export const CollapsibleConsoleButton: React.FC<CollapsibleConsoleButtonProps> =
         consoleReleaseDate,
         top,
         bottom,
-        openIndex,
-        setOpenIndex,
+        openIndices,
+        addOpenIndex,
+        removeOpenIndex,
         children
     } = props;
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const isPreviousButtonOpen = openIndex === consoleIndex - 1;
-
-    useEffect(() => {
-        // Only allow 1 console button open at a time
-        if (openIndex !== consoleIndex) {
-            setIsOpen(false);
-        }
-    }, [openIndex]);
+    const isPreviousButtonOpen = openIndices.includes(consoleIndex - 1);
 
     const toggleCollapse = () => {
-        setOpenIndex();
+        !isOpen ? addOpenIndex(consoleIndex) : removeOpenIndex(consoleIndex);
         setIsOpen(!isOpen);
     };
 
     return (
         <>
-            <button 
+            <button
                 className={(clsx(
                     "collapsible-button",
                     top && "top-button",

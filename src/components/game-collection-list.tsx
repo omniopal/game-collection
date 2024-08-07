@@ -30,12 +30,24 @@ interface Console {
 }
 
 export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
-    const [radioValue, setRadioValue] = useState<ListFilter>('all-games');
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [filterValue, setFilterValue] = useState<ListFilter>('all-games');
+    const [openIndices, setOpenIndices] = useState<number[]>([]);
     const gameData: { consoles: Console[] } = gameCollectionDataJson;
 
     const onFilterChange = (filter: ListFilter) => {
-        setRadioValue(filter);
+        setFilterValue(filter);
+    }
+
+    const addOpenIndex = (index: number) => {
+        if (!openIndices.includes(index)) {
+            setOpenIndices(openIndices.concat([index]));
+        }
+    }
+
+    const removeOpenIndex = (index: number) => {
+        if (openIndices.includes(index)) {
+            setOpenIndices(openIndices.filter((i) => i !== index));
+        }
     }
 
     return (
@@ -59,11 +71,12 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                 consoleReleaseDate={console.releaseDate}
                                 top={index === 0}
                                 bottom={index === gameData.consoles.length - 1}
-                                setOpenIndex={() => setOpenIndex(openIndex === index ? null : index)}
-                                openIndex={openIndex}
+                                addOpenIndex={addOpenIndex}
+                                removeOpenIndex={removeOpenIndex}
+                                openIndices={openIndices}
                             >
                                 {console.games.map((game, gameIndex) => (
-                                    ((radioValue === "owned-games" && game.hasGame) || (radioValue === "unowned-games" && !game.hasGame) || radioValue === "all-games") &&
+                                    ((filterValue === "owned-games" && game.hasGame) || (filterValue === "unowned-games" && !game.hasGame) || filterValue === "all-games") &&
                                         <div key={gameIndex}>
                                             <GameInfo 
                                                 text={game.title}
