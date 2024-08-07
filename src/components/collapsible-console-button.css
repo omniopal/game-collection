@@ -3,10 +3,6 @@
     transition: all .1s ease-in-out;
 }
 
-.console-image-container:hover, .console-image-container:active {
-    scale: 1.25;
-}
-
 .collapsible-button {
     position: relative;
     display: flex;
@@ -111,6 +107,10 @@ p {
     }
 }
 
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {
+    .console-image-container:hover {
+        scale: 1.25;
+    }
+}
 
 @media screen and (min-width: 1536px) {}
