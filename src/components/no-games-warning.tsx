@@ -13,6 +13,7 @@ export const NoGamesWarning: React.FC<NoGamesWarning> = (props) => {
     const { filter, isLast } = props;
     const noOwnedGames = "I own no games for this console";
     const noUnownedGames = "I own all of the games for this console";
+    const noGames = "No games have been added for this console yet";
 
     return (
         <div className={(clsx("warning-container", isLast && "last-warning"))}>
@@ -26,6 +27,12 @@ export const NoGamesWarning: React.FC<NoGamesWarning> = (props) => {
                 <>
                     <div className="warning-text">{noUnownedGames}</div>
                     <SentimentSatisfiedAltIcon className="face-icon" />
+                </>
+            }
+            {filter === 'all-games' &&
+                <>
+                    <div className="warning-text">{noGames}</div>
+                    <SentimentVeryDissatisfiedIcon className="face-icon" />
                 </>
             }
         </div>
