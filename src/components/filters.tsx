@@ -20,7 +20,8 @@ export const Filters: React.FC<FiltersProps> = (props) => {
         setOpen(!open);
     };
 
-    const onMenuItemClick = (filter: ListFilter) => {
+    const onMenuItemClick = (e: React.MouseEvent, filter: ListFilter) => {
+        e.stopPropagation();
         onFilterChange(filter);
         setOpen(false);
     }
@@ -51,9 +52,9 @@ export const Filters: React.FC<FiltersProps> = (props) => {
               <Paper>
                 <ClickAwayListener onClickAway={() => { setOpen(false) }}>
                   <MenuList>
-                    <MenuItem onClick={() => { onMenuItemClick('owned-games') }}>Owned Games</MenuItem>
-                    <MenuItem onClick={() => { onMenuItemClick('unowned-games') }}>Unowned Games</MenuItem>
-                    <MenuItem onClick={() => { onMenuItemClick('all-games') }}>All Mario Games</MenuItem>
+                    <MenuItem onClick={(e) => { onMenuItemClick(e, 'owned-games') }}>Owned Games</MenuItem>
+                    <MenuItem onClick={(e) => { onMenuItemClick(e, 'unowned-games') }}>Unowned Games</MenuItem>
+                    <MenuItem onClick={(e) => { onMenuItemClick(e, 'all-games') }}>All Mario Games</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
