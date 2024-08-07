@@ -741,7 +741,134 @@
             "name": "Nintendo DS",
             "image": "NDS/NDS.webp",
             "releaseDate": "November 21, 2004",
-            "games": []
+            "games": [
+                {
+                    "title": "Super Mario 64 DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/SM64DS.webp",
+                    "releaseDate": "November 21, 2004"
+                },
+                {
+                    "title": "Yoshi Touch & Go",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/YoshiTouchAndGo.webp",
+                    "releaseDate": "March 14, 2005"
+                },
+                {
+                    "title": "Mario Kart DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MKDS.webp",
+                    "releaseDate": "November 14, 2005"
+                },
+                {
+                    "title": "Mario & Luigi: Partners in Time",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/PartnersInTime.webp",
+                    "releaseDate": "November 28, 2005"
+                },
+                {
+                    "title": "Super Princess Peach",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/SuperPrincessPeach.webp",
+                    "releaseDate": "February 27, 2006"
+                },
+                {
+                    "title": "New Super Mario Bros.",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/NSMBDS.webp",
+                    "releaseDate": "May 15, 2006"
+                },
+                {
+                    "title": "Mario Hoops 3-on-3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MarioHoops.webp",
+                    "releaseDate": "September 11, 2006"
+                },
+                {
+                    "title": "Mario vs. Donkey Kong 2: March of the Minis",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MarioVsDonkeyKong2.webp",
+                    "releaseDate": "September 25, 2006"
+                },
+                {
+                    "title": "Yoshi's Island DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/YoshisIsland.webp",
+                    "releaseDate": "November 13, 2006"
+                },
+                {
+                    "title": "Mario Party DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MPDS.webp",
+                    "releaseDate": "November 19, 2007"
+                },
+                {
+                    "title": "Mario & Sonic at the Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MarioAndSonic.webp",
+                    "releaseDate": "January 22, 2008"
+                },
+                {
+                    "title": "Mario & Luigi: Bowser's Inside Story",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/BowsersInsideStory.webp",
+                    "releaseDate": "September 14, 2009"
+                },
+                {
+                    "title": "Mario & Sonic at the Olympic Winter Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/WinterGames.webp",
+                    "releaseDate": "October 13, 2009"
+                },
+                {
+                    "title": "Mario vs. Donkey Kong: Mini-Land Mayhem!",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "NDS/MiniLandMayhem.webp",
+                    "releaseDate": "November 14, 2010"
+                }
+            ]
         },
         {
             "name": "Wii",
