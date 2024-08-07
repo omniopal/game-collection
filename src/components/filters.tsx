@@ -1,8 +1,9 @@
 import React from 'react';
-import './filters.css';
-import { Button, ClickAwayListener, Grow, MenuItem, MenuList, Paper, Popper, SxProps, useMediaQuery, useTheme } from "@mui/material"
+import { Button, ClickAwayListener, Grow, MenuItem, MenuList, Paper, Popper } from "@mui/material"
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { ListFilter } from './game-collection-list';
+import { getMuiStyleOverrides } from './mui-style-overrides/filters.styles';
+import './filters.css';
 
 type FiltersProps = {
     onFilterChange: (filter: ListFilter) => void;
@@ -10,69 +11,49 @@ type FiltersProps = {
 
 export const Filters: React.FC<FiltersProps> = (props) => {
     const { onFilterChange } = props;
-    const theme = useTheme();
-    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down('sm'));
-    const radioStyleOverrides: SxProps = { color: 'black', '&.Mui-checked': { color: 'black' } };
-    const typographyStyleOverrides: SxProps = { fontWeight: 'bold', fontSize: isSmallBreakpoint ? '18px' : '20px'};
 
     const [open, setOpen] = React.useState(false);
+    const muiStyleOverrides = getMuiStyleOverrides();
     const anchorRef = React.useRef<HTMLButtonElement>(null);
 
-    const handleToggle = () => {
+    const onFilterButtonClick = () => {
         setOpen(!open);
     };
 
-    // return focus to the button when we transitioned from !open -> open
-    const prevOpen = React.useRef(open);
-    React.useEffect(() => {
-        if (prevOpen.current === true && open === false) {
-            anchorRef.current!.focus();
-        }
-
-        prevOpen.current = open;
-    }, [open]);
+    const onMenuItemClick = (filter: ListFilter) => {
+        onFilterChange(filter);
+        setOpen(false);
+    }
 
     return (
       <div>
         <Button
-            className="filter-button"
-            sx={{ textTransform: 'none', color: 'black', backgroundColor: 'whitesmoke', '&:hover': { backgroundColor: '#e2e2e2' } }}
+            sx={muiStyleOverrides.filterButton}
             ref={anchorRef}
-            id="filter-button"
-            onClick={handleToggle}
+            onClick={onFilterButtonClick}
         >
           <>
             <FilterListIcon />
-            Filter
+            <div className="filter-text">Filter</div>
           </>
         </Button>
         <Popper
           open={open}
           anchorEl={anchorRef.current}
-          role={undefined}
           placement="bottom"
           transition
-          disablePortal
-          className="popper"
+          sx={muiStyleOverrides.popper}
         >
-          {({ TransitionProps, placement }) => (
+          {({ TransitionProps }) => (
             <Grow
               {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
-              }}
             >
               <Paper>
                 <ClickAwayListener onClickAway={() => { setOpen(false) }}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="filter-menu"
-                    // onKeyDown={handleListKeyDown}
-                  >
-                    <MenuItem onClick={() => { onFilterChange('owned-games'); setOpen(false); }}>Owned Games</MenuItem>
-                    <MenuItem onClick={() => { onFilterChange('unowned-games'); setOpen(false);}}>Unowned Games</MenuItem>
-                    <MenuItem onClick={() => { onFilterChange('all-games'); setOpen(false);}}>All Mario Games</MenuItem>
+                  <MenuList>
+                    <MenuItem onClick={() => { onMenuItemClick('owned-games') }}>Owned Games</MenuItem>
+                    <MenuItem onClick={() => { onMenuItemClick('unowned-games') }}>Unowned Games</MenuItem>
+                    <MenuItem onClick={() => { onMenuItemClick('all-games') }}>All Mario Games</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
