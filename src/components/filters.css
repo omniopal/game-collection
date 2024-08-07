@@ -16,3 +16,11 @@
     display: flex;
     justify-content: center;
 }
+
+.filter-button {
+    margin-bottom: 0.5rem;
+}
+
+.popper {
+    z-index: 10000;
+}

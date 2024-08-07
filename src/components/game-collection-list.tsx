@@ -9,6 +9,8 @@ import Image from 'next/image';
 
 type GameCollectionListProps = {};
 
+export type ListFilter = 'all-games' | 'owned-games' | 'unowned-games';
+
 interface Game {
     title: string;
     boxArt: string;
@@ -28,21 +30,22 @@ interface Console {
 }
 
 export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
-    const [radioValue, setRadioValue] = useState('all-games');
+    const [radioValue, setRadioValue] = useState<ListFilter>('all-games');
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const gameData: { consoles: Console[] } = gameCollectionDataJson;
-    let audio = new Audio("./audio/1up.mp3");
 
-    const handleRadioButtonChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRadioValue((event.target as HTMLInputElement).value);
+    const onFilterChange = (filter: ListFilter) => {
+        setRadioValue(filter);
     }
 
     return (
         <div className="background">
-            <div className="jacobs-games" onClick={() => audio.play()}>
+            <div className="jacobs-games">
                 <Image className="jacobs-games-image" src={'/images/jacobs-games.png'} alt="TODO" sizes="100vw" style={{ width: '100%', height: 'auto' }} height={0} width={0} />
             </div>
-            <Filters onChange={handleRadioButtonChange} />
+            <div className="filters-container">
+                <Filters onFilterChange={onFilterChange} />
+            </div>
             <nav className="game-collection-list">
                 {gameData.consoles.map((console, index) => {
                     const physicalGameType = getPhysicalGameType(console.name);

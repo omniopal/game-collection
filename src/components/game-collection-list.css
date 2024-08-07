@@ -33,6 +33,11 @@
     animation: background-slide 80s linear infinite;
 }
 
+.filters-container {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (min-width: 600px) {
     .game-collection-list {
         max-width: 75%;
