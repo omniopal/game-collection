@@ -4,6 +4,7 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { Modal, ModalClose, Sheet, Typography } from '@mui/joy';
 import Image from 'next/image';
 import './game-image-modal-button.css';
+import { getMuiStyleOverrides } from './mui-style-overrides/game-image-modal-button.styles';
 
 export type GameImageModalProps = {
     text: string;
@@ -13,6 +14,7 @@ export type GameImageModalProps = {
 export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
     const { text, image } = props;
     const [openModal, setOpenModal] = useState<boolean>(false);
+    const muiStyleOverrides = getMuiStyleOverrides();
 
     const handleOpenModal = (event: React.MouseEvent) => {
         setOpenModal(true);
@@ -31,21 +33,14 @@ export const GameImageModalButton: React.FC<GameImageModalProps> = (props) => {
                 <Modal
                     open={openModal}
                     onClose={closeModal}
-                    sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    sx={muiStyleOverrides.modal}
                 >
                     <Sheet
                         variant="outlined"
-                        sx={{
-                            maxWidth: '80%',
-                            maxHeight: '80%',
-                            borderRadius: 'md',
-                            p: 3,
-                            boxShadow: 'lg',
-                            backgroundColor: '#DBDBDB',
-                        }}
+                        sx={muiStyleOverrides.sheet}
                     >
                         <div className="title-and-close">
-                            <ModalClose sx={{ m: 1, '&:hover': { backgroundColor: '#DBDBDB', color: '#F51B1B' }, }} />
+                            <ModalClose sx={muiStyleOverrides.modalClose} />
                             <Typography
                                 className="title"
                                 display="flex"
