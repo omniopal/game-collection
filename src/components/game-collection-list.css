@@ -30,7 +30,13 @@
     background-color: grey;
     background-image: url("/images/background-image.png");
     background-image: url("/images/background-image.png"), linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(206,147,226,1) 100%);
+    background-size: cover;
     animation: background-slide 80s linear infinite;
+
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .filters-container {
