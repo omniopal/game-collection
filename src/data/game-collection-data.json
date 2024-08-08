@@ -874,7 +874,161 @@
             "name": "Wii",
             "image": "Wii/Wii.webp",
             "releaseDate": "November 19, 2006",
-            "games": []
+            "games": [
+                {
+                    "title": "Super Paper Mario",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/SuperPaperMario.webp",
+                    "releaseDate": "April 9, 2007"
+                },
+                {
+                    "title": "Mario Party 8",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MP8.webp",
+                    "releaseDate": "May 29, 2007"
+                },
+                {
+                    "title": "Mario Strikers Charged",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MarioStrikersCharged.webp",
+                    "releaseDate": "July 30, 2007"
+                },
+                {
+                    "title": "Mario & Sonic at the Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/OlympicGames.webp",
+                    "releaseDate": "November 6, 2007"
+                },
+                {
+                    "title": "Super Mario Galaxy",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/SMG.webp",
+                    "releaseDate": "November 12, 2007"
+                },
+                {
+                    "title": "Super Smash Bros. Brawl",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/SSBB.webp",
+                    "releaseDate": "March 9, 2008"
+                },
+                {
+                    "title": "Mario Kart Wii",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MKW.jpg",
+                    "releaseDate": "April 27, 2008"
+                },
+                {
+                    "title": "Super Mario Sluggers",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/SuperMarioSluggers.webp",
+                    "releaseDate": "August 25, 2008"
+                },
+                {
+                    "title": "New Play Control! Mario Power Tennis",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MarioPowerTennis.webp",
+                    "releaseDate": "March 9, 2009"
+                },
+                {
+                    "title": "Mario & Sonic at the Olympic Winter Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/WinterGames.webp",
+                    "releaseDate": "October 13, 2009"
+                },
+                {
+                    "title": "New Super Mario Bros. Wii",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/NSMBW.webp",
+                    "releaseDate": "November 15, 2009"
+                },
+                {
+                    "title": "Super Mario Galaxy 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/SMG2.webp",
+                    "releaseDate": "May 23, 2010"
+                },
+                {
+                    "title": "Super Mario All-Stars Limited Edition",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/AlLStars.webp",
+                    "releaseDate": "December 12, 2010"
+                },
+                {
+                    "title": "Mario Sports Mix",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MarioSportsMix.webp",
+                    "releaseDate": "February 7, 2011"
+                },
+                {
+                    "title": "Mario & Sonic at the London 2012 Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/LondonGames.webp",
+                    "releaseDate": "November 15, 2011"
+                },
+                {
+                    "title": "Fortune Street",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/FortuneStreet.webp",
+                    "releaseDate": "December 5, 2011"
+                },
+                {
+                    "title": "Mario Party 9",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Wii/MP9.webp",
+                    "releaseDate": "March 12, 2012"
+                }
+            ]
         },
         {
             "name": "Nintendo 3DS",
