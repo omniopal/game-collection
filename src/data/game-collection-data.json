@@ -1275,13 +1275,393 @@
             "name": "WiiU",
             "image": "WiiU/WiiU.webp",
             "releaseDate": "November 18, 2012",
-            "games": []
+            "games": [
+                {
+                    "title": "New Super Mario Bros. U",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/NSMBU.webp",
+                    "releaseDate": "November 18, 2012"
+                },
+                {
+                    "title": "New Super Luigi U",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/NSLU.webp",
+                    "releaseDate": "June 20, 2013"
+                },
+                {
+                    "title": "Super Mario 3D World",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/SM3DW.webp",
+                    "releaseDate": "November 22, 2013"
+                },
+                {
+                    "title": "Mario & Sonic at the Sochi 2014 Olympic Winter Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/SochiGames.webp",
+                    "releaseDate": "November 15, 2013"
+                },
+                {
+                    "title": "Mario Kart 8",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/MK8.webp",
+                    "releaseDate": "May 30, 2014"
+                },
+                {
+                    "title": "Super Smash Bros. for WiiU",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/SSB.webp",
+                    "releaseDate": "November 21, 2014"
+                },
+                {
+                    "title": "Captain Toad: Treasure Tracker",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/TreasureTracker.webp",
+                    "releaseDate": "December 5, 2014"
+                },
+                {
+                    "title": "Mario Party 10",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/MP10.webp",
+                    "releaseDate": "March 20, 2015"
+                },
+                {
+                    "title": "Super Mario Maker",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/SMM.webp",
+                    "releaseDate": "September 11, 2015"
+                },
+                {
+                    "title": "Yoshi's Woolly World",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/WoollyWorld.webp",
+                    "releaseDate": "October 16, 2015"
+                },
+                {
+                    "title": "Mario Tennis: Ultra Smash",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/UltraSmash.webp",
+                    "releaseDate": "November 20, 2015"
+                },
+                {
+                    "title": "Mario & Sonic at the Rio 2016 Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/RioGames.webp",
+                    "releaseDate": "June 24, 2016"
+                },
+                {
+                    "title": "Paper Mario: Color Splash",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "WiiU/ColorSplash.webp",
+                    "releaseDate": "October 7, 2016"
+                }
+            ]
         },
         {
             "name": "Switch",
             "image": "Switch/Switch.webp",
             "releaseDate": "March 3, 2017",
-            "games": []
+            "games": [
+                {
+                    "title": "Mario Kart 8 Deluxe",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/MK8D.webp",
+                    "releaseDate": "April 28, 2017"
+                },
+                {
+                    "title": "Mario + Rabbids Kingdom Battle",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/MarioRabbids.webp",
+                    "releaseDate": "August 29, 2017"
+                },
+                {
+                    "title": "Mario Kart 8 Deluxe",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/MK8D.webp",
+                    "releaseDate": "April 28, 2017"
+                },
+                {
+                    "title": "Super Mario Odyssey",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SMO.webp",
+                    "releaseDate": "October 27, 2017"
+                },
+                {
+                    "title": "Mario Tennis Aces",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/TennisAces.webp",
+                    "releaseDate": "June 22, 2018"
+                },
+                {
+                    "title": "Captain Toad: Treasure Tracker",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/TreasureTracker.webp",
+                    "releaseDate": "July 13, 2018"
+                },
+                {
+                    "title": "Super Mario Party",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SMP.webp",
+                    "releaseDate": "October 5, 2018"
+                },
+                {
+                    "title": "Super Smash Bros. Ultimate",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SSBU.webp",
+                    "releaseDate": "December 7, 2018"
+                },
+                {
+                    "title": "New Super Mario Bros. U Deluxe",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/NSMBUD.webp",
+                    "releaseDate": "January 11, 2019"
+                },
+                {
+                    "title": "Yoshi's Crafted World",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/CraftedWorld.webp",
+                    "releaseDate": "March 29, 2019"
+                },
+                {
+                    "title": "Super Mario Maker 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SMM2.webp",
+                    "releaseDate": "June 28, 2019"
+                },
+                {
+                    "title": "Luigi's Mansion 3",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/LM3.webp",
+                    "releaseDate": "October 31, 2019"
+                },
+                {
+                    "title": "Mario & Sonic at the Olympic Games Tokyo 2020",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/TokyoGames.webp",
+                    "releaseDate": "November 5, 2019"
+                },
+                {
+                    "title": "Paper Mario: The Origami King",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/OrigamiKing.webp",
+                    "releaseDate": "July 17, 2020"
+                },
+                {
+                    "title": "Super Mario 3D All-Stars",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/3DAS.webp",
+                    "releaseDate": "September 18, 2020"
+                },
+                {
+                    "title": "Mario Kart Live: Home Circut",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/HomeCircut.webp",
+                    "releaseDate": "October 16, 2020"
+                },
+                {
+                    "title": "Super Mario 3D World + Bowser's Fury",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/BowsersFury.webp",
+                    "releaseDate": "February 21, 2021"
+                },
+                {
+                    "title": "Mario Golf: Super Rush",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SuperRush.webp",
+                    "releaseDate": "June 25, 2021"
+                },
+                {
+                    "title": "Mario Party Superstars",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/MPS.webp",
+                    "releaseDate": "October 29, 2021"
+                },
+                {
+                    "title": "Mario Strikers: Battle League",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/BattleLeague.webp",
+                    "releaseDate": "June 10, 2022"
+                },
+                {
+                    "title": "Mario + Rabbids: Sparks of Hope",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SparksOfHope.webp",
+                    "releaseDate": "October 20, 2022"
+                },
+                {
+                    "title": "Super Mario Bros. Wonder",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SMW.webp",
+                    "releaseDate": "October 20, 2023"
+                },
+                {
+                    "title": "Super Mario RPG",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/SMRPG.webp",
+                    "releaseDate": "November 17, 2023"
+                },
+                {
+                    "title": "Mario vs. Donkey Kong",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/MVDK.webp",
+                    "releaseDate": "February 16, 2024"
+                },
+                {
+                    "title": "Luigi's Mansion 2 HD",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/LM2.webp",
+                    "releaseDate": "June 27, 2024"
+                },
+                {
+                    "title": "Princess Peach: Showtime!",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/Showtime.webp",
+                    "releaseDate": "March 22, 2024"
+                },
+                {
+                    "title": "Paper Mario: The Thousand Year-Door",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/TTYD.webp",
+                    "releaseDate": "May 23, 2024"
+                },
+                {
+                    "title": "Super Paper Mario Jamboree",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/Jamboree.webp",
+                    "releaseDate": "October 17, 2024"
+                },
+                {
+                    "title": "Mario & Luigi: Brothership",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "Switch/Brothership.webp",
+                    "releaseDate": "November 7, 2024"
+                }
+            ]
         }
     ]
 }
