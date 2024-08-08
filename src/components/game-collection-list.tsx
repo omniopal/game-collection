@@ -85,14 +85,17 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                                 (filterValue === "unowned-games" && !game.hasGame) || 
                                                 filterValue === "all-games";    
                                     })
-                                    .map((game, gameIndex) => (
-                                        <div key={gameIndex}>
+                                    .map((game, gameIndex) => {
+                                        const isVeryLastGame = isLast && (gameIndex === console.games.length - 1)
+
+                                        return (<div key={gameIndex}>
                                             <GameInfo 
                                                 text={game.title}
                                                 boxArt={game.boxArt}
                                                 personalCopyImage={game.image}
                                                 gameReleaseDate={game.releaseDate}
                                                 physicalGameType={physicalGameType}
+                                                isVeryLastGame={isVeryLastGame}
                                                 chipInfo={{
                                                     hasGame: game.hasGame,
                                                     hasBox: game.hasCase,
@@ -100,8 +103,8 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                                     hasPlayed: game.hasPlayed,
                                                 }}
                                             />
-                                        </div>
-                                    ))
+                                        </div>)
+                                    })
                                 }
                             </CollapsibleConsoleButton>
                         </div>

@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import './game-info.css';
 import { GameImageModalButton } from './game-image-modal-button';
 import Image from 'next/image';
+import clsx from 'clsx';
 
 type ChipInfo = {
     hasGame: boolean;
@@ -18,15 +19,16 @@ type GameInfoProps = PropsWithChildren & {
     chipInfo: ChipInfo;
     gameReleaseDate: string;
     physicalGameType: string;
+    isVeryLastGame: boolean;
 };
 
 export const GameInfo: React.FC<GameInfoProps> = (props) => {
-    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType } = props;
+    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType, isVeryLastGame } = props;
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
 
     return (
-        <div className="game-info">
+        <div className={(clsx("game-info", isVeryLastGame && "very-last-game-info"))}>
             <div className="image-and-title">
                 <div className="image-container">
                     <Image className="game-image" src={`/images/${boxArt}`} alt="TODO" objectFit="contain" layout="fill" />

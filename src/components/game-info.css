@@ -11,6 +11,11 @@
     outline: 1px solid grey;
 }
 
+.very-last-game-info {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
 .image-and-title {
     display: flex;
     flex-direction: row;
