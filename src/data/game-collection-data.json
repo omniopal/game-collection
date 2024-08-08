@@ -1034,7 +1034,242 @@
             "name": "Nintendo 3DS",
             "image": "3DS/3DS.webp",
             "releaseDate": "March 27, 2011",
-            "games": []
+            "games": [
+                {
+                    "title": "Super Mario 3D Land",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/SM3DL.webp",
+                    "releaseDate": "November 13, 2011"
+                },
+                {
+                    "title": "Mario & Sonic at the London 2012 Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/LondonGames.webp",
+                    "releaseDate": "November 15, 2011"
+                },
+                {
+                    "title": "Mario Kart 7",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/MK7.webp",
+                    "releaseDate": "December 4, 2011"
+                },
+                {
+                    "title": "Mario Tennis Open",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/MarioTennisOpen.webp",
+                    "releaseDate": "May 20, 2012"
+                },
+                {
+                    "title": "New Super Mario Bros. 2",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/NSMB2.webp",
+                    "releaseDate": "August 20, 2012"
+                },
+                {
+                    "title": "Paper Mario: Sticker Star",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/StickerStar.webp",
+                    "releaseDate": "November 11, 2012"
+                },
+                {
+                    "title": "Luigi's Mansion: Dark Moon",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/DarkMoon.webp",
+                    "releaseDate": "March 24, 2013"
+                },
+                {
+                    "title": "Mario & Luigi: Dream Team",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/DreamTeam.webp",
+                    "releaseDate": "August 11, 2013"
+                },
+                {
+                    "title": "Mario Party: Island Tour",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/IslandTour.webp",
+                    "releaseDate": "November 22, 2013"
+                },
+                {
+                    "title": "Yoshi's New Island",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/YoshisNewIsland.webp",
+                    "releaseDate": "March 14, 2014"
+                },
+                {
+                    "title": "Mario Golf: World Tour",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/MarioGolfWorldTour.webp",
+                    "releaseDate": "May 2, 2014"
+                },
+                {
+                    "title": "Super Smash Bros. for Nintendo 3DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/SSB.webp",
+                    "releaseDate": "October 3, 2014"
+                },
+                {
+                    "title": "Ultimate NES Remix",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/UltimateNESRemix.webp",
+                    "releaseDate": "December 5, 2014"
+                },
+                {
+                    "title": "Puzzle & Dragons Z + Super Mario Bros. Edition",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/PuzzleAndDragons.webp",
+                    "releaseDate": "May 22, 2015"
+                },
+                {
+                    "title": "Mario & Luigi: Paper Jam",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/PaperJam.webp",
+                    "releaseDate": "January 22, 2016"
+                },
+                {
+                    "title": "Mario & Sonic at the Rio 2016 Olympic Games",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/RioGames.webp",
+                    "releaseDate": "March 18, 2016"
+                },
+                {
+                    "title": "Mario Party: Star Rush",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/StarRush.webp",
+                    "releaseDate": "November 4, 2016"
+                },
+                {
+                    "title": "Super Mario Maker for Nintendo 3DS",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/MarioMaker.webp",
+                    "releaseDate": "December 2, 2016"
+                },
+                {
+                    "title": "Ultimate NES Remix",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/UltimateNESRemix.webp",
+                    "releaseDate": "December 5, 2014"
+                },
+                {
+                    "title": "Poochy & Yoshi's Woolly World",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/Poochy.webp",
+                    "releaseDate": "February 3, 2017"
+                },
+                {
+                    "title": "Mario Sports Superstars",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/MarioSportsSuperstars.webp",
+                    "releaseDate": "March 24, 2017"
+                },
+                {
+                    "title": "Mario & Luigi: Superstar Saga + Bowser's Minions",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/BowsersMinions.webp",
+                    "releaseDate": "October 6, 2017"
+                },
+                {
+                    "title": "Mario Party: The Top 100",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/Top100.webp",
+                    "releaseDate": "November 10, 2017"
+                },
+                {
+                    "title": "Captain Toad: Treasure Tracker",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/TreasureTracker.webp",
+                    "releaseDate": "July 13, 2018"
+                },
+                {
+                    "title": "Luigi's Mansion",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/LuigisMansion.webp",
+                    "releaseDate": "October 12, 2018"
+                },
+                {
+                    "title": "Mario & Luigi: Bowser's Inside Story + Bowser Jr.'s Journey",
+                    "hasGame": false,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": false,
+                    "boxArt": "3DS/BowserJrsJourney.webp",
+                    "releaseDate": "January 11, 2019"
+                }
+            ]
         },
         {
             "name": "WiiU",
