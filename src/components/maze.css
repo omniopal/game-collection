@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.image {
+    position: absolute;
+    max-width: 30rem;
+}
+
+.outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button {
+    max-width: 250px;
+    outline: 4px solid gray;
+}
+
+.button:hover {
+    outline: 4px solid red;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.maze-container {
+    background-color: lightgray;
+}
