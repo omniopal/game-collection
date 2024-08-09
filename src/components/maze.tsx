@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './maze.css';
+import clsx from 'clsx';
 
 type Direction = 'up' | 'right' | 'down' | 'left';
 
-const directionOrder: Direction[] = ['up', 'right', 'down', 'left'];
+export const directionOrder: Direction[] = ['up', 'right', 'down', 'left'];
 const imagePathMap: Record<Direction, string> = {
     up: '/images/Mazes/Maze 1 path only.webp', // only right
     right: '/images/Mazes/Maze 2 path only.webp', // no leaves
@@ -57,24 +58,28 @@ export const Maze: React.FC = () => {
         <div className="maze-container">
             <h2>What do you see?</h2>
             <div className="buttons">
-                <div className="image-and-text">
-                    <img className="button" src="/images/Mazes/Maze 4 in game.webp" onClick={() => handleClick('left')}/>
-                    <h3>2 paths & leaves</h3>
+                <div className="image-group">
+                    <div className="image-and-text">
+                        <img className={clsx("button", rotationDirection === 'left' && "selected")} src="/images/Mazes/Maze 4 in game.webp" onClick={() => handleClick('left')}/>
+                        <p>2 paths & leaves</p>
+                    </div>
+                    <div className="image-and-text">
+                        <img className={clsx("button", rotationDirection === 'right' && "selected")} src="/images/Mazes/Maze 2 in game.webp" onClick={() => handleClick('right')}/>
+                        <p>No leaves</p>
+                    </div>
                 </div>
-                <div className="image-and-text">
-                    <img className="button" src="/images/Mazes/Maze 2 in game.webp" onClick={() => handleClick('right')}/>
-                    <h3>No leaves</h3>
-                </div>
-                <div className="image-and-text">
-                    <img className="button" src="/images/Mazes/Maze 3 in game.webp" onClick={() => handleClick('down')}/>
-                    <h3>4 paths</h3>
-                </div>
-                <div className="image-and-button">
-                    <img className="button" src="/images/Mazes/Maze 1 in game.webp" onClick={() => handleClick('up')}/>
-                    <h3>1 path</h3>
+                <div className="image-group">
+                    <div className="image-and-text">
+                        <img className={clsx("button", rotationDirection === 'down' && "selected")} src="/images/Mazes/Maze 3 in game.webp" onClick={() => handleClick('down')}/>
+                        <p>4 paths</p>
+                    </div>
+                    <div className="image-and-text">
+                        <img className={clsx("button", rotationDirection === 'up' && "selected")} src="/images/Mazes/Maze 1 in game.webp" onClick={() => handleClick('up')}/>
+                        <p>1 path</p>
+                    </div>
                 </div>
             </div>
-            <div className="container">
+            <div className="solution-container">
                 <img
                     ref={imageRef}
                     className="image"
