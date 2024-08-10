@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './maze.css';
 import clsx from 'clsx';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
@@ -144,9 +144,9 @@ export const Maze: React.FC = () => {
             </div>
 
             {golfCourse === 'Final Fringe' &&
-                <>
+                <div className="settings">
                     <div className="setting">
-                        <h2>Does this maze exit to the left?</h2>
+                        <div className="setting-text">Does this maze exit to the left?</div>
                         <ToggleButtonGroup
                             orientation='horizontal'
                             value={turnsToLeft}
@@ -167,7 +167,7 @@ export const Maze: React.FC = () => {
                     </div>
 
                     <div className="setting">
-                        <h2>Does this maze exit to the right?</h2>
+                        <div className="setting-text">Does this maze exit to the right?</div>
                         <ToggleButtonGroup
                             orientation='horizontal'
                             value={turnsToRight}
@@ -186,7 +186,7 @@ export const Maze: React.FC = () => {
                             <div>testing one two three</div>
                         </details>
                     </div>
-                </>
+                </div>
                 }
 
             
