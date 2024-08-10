@@ -1,21 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './maze.css';
 import clsx from 'clsx';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 type Direction = 'up' | 'right' | 'down' | 'left';
 
 export const directionOrder: Direction[] = ['up', 'right', 'down', 'left'];
 const imagePathMap: Record<Direction, string> = {
-    up: '/images/Mazes/Maze 1 path only.webp', // only right
-    right: '/images/Mazes/Maze 2 path only.webp', // no leaves
-    down: '/images/Mazes/Maze 3 path only.webp', // 4 ways
-    left: '/images/Mazes/Maze 4 path only.webp', // leaves
+    up: '/images/Mazes/Maze 1 path only 2.webp', // only right
+    right: '/images/Mazes/Maze 2 path only 2.webp', // no leaves
+    down: '/images/Mazes/Maze 3 path only 2.webp', // 4 ways
+    left: '/images/Mazes/Maze 4 path only 2.webp', // leaves
   };
 
 export const Maze: React.FC = () => {
     const [rotationDegree, setRotationDegree] = useState(0);
     const [rotationDirection, setRotationDirection] = useState<Direction>('up');
     const [imagePath, setImagePath] = useState(imagePathMap[rotationDirection]);
+    const [golfCourse, setGolfCourse] = useState<string>('First Fairway');
+    const [turnsToLeft, setTurnsToLeft] = useState(false);
     const imageRef = useRef<HTMLImageElement>(null);
 
     const updateImagePath = () => {
@@ -54,8 +57,35 @@ export const Maze: React.FC = () => {
         }
     }
 
+    const onChangeGolfCourse = (_: any, value: string) => {
+        setGolfCourse(value);
+    }
+
+    const onTurnsToLeftChange = (_: any, value: boolean) => {
+        setTurnsToLeft(value);
+    }
+
     return (
         <div className="maze-container">
+            <div className="settings-container">
+                <div className="setting">
+                    <h2>Select Golf Course</h2>
+                    <ToggleButtonGroup
+                        orientation='horizontal'
+                        value={golfCourse}
+                        exclusive
+                        onChange={onChangeGolfCourse}
+                    >
+                        <ToggleButton value="First Fairway">
+                            <div>First Fairway</div>
+                        </ToggleButton>
+                        <ToggleButton value="Final Fringe">
+                            <div>Final Fringe</div>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </div>
+            </div>
+
             <h2>What do you see?</h2>
             <div className="buttons">
                 <div className="image-group">
@@ -65,7 +95,7 @@ export const Maze: React.FC = () => {
                     </div>
                     <div className="image-and-text">
                         <img className={clsx("button", rotationDirection === 'right' && "selected")} src="/images/Mazes/Maze 2 in game.webp" onClick={() => handleClick('right')}/>
-                        <p>No leaves</p>
+                        <p>2 paths & no leaves</p>
                     </div>
                 </div>
                 <div className="image-group">
@@ -79,6 +109,29 @@ export const Maze: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            {golfCourse === 'Final Fringe' && <div className="setting">
+                    <h2>Is the next maze to the left?</h2>
+                    <ToggleButtonGroup
+                        orientation='horizontal'
+                        value={turnsToLeft}
+                        exclusive
+                        onChange={onTurnsToLeftChange}
+                    >
+                        <ToggleButton value={true}>
+                            <div>Yes</div>
+                        </ToggleButton>
+                        <ToggleButton value={false}>
+                            <div>No</div>
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                    <details className="details">
+                        <summary>How do I tell?</summary>
+                        <div>testing one two three</div>
+                    </details>
+                </div>
+            }
+
             <div className="solution-container">
                 <img
                     ref={imageRef}
