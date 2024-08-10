@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './maze.css';
 import clsx from 'clsx';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
@@ -7,23 +7,31 @@ type Direction = 'up' | 'right' | 'down' | 'left';
 
 export const directionOrder: Direction[] = ['up', 'right', 'down', 'left'];
 const imagePathMap: Record<Direction, string> = {
-    up: '/images/Mazes/Maze 1 path only 2.webp', // only right
-    right: '/images/Mazes/Maze 2 path only 2.webp', // no leaves
-    down: '/images/Mazes/Maze 3 path only 2.webp', // 4 ways
-    left: '/images/Mazes/Maze 4 path only 2.webp', // leaves
+    up: 'Maze 1 path only 2.webp', // only right
+    right: 'Maze 2 path only 2.webp', // no leaves
+    down: 'Maze 3 path only 2.webp', // 4 ways
+    left: 'Maze 4 path only 2.webp', // leaves
   };
 
 export const Maze: React.FC = () => {
     const [rotationDegree, setRotationDegree] = useState(0);
     const [rotationDirection, setRotationDirection] = useState<Direction>('up');
-    const [imagePath, setImagePath] = useState(imagePathMap[rotationDirection]);
+    const [imagePath, setImagePath] = useState(`/images/Mazes/${imagePathMap[rotationDirection]}`);
     const [golfCourse, setGolfCourse] = useState<string>('First Fairway');
     const [turnsToLeft, setTurnsToLeft] = useState(false);
     const imageRef = useRef<HTMLImageElement>(null);
 
     const updateImagePath = () => {
-        setImagePath(imagePathMap[rotationDirection]);
-    }
+        let path = imagePathMap[rotationDirection];
+
+        if (turnsToLeft) {
+            setImagePath(`/images/Mazes/left ${path}`);
+            console.log('left path: ' + path)
+            return;
+        }
+        console.log('path: ' + path);
+        setImagePath(`/images/Mazes/${path}`);
+    };
 
     useEffect(() => {
         const imageEl = imageRef.current;
@@ -65,11 +73,15 @@ export const Maze: React.FC = () => {
         setTurnsToLeft(value);
     }
 
+    useEffect(() => {
+        updateImagePath();
+    }, [turnsToLeft]);
+
     return (
         <div className="maze-container">
             <div className="settings-container">
                 <div className="setting">
-                    <h2>Select Golf Course</h2>
+                    <div className="header">Select Golf Course</div>
                     <ToggleButtonGroup
                         orientation='horizontal'
                         value={golfCourse}
@@ -86,7 +98,7 @@ export const Maze: React.FC = () => {
                 </div>
             </div>
 
-            <h2>What do you see?</h2>
+            <div className="header">What do you see?</div>
             <div className="buttons">
                 <div className="image-group">
                     <div className="image-and-text">
