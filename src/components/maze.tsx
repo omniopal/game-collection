@@ -19,6 +19,7 @@ export const Maze: React.FC = () => {
     const [imagePath, setImagePath] = useState(`/images/Mazes/${imagePathMap[rotationDirection]}`);
     const [golfCourse, setGolfCourse] = useState<string>('First Fairway');
     const [turnsToLeft, setTurnsToLeft] = useState(false);
+    const [turnsToRight, setTurnsToRight] = useState(false);
     const imageRef = useRef<HTMLImageElement>(null);
 
     const updateImagePath = () => {
@@ -26,10 +27,14 @@ export const Maze: React.FC = () => {
 
         if (turnsToLeft) {
             setImagePath(`/images/Mazes/left ${path}`);
-            console.log('left path: ' + path)
             return;
         }
-        console.log('path: ' + path);
+
+        if (turnsToRight) {
+            setImagePath(`/images/Mazes/right ${path}`);
+            return;
+        }
+
         setImagePath(`/images/Mazes/${path}`);
     };
 
@@ -69,13 +74,29 @@ export const Maze: React.FC = () => {
         setGolfCourse(value);
     }
 
-    const onTurnsToLeftChange = (_: any, value: boolean) => {
-        setTurnsToLeft(value);
+    const onTurnsToLeftChange = (_: any, value: boolean | null) => {
+        if (value !== null) {
+            setTurnsToLeft(value);
+        }
+
+        if (turnsToRight) {
+            setTurnsToRight(false);
+        }
+    }
+
+    const onTurnsToRightChange = (_: any, value: boolean | null) => {
+        if (value !== null) {
+            setTurnsToRight(value);
+        }
+
+        if (turnsToLeft) {
+            setTurnsToLeft(false);
+        }
     }
 
     useEffect(() => {
         updateImagePath();
-    }, [turnsToLeft]);
+    }, [turnsToLeft, turnsToRight]);
 
     return (
         <div className="maze-container">
@@ -122,27 +143,53 @@ export const Maze: React.FC = () => {
                 </div>
             </div>
 
-            {golfCourse === 'Final Fringe' && <div className="setting">
-                    <h2>Is the next maze to the left?</h2>
-                    <ToggleButtonGroup
-                        orientation='horizontal'
-                        value={turnsToLeft}
-                        exclusive
-                        onChange={onTurnsToLeftChange}
-                    >
-                        <ToggleButton value={true}>
-                            <div>Yes</div>
-                        </ToggleButton>
-                        <ToggleButton value={false}>
-                            <div>No</div>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                    <details className="details">
-                        <summary>How do I tell?</summary>
-                        <div>testing one two three</div>
-                    </details>
-                </div>
-            }
+            {golfCourse === 'Final Fringe' &&
+                <>
+                    <div className="setting">
+                        <h2>Does this maze exit to the left?</h2>
+                        <ToggleButtonGroup
+                            orientation='horizontal'
+                            value={turnsToLeft}
+                            exclusive
+                            onChange={onTurnsToLeftChange}
+                        >
+                            <ToggleButton value={true}>
+                                <div>Yes</div>
+                            </ToggleButton>
+                            <ToggleButton value={false}>
+                                <div>No</div>
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                        <details className="details">
+                            <summary>How do I tell?</summary>
+                            <div>testing one two three</div>
+                        </details>
+                    </div>
+
+                    <div className="setting">
+                        <h2>Does this maze exit to the right?</h2>
+                        <ToggleButtonGroup
+                            orientation='horizontal'
+                            value={turnsToRight}
+                            exclusive
+                            onChange={onTurnsToRightChange}
+                        >
+                            <ToggleButton value={true}>
+                                <div>Yes</div>
+                            </ToggleButton>
+                            <ToggleButton value={false}>
+                                <div>No</div>
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                        <details className="details">
+                            <summary>How do I tell?</summary>
+                            <div>testing one two three</div>
+                        </details>
+                    </div>
+                </>
+                }
+
+            
 
             <div className="solution-container">
                 <img
