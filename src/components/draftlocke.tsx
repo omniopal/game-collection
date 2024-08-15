@@ -3,6 +3,8 @@ import './draftlocke.css';
 import * as draftlockeJson from '../data/draftlocke-teams.json';
 import { CollapsiblePokemonButton } from './collapsible-pokemon-button';
 import { romanize } from 'src/utils/romanize';
+import { useFirestore } from 'src/utils/use-firestore';
+import { onSnapshot } from 'firebase/firestore';
 
 type Team = {
     playerName: string;
@@ -14,7 +16,7 @@ interface FirstEvolutions {
     firstEvolutionPokemon: number[];
 }
 
-interface DraftPokemon {
+export interface DraftPokemon {
     spriteUrl: string;
     isDisabled: boolean;
     generation: string;
@@ -27,6 +29,9 @@ export const Draftlocke: React.FC = () => {
     const teamsJson: Team[] = draftlockeJson.teams;
     const firstEvolutions: FirstEvolutions[] = draftlockeJson.firstEvolutions;
     const [currentPlayer, setCurrentPlayer] = useState<string>('Jacob');
+    const { getDraftPokemon, updatePokemonSelected } = useFirestore();
+    const [draftFromFirestore, setDraftFromFirestore] = useState<Map<string, DraftPokemon>>(new Map());
+    
 
     const getGenerationName = (generation: number) => {
         if (!generation) {
@@ -51,6 +56,24 @@ export const Draftlocke: React.FC = () => {
         }
     }
 
+    const toggleCrossedOutFirestore = (pokemonName: string) => {
+        if (draftFromFirestore.has(pokemonName)) {
+            const currentPokeData = draftFromFirestore.get(pokemonName);
+
+            if (currentPokeData) {
+                updatePokemonSelected(pokemonName, !currentPokeData.isDisabled);
+            }
+        }
+    }
+
+    const getIsDisabled = (pokemonName: string) => {
+        if (draftFromFirestore.has(pokemonName)) {
+            const currentPokeData = draftFromFirestore.get(pokemonName);
+
+            return currentPokeData?.isDisabled;
+        }
+    }
+
     const addToTeam = (pokemonName: string) => {
         // add pokemon to team
         const updatedTeamsData = new Map(teamsData);
@@ -67,7 +90,8 @@ export const Draftlocke: React.FC = () => {
                     currentPlayersPokemon.set(pokemonName, spriteUrl);
                     updatedTeamsData.set(currentPlayer, currentPlayersPokemon);
                     setTeamsData(updatedTeamsData);
-                    toggleCrossedOut(pokemonName);
+                    // toggleCrossedOut(pokemonName);
+                    toggleCrossedOutFirestore(pokemonName);
                 }
             }
         }
@@ -84,7 +108,8 @@ export const Draftlocke: React.FC = () => {
                 currentPlayersPokemon.delete(pokemonName);
                 updatedTeamsData.set(currentPlayer, currentPlayersPokemon);
                 setTeamsData(updatedTeamsData);
-                toggleCrossedOut(pokemonName);
+                // toggleCrossedOut(pokemonName);
+                toggleCrossedOutFirestore(pokemonName);
             }
         }
     }
@@ -134,8 +159,31 @@ export const Draftlocke: React.FC = () => {
             setDraftPokemonData(draftData);
         }
 
+        // const fetchFirestoreDraftPokemon = async () => {
+        //     const firestorePokemon = await getDraftPokemon();
+        //     setDraftFromFirestore(firestorePokemon);
+        // }
+
         fetchPokeData();
         fetchDraftPokeData();
+        // fetchFirestoreDraftPokemon();
+
+        const unsubscribe = onSnapshot(getDraftPokemon().ref, (snapshot) => {
+            const firestorePokemon = new Map<string, DraftPokemon>();
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                firestorePokemon.set(doc.id, {
+                    spriteUrl: data.spriteUrl,
+                    isDisabled: data.isDisabled,
+                    generation: data.generation,
+                    pokedexNumber: data.pokedexNumber
+                });
+            });
+            setDraftFromFirestore(firestorePokemon);
+        });
+
+        // Cleanup subscription on component unmount
+        return () => unsubscribe();
     }, []);
 
     if (!teamsData) {
@@ -154,6 +202,12 @@ export const Draftlocke: React.FC = () => {
 
     return (
         <div className="container">
+            <div>
+                Jacob testing:
+                {Array.from(draftFromFirestore.entries()).map(([pokemonName, data]) => (
+                    <div>{pokemonName} {data.generation} {data.isDisabled ? 'true' : 'false'} {data.pokedexNumber} {data.spriteUrl}</div>
+                ))}
+            </div>
             <div className="draft">
                 <h1>Draftable Pokemon</h1>
                 <div className="draft-pokemon-container">
@@ -172,7 +226,8 @@ export const Draftlocke: React.FC = () => {
                                                 onClick={() => { 
                                                 addToTeam(pokemonName);
                                             }}>
-                                                { isDisabled && <img className="circle" src="/images/Draftlocke/circle.png" alt="" /> }
+                                                {/* { isDisabled && <img className="circle" src="/images/Draftlocke/circle.png" alt="" /> } */}
+                                                { getIsDisabled(pokemonName) && <img className="circle" src="/images/Draftlocke/circle.png" alt="" /> }
                                                 <img className="sprite" src={spriteUrl} alt={pokemonName} />
                                             </div>
                                         ) : (
