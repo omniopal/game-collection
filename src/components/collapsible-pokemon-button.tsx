@@ -21,9 +21,9 @@ export const CollapsiblePokemonButton: React.FC<CollapsiblePokemonButtonProps> =
 
     return (
         <>
-            <button onClick={toggleCollapse}>
+            <button className="generation-button" onClick={toggleCollapse}>
                 <h2>{generationName}</h2>
-                <div className="chevron">
+                <div>
                     {isOpen ? <ExpandLess /> : <ExpandMore />}
                 </div>
             </button>
