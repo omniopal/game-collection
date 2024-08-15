@@ -68,11 +68,11 @@
     width: 100%;
     max-width: 30vw;
 
-    position: sticky;
+    /* position: sticky;
     top: 0;
     align-self: flex-start;
     max-height: 100vh;
-    overflow-y: auto;
+    overflow-y: auto; */
 }
 
 .pokemon-container {
@@ -112,6 +112,11 @@ h3 {
 h2 {
     cursor: pointer;
     text-transform: capitalize;
+    /* margin-bottom: 0; */
+}
+
+.team-container > h2 {
+    margin-bottom: 0;
 }
 
 h2:hover {
@@ -120,6 +125,11 @@ h2:hover {
 
 h1 {
     text-align: center;
+}
+
+h4 {
+    text-transform: capitalize;
+    margin-top: 0;
 }
 
 .current-draftee {

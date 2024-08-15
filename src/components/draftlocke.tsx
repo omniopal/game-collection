@@ -4,6 +4,7 @@ import { CollapsiblePokemonButton } from './collapsible-pokemon-button';
 import { romanize } from 'src/utils/romanize';
 import { useFirestore } from 'src/utils/use-firestore';
 import { onSnapshot } from 'firebase/firestore';
+import { Button } from '@mui/material';
 
 export interface DraftPokemon {
     spriteUrl: string;
@@ -17,6 +18,7 @@ export const Draftlocke: React.FC = () => {
     const [pokemonData, setPokemonData] = useState<Map<string, DraftPokemon>>(new Map());
     const [draftees, setDraftees] = useState<string[]>([]);
     const [currentPlayer, setCurrentPlayer] = useState<string>('Unselected');
+    const [randomizedTeams, setRandomizedTeams] = useState<Map<string, string>>(new Map());
     const { getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
     
     const getGenerationName = (generation: number) => {
@@ -100,12 +102,6 @@ export const Draftlocke: React.FC = () => {
         }
     }, []);
 
-    // if (!teamsData) {
-    //     return (
-    //         <div>Loading...</div>
-    //     )
-    // }
-
     const groupedByGeneration = Array.from(pokemonData.entries()).reduce((acc, [pokemonName, { spriteUrl, isDisabled, generation, pokedexNumber }]) => {
         if (!acc[generation]) {
             acc[generation] = [];
@@ -126,6 +122,26 @@ export const Draftlocke: React.FC = () => {
         });
     
         return playerTeam;
+    }
+
+    const randomizeTeams = () => {
+        const teamAssignments: Map<string, string> = new Map();
+
+        let unpickedDraftees = [...draftees];
+
+        draftees.forEach((draftee) => {
+            let possibleAssignments = unpickedDraftees.filter(name => name.toLowerCase() !== draftee.toLowerCase());
+
+            if (possibleAssignments.length === 0) {
+                possibleAssignments = [unpickedDraftees[0]];
+            }
+
+            let assignedTo = possibleAssignments[Math.floor(Math.random() * possibleAssignments.length)];
+            teamAssignments.set(draftee, assignedTo);
+            unpickedDraftees = unpickedDraftees.filter(name => name !== assignedTo);
+        });
+
+        setRandomizedTeams(teamAssignments);
     }
     
     return (
@@ -160,9 +176,14 @@ export const Draftlocke: React.FC = () => {
                         </CollapsiblePokemonButton>
                     ))}
                 </div>
-
             </div>
             <div className="teams">
+                <Button onClick={() => randomizeTeams()} variant="contained" size="large">
+                    Randomize Teams
+                </Button>
+                <Button onClick={() => setRandomizedTeams(new Map())} variant="outlined" size="medium">
+                    Reset Assignments
+                </Button>
                 <h1>Current Draftee: <div className="current-draftee">{currentPlayer}</div></h1>
                 {draftees.map((draftee) => (
                     <div className="team-container" key={draftee}>
@@ -174,6 +195,9 @@ export const Draftlocke: React.FC = () => {
                         >
                             {draftee}'s Drafts:
                         </h2>
+                        {(randomizedTeams.size > 0) && 
+                            <h4>Assigned to: {randomizedTeams.get(draftee)}</h4>
+                        }
                         <div className="pokemon-container">
                             {getPokemonFromPlayer(draftee).map(({ pokemonName, spriteUrl }) => (
                                 <div className="name-and-sprite" key={pokemonName}>
