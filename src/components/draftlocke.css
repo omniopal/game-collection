@@ -111,6 +111,7 @@ h3 {
 
 h2 {
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 h2:hover {
@@ -123,4 +124,5 @@ h1 {
 
 .current-draftee {
     color: rgb(191,0,0);
+    text-transform: capitalize;
 }
