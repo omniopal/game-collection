@@ -1,0 +1,123 @@
+.sprite {
+    /* border: 2px solid red;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); */
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sprite-container {
+    transition: all .1s ease-in-out;
+    position: relative;
+    display: inline-block;
+    max-width: 100px;
+    max-height: 100px;
+    cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.sprite-container:hover {
+    scale: 1.25;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 40px;
+    background-color: rgba(115, 110, 160, 0.7);
+    height: 100%;
+    min-height: 100vh;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.draft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 55vw;
+    gap: 20px;
+}
+
+.teams {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 30vw;
+    gap: 20px;
+
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.pokemon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.draft-pokemon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 60vw;
+    gap: 20px;
+}
+
+.name-and-sprite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+h3 {
+    text-transform: capitalize;
+    
+}
+
+h2 {
+    cursor: pointer;
+}
+
+h2:hover {
+    color: rgb(191,0,0);
+}
+
+h1 {
+    text-align: center;
+}
+
+.current-draftee {
+    color: rgb(191,0,0);
+}
