@@ -209,7 +209,7 @@ export const Draftlocke: React.FC = () => {
                     {Object.entries(groupedByGeneration)
                         .sort((a, b) => Number(a) - Number(b))
                         .map(([generation, pokemons]) => (
-                        <CollapsiblePokemonButton generationName={getGenerationName(Number(generation))}>
+                        <CollapsiblePokemonButton key={generation} generationName={getGenerationName(Number(generation))}>
                             {pokemons
                                 .sort((a, b) => Number(a.pokedexNumber) - Number(b.pokedexNumber))
                                 .map(({ pokemonName, spriteUrl }) => (
