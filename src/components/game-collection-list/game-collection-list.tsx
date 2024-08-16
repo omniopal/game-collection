@@ -7,6 +7,7 @@ import { getPhysicalGameType } from '../../utils/get-physical-game-type';
 import Image from 'next/image';
 import { NoGamesWarning } from '../no-games-warning/no-games-warning';
 import { Filters } from '../filters/filters';
+import { getGameBoxType } from 'src/utils/get-game-box-type';
 
 
 type GameCollectionListProps = {};
@@ -18,7 +19,7 @@ interface Game {
     boxArt: string;
     hasGame: boolean;
     hasCase: boolean;
-    hasManual: boolean;
+    hasManual?: boolean;
     hasPlayed: boolean;
     image?: string;
     releaseDate: string;
@@ -63,6 +64,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
             <nav className="game-collection-list">
                 {gameData.consoles.map((console, index) => {
                     const physicalGameType = getPhysicalGameType(console.name);
+                    const boxType = getGameBoxType(console.name);
                     const isLast = index === gameData.consoles.length - 1;
 
                     return (
@@ -95,6 +97,7 @@ export const GameCollectionList: React.FC<GameCollectionListProps> = () => {
                                                 personalCopyImage={game.image}
                                                 gameReleaseDate={game.releaseDate}
                                                 physicalGameType={physicalGameType}
+                                                boxType={boxType}
                                                 isVeryLastGame={isVeryLastGame}
                                                 chipInfo={{
                                                     hasGame: game.hasGame,

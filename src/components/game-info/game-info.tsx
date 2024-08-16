@@ -19,11 +19,12 @@ type GameInfoProps = PropsWithChildren & {
     chipInfo: ChipInfo;
     gameReleaseDate: string;
     physicalGameType: string;
+    boxType: string;
     isVeryLastGame: boolean;
 };
 
 export const GameInfo: React.FC<GameInfoProps> = (props) => {
-    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType, isVeryLastGame } = props;
+    const { text, boxArt, personalCopyImage, chipInfo, gameReleaseDate, physicalGameType, boxType, isVeryLastGame } = props;
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
 
@@ -39,7 +40,7 @@ export const GameInfo: React.FC<GameInfoProps> = (props) => {
                     {!isSmallBreakpoint && 
                         <div className="chips">
                             <Chip label={physicalGameType} color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
-                            <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
+                            <Chip label={boxType} color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
                             {chipInfo.hasManual !== undefined && <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />}
                             <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
                             {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={personalCopyImage} />}
@@ -49,9 +50,9 @@ export const GameInfo: React.FC<GameInfoProps> = (props) => {
             {isSmallBreakpoint && 
                 <div className="chips-small-breakpoint">
                     <div className="chip-space">
-                        <Chip label="Cartridge" color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
-                        <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
-                        <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />
+                        <Chip label={physicalGameType} color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
+                        <Chip label={boxType} color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
+                        {chipInfo.hasManual !== undefined && <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />}
                         <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
                         <div className="modal-button">
                             {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={personalCopyImage} />}
