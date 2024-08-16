@@ -46,6 +46,12 @@ export function useFirestore() {
         await updateDoc(playersDoc, { draftOrder });
     }
 
+    const setFirestoreRandomizedTeams = async (randomizedTeams: Map<string, string>) => {
+        const playersDoc = doc(db, 'players', 'players');
+        const obj = Object.fromEntries(randomizedTeams);
+        await updateDoc(playersDoc, { randomizedTeams: obj });
+    }
+
 
     const addPokemon = async (pokemonName: string, data: DraftPokemon) => {
         try {
@@ -56,5 +62,5 @@ export function useFirestore() {
         }
     }
 
-  return { setFirestoreDraftOrder, getPlayersRef, getPlayers, setPokemonDraftedBy, getDraftPokemonRef, updatePokemonDisabled, addPokemon };
+  return { setFirestoreRandomizedTeams, setFirestoreDraftOrder, getPlayersRef, getPlayers, setPokemonDraftedBy, getDraftPokemonRef, updatePokemonDisabled, addPokemon };
 }

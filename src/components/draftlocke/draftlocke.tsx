@@ -23,7 +23,7 @@ export const Draftlocke: React.FC = () => {
     const [randomizedTeams, setRandomizedTeams] = useState<Map<string, string>>(new Map());
     const [isShinyKeyHeld, setIsShinyKeyHeld] = useState(false);
     const [draftOrder, setDraftOrder] = useState('');
-    const { setFirestoreDraftOrder, getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
+    const { setFirestoreRandomizedTeams, setFirestoreDraftOrder, getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
     
     // Shows/Hides the red crossed out circle over a pokemon
     const toggleDisabled = useCallback((pokemonName: string) => {
@@ -89,6 +89,9 @@ export const Draftlocke: React.FC = () => {
                 playerData.forEach((player: string) => {
                     players.push(player);
                     dbDraftOrder = data.draftOrder;
+
+                    const dbRandomizedTeams = new Map<string, string>(Object.entries(data.randomizedTeams));
+                    setRandomizedTeams(dbRandomizedTeams);
                 });
             });
 
@@ -158,7 +161,7 @@ export const Draftlocke: React.FC = () => {
             unpickedDraftees = unpickedDraftees.filter(name => name !== assignedTo);
         });
 
-        setRandomizedTeams(teamAssignments);
+        setFirestoreRandomizedTeams(teamAssignments);
     }
 
     // Given the normal spriteUrl, returns the URL for the shiny sprite
@@ -166,6 +169,7 @@ export const Draftlocke: React.FC = () => {
         return spriteUrl.replace('/other/showdown/', '/other/showdown/shiny/');
     }
 
+    // Randomize the order of drafting
     const getDraftOrder = () => {
         let remainingDraftees = [...draftees];
         let draftOrder = '';
@@ -187,14 +191,16 @@ export const Draftlocke: React.FC = () => {
         }
 
         setFirestoreDraftOrder(draftOrder);
-        setDraftOrder(draftOrder);
     }
     
     return (
         <div className="container">
             <div className="draft">
                 <button className="draft-order-button" onClick={getDraftOrder}>
-                    Generate Draft Order
+                    Randomize Draft Order
+                </button>
+                <button className="draft-order-button" onClick={() => setFirestoreDraftOrder('')}>
+                    Clear Draft Order
                 </button>
                 {draftOrder && <div className="draft-order">{draftOrder}</div>}
                 <h1>Draftable Pokemon</h1>
@@ -229,10 +235,10 @@ export const Draftlocke: React.FC = () => {
             </div>
             <div className="teams">
                 <button className="random-buttons" onClick={() => randomizeTeams()}>
-                    Randomize Teams
+                    Randomize Team Assignments
                 </button>
-                <button className="random-buttons" onClick={() => setRandomizedTeams(new Map())}>
-                    Reset Assignments
+                <button className="random-buttons" onClick={() => setFirestoreRandomizedTeams(new Map())}>
+                    Reset Team Assignments
                 </button>
                 <h1>Current Draftee: <div className="current-draftee">{currentPlayer}</div></h1>
                 {draftees.map((draftee) => (
