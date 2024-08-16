@@ -25,10 +25,10 @@
                 },
                 {
                     "title": "Donkey Kong",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NES/DonkeyKong.jpg",
                     "releaseDate": "June 1, 1986"
                 },
@@ -52,7 +52,7 @@
                 },
                 {
                     "title": "Donkey Kong Classics",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
@@ -61,19 +61,19 @@
                 },
                 {
                     "title": "Super Mario Bros. 2",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NES/SuperMarioBros2.jpeg",
                     "releaseDate": "October 14, 1988"
                 },
                 {
                     "title": "Super Mario Bros. / Duck Hunt",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NES/SuperMarioBrosDuckHunt.jpg",
                     "releaseDate": "November 1988"
                 },
@@ -81,23 +81,23 @@
                     "title": "Super Mario Bros. 3",
                     "hasGame": true,
                     "hasCase": true,
-                    "hasManual": false,
+                    "hasManual": true,
                     "hasPlayed": true,
                     "boxArt": "NES/SuperMarioBros3.webp",
                     "releaseDate": "February 12, 1990"
                 },
                 {
                     "title": "Dr. Mario",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "NES/DrMario.webp",
                     "releaseDate": "October 4, 1990"
                 },
                 {
                     "title": "Super Mario Bros. / Duck Hunt / World Class Track Meet",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
@@ -108,7 +108,7 @@
                     "title": "NES Open Tournament Golf",
                     "hasGame": true,
                     "hasCase": true,
-                    "hasManual": false,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "NES/NESOpenTournamentGolf.jpg",
                     "releaseDate": "September 29, 1991"
@@ -174,7 +174,7 @@
             "games": [
                 {
                     "title": "Super Mario World",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": true,
@@ -192,7 +192,7 @@
                 },
                 {
                     "title": "Super Mario Kart",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": true,
@@ -204,7 +204,7 @@
                     "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "SNES/MarioIsMissing.webp",
                     "releaseDate": "June 1993"
                 },
@@ -222,7 +222,7 @@
                     "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "SNES/MariosTimeMachine.jpg",
                     "releaseDate": "December 1993"
                 },
@@ -246,7 +246,7 @@
                 },
                 {
                     "title": "Mario's Early Years: Preschool Fun",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
@@ -255,18 +255,18 @@
                 },
                 {
                     "title": "Tetris & Dr. Mario",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "SNES/TetrisAndDrMario.webp",
                     "releaseDate": "December 1994"
                 },
                 {
                     "title": "Super Mario World 2: Yoshi's Island",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": true,
                     "boxArt": "SNES/SMW2.webp",
                     "releaseDate": "October 4, 1995"
@@ -314,19 +314,19 @@
             "games": [
                 {
                     "title": "Super Mario 64",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "N64/SuperMario64.png",
                     "releaseDate": "September 29, 1996"
                 },
                 {
                     "title": "Mario Kart 64",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "N64/MarioKart64.webp",
                     "releaseDate": "February 10, 1997"
                 },
@@ -341,10 +341,10 @@
                 },
                 {
                     "title": "Super Smash Bros",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "N64/SuperSmashBros.webp",
                     "releaseDate": "April 26, 1999"
                 },
@@ -447,9 +447,9 @@
                 },
                 {
                     "title": "Mario Tennis",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "GBC/MarioTennis.webp",
                     "releaseDate": "January 16, 2001"
@@ -463,37 +463,37 @@
             "games": [
                 {
                     "title": "Super Mario Advance",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "GBA/SuperMarioAdvance.webp",
                     "releaseDate": "June 11, 2001"
                 },
                 {
                     "title": "Mario Kart: Super Circut",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "GBA/MarioKartSC.webp",
                     "releaseDate": "August 27, 2001"
                 },
                 {
-                    "title": "Super Mario World",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "title": "Super Mario World: Super Mario Advance 2",
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "GBA/SuperMarioWorld.webp",
                     "releaseDate": "February 11, 2002"
                 },
                 {
                     "title": "Yoshi's Island: Super Mario Advance 3",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "GBA/YoshisIsland.webp",
                     "releaseDate": "September 23, 2002"
                 },
@@ -508,19 +508,19 @@
                 },
                 {
                     "title": "Super Mario Advance 4: Super Mario Bros. 3",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "GBA/SMB3.webp",
                     "releaseDate": "October 11, 2003"
                 },
                 {
                     "title": "Mario & Luigi: Superstar Saga",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "GBA/SuperstarSaga.webp",
                     "releaseDate": "November 17, 2003"
                 },
@@ -535,10 +535,10 @@
                 },
                 {
                     "title": "Classic NES Series: Super Mario Bros.",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "GBA/SuperMarioBros.webp",
                     "releaseDate": "June 2, 2004"
                 },
@@ -561,11 +561,20 @@
                     "releaseDate": "October 4, 2004"
                 },
                 {
-                    "title": "Mario Party Advance",
-                    "hasGame": false,
-                    "hasCase": false,
+                    "title": "Classic NES Series: Dr. Mario",
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
+                    "boxArt": "GBA/DrMario.webp",
+                    "releaseDate": "October 4, 2004"
+                },
+                {
+                    "title": "Mario Party Advance",
+                    "hasGame": true,
+                    "hasCase": false,
+                    "hasManual": false,
+                    "hasPlayed": true,
                     "boxArt": "GBA/MarioPartyAdvance.webp",
                     "releaseDate": "March 28, 2005"
                 },
@@ -580,10 +589,10 @@
                 },
                 {
                     "title": "Mario Tennis: Power Tour",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "GBA/MarioTennisPowerTour.webp",
                     "releaseDate": "December 5, 2005"
                 }
@@ -744,10 +753,10 @@
             "games": [
                 {
                     "title": "Super Mario 64 DS",
-                    "hasGame": false,
-                    "hasCase": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/SM64DS.webp",
                     "releaseDate": "November 21, 2004"
                 },
@@ -762,46 +771,46 @@
                 },
                 {
                     "title": "Mario Kart DS",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "NDS/MKDS.webp",
                     "releaseDate": "November 14, 2005"
                 },
                 {
                     "title": "Mario & Luigi: Partners in Time",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/PartnersInTime.webp",
                     "releaseDate": "November 28, 2005"
                 },
                 {
                     "title": "Super Princess Peach",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/SuperPrincessPeach.webp",
                     "releaseDate": "February 27, 2006"
                 },
                 {
                     "title": "New Super Mario Bros.",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "NDS/NSMBDS.webp",
                     "releaseDate": "May 15, 2006"
                 },
                 {
                     "title": "Mario Hoops 3-on-3",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/MarioHoops.webp",
                     "releaseDate": "September 11, 2006"
                 },
@@ -816,19 +825,19 @@
                 },
                 {
                     "title": "Yoshi's Island DS",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/YoshisIsland.webp",
                     "releaseDate": "November 13, 2006"
                 },
                 {
                     "title": "Mario Party DS",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "NDS/MPDS.webp",
                     "releaseDate": "November 19, 2007"
                 },
@@ -843,27 +852,27 @@
                 },
                 {
                     "title": "Mario & Luigi: Bowser's Inside Story",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "NDS/BowsersInsideStory.webp",
                     "releaseDate": "September 14, 2009"
                 },
                 {
                     "title": "Mario & Sonic at the Olympic Winter Games",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "NDS/WinterGames.webp",
                     "releaseDate": "October 13, 2009"
                 },
                 {
                     "title": "Mario vs. Donkey Kong: Mini-Land Mayhem!",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "NDS/MiniLandMayhem.webp",
                     "releaseDate": "November 14, 2010"
@@ -877,10 +886,10 @@
             "games": [
                 {
                     "title": "Super Paper Mario",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/SuperPaperMario.webp",
                     "releaseDate": "April 9, 2007"
                 },
@@ -889,16 +898,16 @@
                     "hasGame": false,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "Wii/MP8.webp",
                     "releaseDate": "May 29, 2007"
                 },
                 {
                     "title": "Mario Strikers Charged",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/MarioStrikersCharged.webp",
                     "releaseDate": "July 30, 2007"
                 },
@@ -913,10 +922,10 @@
                 },
                 {
                     "title": "Super Mario Galaxy",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/SMG.webp",
                     "releaseDate": "November 12, 2007"
                 },
@@ -925,25 +934,25 @@
                     "hasGame": false,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "Wii/SSBB.webp",
                     "releaseDate": "March 9, 2008"
                 },
                 {
                     "title": "Mario Kart Wii",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/MKW.jpg",
                     "releaseDate": "April 27, 2008"
                 },
                 {
                     "title": "Super Mario Sluggers",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/SuperMarioSluggers.webp",
                     "releaseDate": "August 25, 2008"
                 },
@@ -967,19 +976,19 @@
                 },
                 {
                     "title": "New Super Mario Bros. Wii",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/NSMBW.webp",
                     "releaseDate": "November 15, 2009"
                 },
                 {
                     "title": "Super Mario Galaxy 2",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "Wii/SMG2.webp",
                     "releaseDate": "May 23, 2010"
                 },
@@ -1003,9 +1012,9 @@
                 },
                 {
                     "title": "Mario & Sonic at the London 2012 Olympic Games",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "Wii/LondonGames.webp",
                     "releaseDate": "November 15, 2011"
@@ -1037,10 +1046,10 @@
             "games": [
                 {
                     "title": "Super Mario 3D Land",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "3DS/SM3DL.webp",
                     "releaseDate": "November 13, 2011"
                 },
@@ -1064,16 +1073,16 @@
                 },
                 {
                     "title": "Mario Tennis Open",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "3DS/MarioTennisOpen.webp",
                     "releaseDate": "May 20, 2012"
                 },
                 {
                     "title": "New Super Mario Bros. 2",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
                     "hasPlayed": false,
@@ -1091,28 +1100,28 @@
                 },
                 {
                     "title": "Luigi's Mansion: Dark Moon",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "3DS/DarkMoon.webp",
                     "releaseDate": "March 24, 2013"
                 },
                 {
                     "title": "Mario & Luigi: Dream Team",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "3DS/DreamTeam.webp",
                     "releaseDate": "August 11, 2013"
                 },
                 {
                     "title": "Mario Party: Island Tour",
-                    "hasGame": false,
+                    "hasGame": true,
                     "hasCase": false,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "3DS/IslandTour.webp",
                     "releaseDate": "November 22, 2013"
                 },
@@ -1136,10 +1145,10 @@
                 },
                 {
                     "title": "Super Smash Bros. for Nintendo 3DS",
-                    "hasGame": false,
-                    "hasCase": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "3DS/SSB.webp",
                     "releaseDate": "October 3, 2014"
                 },
@@ -1198,15 +1207,6 @@
                     "releaseDate": "December 2, 2016"
                 },
                 {
-                    "title": "Ultimate NES Remix",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "3DS/UltimateNESRemix.webp",
-                    "releaseDate": "December 5, 2014"
-                },
-                {
                     "title": "Poochy & Yoshi's Woolly World",
                     "hasGame": false,
                     "hasCase": false,
@@ -1226,10 +1226,10 @@
                 },
                 {
                     "title": "Mario & Luigi: Superstar Saga + Bowser's Minions",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "3DS/BowsersMinions.webp",
                     "releaseDate": "October 6, 2017"
                 },
@@ -1278,17 +1278,17 @@
             "games": [
                 {
                     "title": "New Super Mario Bros. U",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/NSMBU.webp",
                     "releaseDate": "November 18, 2012"
                 },
                 {
                     "title": "New Super Luigi U",
-                    "hasGame": false,
-                    "hasCase": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "WiiU/NSLU.webp",
@@ -1296,10 +1296,10 @@
                 },
                 {
                     "title": "Super Mario 3D World",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/SM3DW.webp",
                     "releaseDate": "November 22, 2013"
                 },
@@ -1314,19 +1314,19 @@
                 },
                 {
                     "title": "Mario Kart 8",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/MK8.webp",
                     "releaseDate": "May 30, 2014"
                 },
                 {
                     "title": "Super Smash Bros. for WiiU",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/SSB.webp",
                     "releaseDate": "November 21, 2014"
                 },
@@ -1350,19 +1350,19 @@
                 },
                 {
                     "title": "Super Mario Maker",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/SMM.webp",
                     "releaseDate": "September 11, 2015"
                 },
                 {
                     "title": "Yoshi's Woolly World",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/WoollyWorld.webp",
                     "releaseDate": "October 16, 2015"
                 },
@@ -1404,35 +1404,23 @@
                     "title": "Mario Kart 8 Deluxe",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "Switch/MK8D.webp",
                     "releaseDate": "April 28, 2017"
                 },
                 {
                     "title": "Mario + Rabbids Kingdom Battle",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasPlayed": false,
                     "boxArt": "Switch/MarioRabbids.webp",
                     "releaseDate": "August 29, 2017"
                 },
                 {
-                    "title": "Mario Kart 8 Deluxe",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
-                    "boxArt": "Switch/MK8D.webp",
-                    "releaseDate": "April 28, 2017"
-                },
-                {
                     "title": "Super Mario Odyssey",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/SMO.webp",
                     "releaseDate": "October 27, 2017"
                 },
@@ -1440,7 +1428,6 @@
                     "title": "Mario Tennis Aces",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/TennisAces.webp",
                     "releaseDate": "June 22, 2018"
@@ -1449,7 +1436,6 @@
                     "title": "Captain Toad: Treasure Tracker",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/TreasureTracker.webp",
                     "releaseDate": "July 13, 2018"
@@ -1458,17 +1444,15 @@
                     "title": "Super Mario Party",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/SMP.webp",
                     "releaseDate": "October 5, 2018"
                 },
                 {
                     "title": "Super Smash Bros. Ultimate",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/SSBU.webp",
                     "releaseDate": "December 7, 2018"
                 },
@@ -1476,7 +1460,6 @@
                     "title": "New Super Mario Bros. U Deluxe",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/NSMBUD.webp",
                     "releaseDate": "January 11, 2019"
@@ -1485,7 +1468,6 @@
                     "title": "Yoshi's Crafted World",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/CraftedWorld.webp",
                     "releaseDate": "March 29, 2019"
@@ -1494,17 +1476,15 @@
                     "title": "Super Mario Maker 2",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/SMM2.webp",
                     "releaseDate": "June 28, 2019"
                 },
                 {
                     "title": "Luigi's Mansion 3",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/LM3.webp",
                     "releaseDate": "October 31, 2019"
                 },
@@ -1512,26 +1492,23 @@
                     "title": "Mario & Sonic at the Olympic Games Tokyo 2020",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/TokyoGames.webp",
                     "releaseDate": "November 5, 2019"
                 },
                 {
                     "title": "Paper Mario: The Origami King",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/OrigamiKing.webp",
                     "releaseDate": "July 17, 2020"
                 },
                 {
                     "title": "Super Mario 3D All-Stars",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/3DAS.webp",
                     "releaseDate": "September 18, 2020"
                 },
@@ -1539,35 +1516,31 @@
                     "title": "Mario Kart Live: Home Circut",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/HomeCircut.webp",
                     "releaseDate": "October 16, 2020"
                 },
                 {
                     "title": "Super Mario 3D World + Bowser's Fury",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/BowsersFury.webp",
                     "releaseDate": "February 21, 2021"
                 },
                 {
                     "title": "Mario Golf: Super Rush",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasPlayed": false,
                     "boxArt": "Switch/SuperRush.webp",
                     "releaseDate": "June 25, 2021"
                 },
                 {
                     "title": "Mario Party Superstars",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/MPS.webp",
                     "releaseDate": "October 29, 2021"
                 },
@@ -1575,44 +1548,39 @@
                     "title": "Mario Strikers: Battle League",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/BattleLeague.webp",
                     "releaseDate": "June 10, 2022"
                 },
                 {
                     "title": "Mario + Rabbids: Sparks of Hope",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
                     "hasPlayed": false,
                     "boxArt": "Switch/SparksOfHope.webp",
                     "releaseDate": "October 20, 2022"
                 },
                 {
                     "title": "Super Mario Bros. Wonder",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/SMW.webp",
                     "releaseDate": "October 20, 2023"
                 },
                 {
                     "title": "Super Mario RPG",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/SMRPG.webp",
                     "releaseDate": "November 17, 2023"
                 },
                 {
                     "title": "Mario vs. Donkey Kong",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/MVDK.webp",
                     "releaseDate": "February 16, 2024"
                 },
@@ -1620,26 +1588,23 @@
                     "title": "Luigi's Mansion 2 HD",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/LM2.webp",
                     "releaseDate": "June 27, 2024"
                 },
                 {
                     "title": "Princess Peach: Showtime!",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/Showtime.webp",
                     "releaseDate": "March 22, 2024"
                 },
                 {
                     "title": "Paper Mario: The Thousand Year-Door",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/TTYD.webp",
                     "releaseDate": "May 23, 2024"
                 },
@@ -1647,7 +1612,6 @@
                     "title": "Super Paper Mario Jamboree",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/Jamboree.webp",
                     "releaseDate": "October 17, 2024"
@@ -1656,7 +1620,6 @@
                     "title": "Mario & Luigi: Brothership",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasManual": false,
                     "hasPlayed": false,
                     "boxArt": "Switch/Brothership.webp",
                     "releaseDate": "November 7, 2024"
