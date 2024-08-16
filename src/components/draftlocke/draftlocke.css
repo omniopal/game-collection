@@ -72,8 +72,8 @@
     flex-direction: column-reverse;
     align-items: center;
     padding: 20px;
-    background-color: rgba(115, 110, 160, 0.7);
-    background-image: url('/images/Draftlocke/pokeballs.webp');
+    /* background-color: rgba(115, 110, 160, 0.7); */
+    background-image: url("/images/Draftlocke/pokeballs.webp"), linear-gradient(0deg, rgba(77, 131, 247, 0.767) 0%, rgba(40, 47, 150, 0.377) 100%);
     height: 100%;
     min-height: 100vh;
 }
