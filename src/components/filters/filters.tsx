@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, ClickAwayListener, Grow, MenuItem, MenuList, Paper, Popper } from "@mui/material"
 import FilterListIcon from '@mui/icons-material/FilterList';
-import { ListFilter } from './game-collection-list';
-import { getMuiStyleOverrides } from './mui-style-overrides/filters.styles';
+import { getMuiStyleOverrides } from './mui-styles-overrides/filters.styles';
 import './filters.css';
+import { ListFilter } from '../game-collection-list/game-collection-list';
 
 type FiltersProps = {
     onFilterChange: (filter: ListFilter) => void;

@@ -1,7 +1,7 @@
 import { collection, doc, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { getApp, getApps, initializeApp } from 'firebase/app';
 import 'dotenv/config'
-import { DraftPokemon } from 'src/components/draftlocke';
+import { DraftPokemon } from 'src/components/draftlocke/draftlocke';
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,

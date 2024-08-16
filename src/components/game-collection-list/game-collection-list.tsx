@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './game-collection-list.css';
-import { CollapsibleConsoleButton } from './collapsible-console-button';
-import * as gameCollectionDataJson from '../data/game-collection-data.json';
-import { Filters } from './filters';
-import { GameInfo } from './game-info';
-import { getPhysicalGameType } from '../utils/get-physical-game-type';
+import { CollapsibleConsoleButton } from '../collapsible-console-button/collapsible-console-button';
+import * as gameCollectionDataJson from '../../data/game-collection-data.json';
+import { GameInfo } from '../game-info/game-info';
+import { getPhysicalGameType } from '../../utils/get-physical-game-type';
 import Image from 'next/image';
-import { NoGamesWarning } from './no-games-warning';
+import { NoGamesWarning } from '../no-games-warning/no-games-warning';
+import { Filters } from '../filters/filters';
 
 
 type GameCollectionListProps = {};

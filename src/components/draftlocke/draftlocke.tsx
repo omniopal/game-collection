@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import './draftlocke.css';
-import { CollapsiblePokemonButton } from './collapsible-pokemon-button';
+import { CollapsiblePokemonButton } from '../collapsible-pokemon-button/collapsible-pokemon-button';
 import { useFirestore } from 'src/utils/use-firestore';
 import { onSnapshot } from 'firebase/firestore';
 import clsx from 'clsx';

@@ -23,6 +23,28 @@ export const Maze: React.FC = () => {
     const imageRef = useRef<HTMLImageElement>(null);
 
     const updateImagePath = () => {
+        if (turnsToRight) {
+            console.log(rotationDirection);
+
+            if (rotationDirection === 'left') {
+                setImagePath(`/images/Mazes/right Maze 4 path only 2.webp`);
+            }
+
+            if (rotationDirection === 'up') {
+                setImagePath(`/images/Mazes/right Maze 2 path only 2.webp`);
+            }
+
+            if (rotationDirection === 'down') {
+                setImagePath(`/images/Mazes/right Maze 3 path only 2.webp`);
+            }
+
+            if (rotationDirection === 'right') {
+                setImagePath(`/images/Mazes/right Maze 1 path only 2.webp`);
+            }
+
+            return;
+        }
+
         let path = imagePathMap[rotationDirection];
 
         if (turnsToLeft) {
@@ -30,13 +52,17 @@ export const Maze: React.FC = () => {
             return;
         }
 
-        if (turnsToRight) {
-            setImagePath(`/images/Mazes/right ${path}`);
-            return;
-        }
-
         setImagePath(`/images/Mazes/${path}`);
     };
+
+    // useEffect(() => {
+    //     const imageEl = imageRef.current;
+    //     imageEl?.addEventListener('transitionend', updateImagePath);
+
+    //     return () => {
+    //         imageEl?.removeEventListener('transitionend', updateImagePath);
+    //     }
+    // }, [rotationDirection]);
 
     useEffect(() => {
         const imageEl = imageRef.current;
@@ -61,7 +87,11 @@ export const Maze: React.FC = () => {
     }
 
     const handleClick = (direction: Direction) => {
-        if (rotationDirection != direction) {
+        if (direction === rotationDirection) {
+            updateImagePath();
+        }
+
+        if (rotationDirection !== direction) {
             const degreeChange = calculateDegreeChange(rotationDirection, direction);
             setRotationDegree(rotationDegree + degreeChange);
 
@@ -75,33 +105,94 @@ export const Maze: React.FC = () => {
     }
 
     const onTurnsToLeftChange = (_: any, value: boolean | null) => {
-        if (value !== null) {
-            setTurnsToLeft(value);
-        }
-
         if (turnsToRight) {
             setTurnsToRight(false);
+
+            if (rotationDirection === 'left') {
+                handleClick('up');
+            }
+
+            if (rotationDirection === 'up') {
+                handleClick('right');
+            }
+
+            if (rotationDirection === 'right') {
+                handleClick('down');
+            }
+
+            if (rotationDirection === 'down') {
+                handleClick('left');
+            }
         }
+
+        if (value === true) {
+            setTurnsToLeft(true);
+            handleClick(rotationDirection);
+        }
+
+        if (value === false) {
+            setTurnsToLeft(false);
+        }
+
+        // updateImagePath();
+
     }
 
     const onTurnsToRightChange = (_: any, value: boolean | null) => {
-        if (value !== null) {
-            setTurnsToRight(value);
+        if (value === true) {
+            setTurnsToRight(true);
+
+            if (rotationDirection === 'up') {
+                handleClick('left');
+            }
+
+            if (rotationDirection === 'right') {
+                handleClick('up');
+            }
+
+            if (rotationDirection === 'down') {
+                handleClick('right');
+            }
+
+            if (rotationDirection === 'left') {
+                handleClick('down');
+            }
+        }
+
+        if (value === false) {
+            setTurnsToRight(false);
+
+            if (rotationDirection === 'left') {
+                handleClick('up');
+            }
+
+            if (rotationDirection === 'up') {
+                handleClick('right');
+            }
+
+            if (rotationDirection === 'right') {
+                handleClick('down');
+            }
+
+            if (rotationDirection === 'down') {
+                handleClick('left');
+            }
         }
 
         if (turnsToLeft) {
             setTurnsToLeft(false);
+            // updateImagePath();
         }
     }
 
     useEffect(() => {
-        updateImagePath();
-    }, [turnsToLeft, turnsToRight]);
+        updateImagePath()
+    }, [turnsToLeft]);
 
     return (
         <div className="maze-container">
             <div className="settings-container">
-                <div className="setting">
+                <div className="select-golf-course">
                     <div className="header">Select Golf Course</div>
                     <ToggleButtonGroup
                         orientation='horizontal'
@@ -123,21 +214,21 @@ export const Maze: React.FC = () => {
             <div className="buttons">
                 <div className="image-group">
                     <div className="image-and-text">
-                        <img className={clsx("button", rotationDirection === 'left' && "selected")} src="/images/Mazes/Maze 4 in game.webp" onClick={() => handleClick('left')}/>
+                        <img className={clsx("button", (rotationDirection === 'left' && !turnsToRight || rotationDirection === 'down' && turnsToRight) && "selected")} src="/images/Mazes/Maze 4 in game.webp" onClick={() => handleClick('left')}/>
                         <p>2 paths & leaves</p>
                     </div>
                     <div className="image-and-text">
-                        <img className={clsx("button", rotationDirection === 'right' && "selected")} src="/images/Mazes/Maze 2 in game.webp" onClick={() => handleClick('right')}/>
+                        <img className={clsx("button", (rotationDirection === 'right' && !turnsToRight || rotationDirection === 'up' && turnsToRight) && "selected")} src="/images/Mazes/Maze 2 in game.webp" onClick={() => handleClick('right')}/>
                         <p>2 paths & no leaves</p>
                     </div>
                 </div>
                 <div className="image-group">
                     <div className="image-and-text">
-                        <img className={clsx("button", rotationDirection === 'down' && "selected")} src="/images/Mazes/Maze 3 in game.webp" onClick={() => handleClick('down')}/>
+                        <img className={clsx("button", (rotationDirection === 'down' && !turnsToRight || rotationDirection === 'right' && turnsToRight) && "selected")} src="/images/Mazes/Maze 3 in game.webp" onClick={() => handleClick('down')}/>
                         <p>4 paths</p>
                     </div>
                     <div className="image-and-text">
-                        <img className={clsx("button", rotationDirection === 'up' && "selected")} src="/images/Mazes/Maze 1 in game.webp" onClick={() => handleClick('up')}/>
+                        <img className={clsx("button", (rotationDirection === 'up' && !turnsToRight || rotationDirection === 'left' && turnsToRight) && "selected")} src="/images/Mazes/Maze 1 in game.webp" onClick={() => handleClick('up')}/>
                         <p>1 path</p>
                     </div>
                 </div>
@@ -161,8 +252,8 @@ export const Maze: React.FC = () => {
                             </ToggleButton>
                         </ToggleButtonGroup>
                         <details className="details">
-                            <summary>How do I tell?</summary>
-                            <div>testing one two three</div>
+                            <summary className="summary-hover">How do I tell?</summary>
+                            <div className="details-text">testing one two three</div>
                         </details>
                     </div>
 
@@ -182,8 +273,8 @@ export const Maze: React.FC = () => {
                             </ToggleButton>
                         </ToggleButtonGroup>
                         <details className="details">
-                            <summary>How do I tell?</summary>
-                            <div>testing one two three</div>
+                            <summary className="summary-hover">How do I tell?</summary>
+                            <div className="details-text">If the previous maze exited to the left, then the next maze will always exit to the right</div>
                         </details>
                     </div>
                 </div>

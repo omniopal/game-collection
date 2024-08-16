@@ -1,9 +1,9 @@
 import { Chip, useMediaQuery, useTheme } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import './game-info.css';
-import { GameImageModalButton } from './game-image-modal-button';
 import Image from 'next/image';
 import clsx from 'clsx';
+import { GameImageModalButton } from '../game-image-modal-button/game-image-modal-button';
 
 type ChipInfo = {
     hasGame: boolean;
