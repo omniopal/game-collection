@@ -57,6 +57,7 @@
     padding: 20px;
     gap: 80px;
     background-color: rgba(115, 110, 160, 0.7);
+    background-image: url('/images/Draftlocke/pokeballs.webp');
     height: 100%;
     min-height: 100vh;
 }

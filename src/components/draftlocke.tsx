@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import './draftlocke.css';
 import { CollapsiblePokemonButton } from './collapsible-pokemon-button';
-import { romanize } from 'src/utils/romanize';
 import { useFirestore } from 'src/utils/use-firestore';
 import { onSnapshot } from 'firebase/firestore';
 import clsx from 'clsx';
+import { getGenerationName } from 'src/utils/get-generation-name';
 
 export interface DraftPokemon {
     spriteUrl: string;
@@ -14,32 +14,25 @@ export interface DraftPokemon {
     draftedBy: string;
 }
 
+type PokemonData = Map<string, DraftPokemon>;
+
 export const Draftlocke: React.FC = () => {
-    const [pokemonData, setPokemonData] = useState<Map<string, DraftPokemon>>(new Map());
+    const [pokemonData, setPokemonData] = useState<PokemonData>(new Map());
     const [draftees, setDraftees] = useState<string[]>([]);
     const [currentPlayer, setCurrentPlayer] = useState<string>('Unselected');
     const [randomizedTeams, setRandomizedTeams] = useState<Map<string, string>>(new Map());
-    const { getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
     const [isShinyKeyHeld, setIsShinyKeyHeld] = useState(false);
+    const { getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
     
-    const getGenerationName = (generation: number) => {
-        if (!generation) {
-            return 'Starters';
+    // Shows/Hides the red crossed out circle over a pokemon
+    const toggleDisabled = useCallback((pokemonName: string) => {
+        const currentPokeData = pokemonData.get(pokemonName);
+        if (currentPokeData) {
+            updatePokemonDisabled(pokemonName, !currentPokeData.isDisabled);
         }
+    }, [pokemonData, updatePokemonDisabled]);
 
-        return `Generation ${romanize(generation)}`
-    }
-
-    const toggleCrossedOutFirestore = (pokemonName: string) => {
-        if (pokemonData.has(pokemonName)) {
-            const currentPokeData = pokemonData.get(pokemonName);
-
-            if (currentPokeData) {
-                updatePokemonDisabled(pokemonName, !currentPokeData.isDisabled);
-            }
-        }
-    }
-
+    // Returns the current isDisabled value for a pokemon
     const getIsDisabled = (pokemonName: string) => {
         if (pokemonData.has(pokemonName)) {
             const currentPokeData = pokemonData.get(pokemonName);
@@ -48,25 +41,28 @@ export const Draftlocke: React.FC = () => {
         }
     }
 
-    const addToTeam = (pokemonName: string) => {
-        if (pokemonData.get(pokemonName)?.draftedBy || currentPlayer === 'Unselected') {
+    // Adds a pokemon to the currentPlayer's team
+    const addToTeam = useCallback((pokemonName: string) => {
+        const pokemon = pokemonData.get(pokemonName);
+        if (pokemon?.draftedBy || currentPlayer === 'Unselected') {
             return;
         }
 
         setPokemonDraftedBy(pokemonName, currentPlayer);
-        toggleCrossedOutFirestore(pokemonName);
-    }
+        toggleDisabled(pokemonName);
+    }, [pokemonData, currentPlayer, setPokemonDraftedBy, toggleDisabled]);
 
-    const removeFromTeam = (pokemonName: string, draftee: string) => {
+    // Removes a pokemon from the currentPlayer's team
+    const removeFromTeam = useCallback((pokemonName: string, draftee: string) => {
         if (draftee === currentPlayer) {
             setPokemonDraftedBy(pokemonName, '');
-            toggleCrossedOutFirestore(pokemonName);
+            toggleDisabled(pokemonName);
         }
-    }
+    }, [currentPlayer, setPokemonDraftedBy, toggleDisabled]);
 
     useEffect(() => {
         const unsubscribeFromDraftPokemon = onSnapshot(getDraftPokemonRef(), (snapshot) => {
-            const firestorePokemon = new Map<string, DraftPokemon>();
+            const firestorePokemon: PokemonData = new Map();
 
             snapshot.forEach((doc) => {
                 const data = doc.data();
@@ -96,10 +92,10 @@ export const Draftlocke: React.FC = () => {
             setDraftees(players);
         });
 
+        // Show shiny teams easter egg
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 's') {
               setIsShinyKeyHeld(true);
-              console.log('testing oneoiwuqhgeoiuh');
             }
           };
       
@@ -122,31 +118,28 @@ export const Draftlocke: React.FC = () => {
         }
     }, []);
 
-    const groupedByGeneration = Array.from(pokemonData.entries()).reduce((acc, [pokemonName, { spriteUrl, isDisabled, generation, pokedexNumber }]) => {
-        if (!acc[generation]) {
-            acc[generation] = [];
-        }
-        acc[generation].push({ pokemonName, spriteUrl, isDisabled, pokedexNumber });
-        return acc;
-    }, {} as Record<string, { pokemonName: string; spriteUrl: string; isDisabled: boolean, pokedexNumber: string, }[]>);
-
-      function getPokemonFromPlayer(
-        playerName: string
-    ): Array<{ pokemonName: string, spriteUrl: string }> {
-        const playerTeam: Array<{ pokemonName: string, spriteUrl: string }> = [];
-    
-        pokemonData.forEach((pokemon, pokemonName) => {
-            if (pokemon.draftedBy === playerName) {
-                playerTeam.push({ pokemonName, spriteUrl: pokemon.spriteUrl });
+    // Group pokemon by generation
+    const groupedByGeneration = useMemo(() => {
+        return Array.from(pokemonData.entries()).reduce((acc, [pokemonName, { spriteUrl, isDisabled, generation, pokedexNumber }]) => {
+            if (!acc[generation]) {
+                acc[generation] = [];
             }
-        });
-    
-        return playerTeam;
-    }
 
+            acc[generation].push({ pokemonName, spriteUrl, isDisabled, pokedexNumber });
+            return acc;
+        }, {} as Record<string, { pokemonName: string; spriteUrl: string; isDisabled: boolean, pokedexNumber: string, }[]>);
+    }, [pokemonData]);
+
+    // Get all of the pokemon that have been drafted by the given player
+    const getPokemonFromPlayer = useCallback((playerName: string): Array<{ pokemonName: string, spriteUrl: string }> => {
+        return Array.from(pokemonData.entries())
+            .filter(([, pokemon]) => pokemon.draftedBy === playerName)
+            .map(([pokemonName, { spriteUrl }]) => ({ pokemonName, spriteUrl }));
+    }, [pokemonData]);
+
+    // Randomly assign the drafted teams to other players
     const randomizeTeams = () => {
         const teamAssignments: Map<string, string> = new Map();
-
         let unpickedDraftees = [...draftees];
 
         draftees.forEach((draftee) => {
@@ -164,6 +157,7 @@ export const Draftlocke: React.FC = () => {
         setRandomizedTeams(teamAssignments);
     }
 
+    // Given the normal spriteUrl, returns the URL for the shiny sprite
     const getShinySpriteUrl = (spriteUrl: string) => {
         return spriteUrl.replace('/other/showdown/', '/other/showdown/shiny/');
     }
