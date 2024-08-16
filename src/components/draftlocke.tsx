@@ -4,7 +4,7 @@ import { CollapsiblePokemonButton } from './collapsible-pokemon-button';
 import { romanize } from 'src/utils/romanize';
 import { useFirestore } from 'src/utils/use-firestore';
 import { onSnapshot } from 'firebase/firestore';
-import { Button } from '@mui/material';
+import clsx from 'clsx';
 
 export interface DraftPokemon {
     spriteUrl: string;
@@ -20,6 +20,7 @@ export const Draftlocke: React.FC = () => {
     const [currentPlayer, setCurrentPlayer] = useState<string>('Unselected');
     const [randomizedTeams, setRandomizedTeams] = useState<Map<string, string>>(new Map());
     const { getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
+    const [isShinyKeyHeld, setIsShinyKeyHeld] = useState(false);
     
     const getGenerationName = (generation: number) => {
         if (!generation) {
@@ -95,10 +96,29 @@ export const Draftlocke: React.FC = () => {
             setDraftees(players);
         });
 
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 's') {
+              setIsShinyKeyHeld(true);
+              console.log('testing oneoiwuqhgeoiuh');
+            }
+          };
+      
+          const handleKeyUp = (event: KeyboardEvent) => {
+            if (event.key === 's') {
+              setIsShinyKeyHeld(false);
+            }
+          };
+      
+          window.addEventListener('keydown', handleKeyDown);
+          window.addEventListener('keyup', handleKeyUp);
+      
+
         // Cleanup subscriptions on component unmount
         return () => {
             unsubscribeFromDraftPokemon();
             unsubscribeFromPlayers();
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyUp);
         }
     }, []);
 
@@ -143,6 +163,10 @@ export const Draftlocke: React.FC = () => {
 
         setRandomizedTeams(teamAssignments);
     }
+
+    const getShinySpriteUrl = (spriteUrl: string) => {
+        return spriteUrl.replace('/other/showdown/', '/other/showdown/shiny/');
+    }
     
     return (
         <div className="container">
@@ -164,7 +188,7 @@ export const Draftlocke: React.FC = () => {
                                                 onClick={() => { 
                                                 addToTeam(pokemonName);
                                             }}>
-                                                { getIsDisabled(pokemonName) && <img className="circle" src="/images/Draftlocke/circle.png" alt="" /> }
+                                                <img className={clsx("circle", getIsDisabled(pokemonName) && "show-circle")} src="/images/Draftlocke/circle.png" alt="" />
                                                 <img className="sprite" src={spriteUrl} alt={pokemonName} />
                                             </div>
                                         ) : (
@@ -178,12 +202,12 @@ export const Draftlocke: React.FC = () => {
                 </div>
             </div>
             <div className="teams">
-                <Button onClick={() => randomizeTeams()} variant="contained" size="large">
+                <button className="random-buttons" onClick={() => randomizeTeams()}>
                     Randomize Teams
-                </Button>
-                <Button onClick={() => setRandomizedTeams(new Map())} variant="outlined" size="medium">
+                </button>
+                <button className="random-buttons" onClick={() => setRandomizedTeams(new Map())}>
                     Reset Assignments
-                </Button>
+                </button>
                 <h1>Current Draftee: <div className="current-draftee">{currentPlayer}</div></h1>
                 {draftees.map((draftee) => (
                     <div className="team-container" key={draftee}>
@@ -203,12 +227,13 @@ export const Draftlocke: React.FC = () => {
                                 <div className="name-and-sprite" key={pokemonName}>
                                 {spriteUrl ? (
                                     <div 
+                                        id="sprite"
                                         className="sprite-container"
                                         onClick={() => {
                                             removeFromTeam(pokemonName, draftee);
                                         }}
                                     >
-                                        <img className="sprite" src={spriteUrl} alt={pokemonName} />
+                                        <img className="sprite" src={isShinyKeyHeld ? getShinySpriteUrl(spriteUrl) : spriteUrl} alt={pokemonName} />
                                     </div>
                                 ) : (
                                     <div>No sprite available</div>
