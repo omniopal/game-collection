@@ -8,7 +8,7 @@ import { GameImageModalButton } from '../game-image-modal-button/game-image-moda
 type ChipInfo = {
     hasGame: boolean;
     hasBox: boolean;
-    hasManual: boolean;
+    hasManual?: boolean;
     hasPlayed: boolean;
 }
 
@@ -40,7 +40,7 @@ export const GameInfo: React.FC<GameInfoProps> = (props) => {
                         <div className="chips">
                             <Chip label={physicalGameType} color="success" variant={chipInfo.hasGame ? "filled" : "outlined"} />
                             <Chip label="Box" color="success" variant={chipInfo.hasBox ? "filled" : "outlined"} />
-                            <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />
+                            {chipInfo.hasManual !== undefined && <Chip label="Manual" color="success" variant={chipInfo.hasManual ? "filled" : "outlined"} />}
                             <Chip label="Played" color="success" variant={chipInfo.hasPlayed ? "filled" : "outlined"} />
                             {chipInfo.hasGame && <GameImageModalButton text={`My copy of ${text}`} image={personalCopyImage} />}
                         </div>}
