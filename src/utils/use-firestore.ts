@@ -41,6 +41,11 @@ export function useFirestore() {
         await getDoc(playersDoc);
     }
 
+    const setFirestoreDraftOrder = async (draftOrder: string) => {
+        const playersDoc = doc(db, 'players', 'players');
+        await updateDoc(playersDoc, { draftOrder });
+    }
+
 
     const addPokemon = async (pokemonName: string, data: DraftPokemon) => {
         try {
@@ -51,5 +56,5 @@ export function useFirestore() {
         }
     }
 
-  return { getPlayersRef, getPlayers, setPokemonDraftedBy, getDraftPokemonRef, updatePokemonDisabled, addPokemon };
+  return { setFirestoreDraftOrder, getPlayersRef, getPlayers, setPokemonDraftedBy, getDraftPokemonRef, updatePokemonDisabled, addPokemon };
 }

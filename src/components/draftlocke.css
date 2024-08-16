@@ -39,10 +39,22 @@
     height: 40px;
     margin-block-start: 12px;
     font-size: medium;
-} 
+}
+
+.draft-order-button {
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+}
 
 .sprite-container:hover {
     scale: 1.25;
+}
+
+.draft-order {
+    text-transform: capitalize;
+    font-size: large;
+    font-weight: 500;
 }
 
 .outer-container {

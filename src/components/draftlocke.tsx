@@ -22,7 +22,8 @@ export const Draftlocke: React.FC = () => {
     const [currentPlayer, setCurrentPlayer] = useState<string>('Unselected');
     const [randomizedTeams, setRandomizedTeams] = useState<Map<string, string>>(new Map());
     const [isShinyKeyHeld, setIsShinyKeyHeld] = useState(false);
-    const { getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
+    const [draftOrder, setDraftOrder] = useState('');
+    const { setFirestoreDraftOrder, getPlayersRef, getDraftPokemonRef, updatePokemonDisabled, setPokemonDraftedBy } = useFirestore();
     
     // Shows/Hides the red crossed out circle over a pokemon
     const toggleDisabled = useCallback((pokemonName: string) => {
@@ -80,16 +81,19 @@ export const Draftlocke: React.FC = () => {
 
         const unsubscribeFromPlayers = onSnapshot(getPlayersRef(), (snapshot) => {
             const players: string[] = [];
+            let dbDraftOrder = '';
 
             snapshot.forEach((doc) => {
                 const data = doc.data();
                 const playerData = data.players;
                 playerData.forEach((player: string) => {
                     players.push(player);
+                    dbDraftOrder = data.draftOrder;
                 });
             });
 
             setDraftees(players);
+            setDraftOrder(dbDraftOrder);
         });
 
         // Show shiny teams easter egg
@@ -161,10 +165,38 @@ export const Draftlocke: React.FC = () => {
     const getShinySpriteUrl = (spriteUrl: string) => {
         return spriteUrl.replace('/other/showdown/', '/other/showdown/shiny/');
     }
+
+    const getDraftOrder = () => {
+        let remainingDraftees = [...draftees];
+        let draftOrder = '';
+
+        while (remainingDraftees.length) {
+            if (remainingDraftees.length > 1) {
+                let draftee = remainingDraftees[Math.floor(Math.random() * remainingDraftees.length)];
+                const indexToRemove = remainingDraftees.indexOf(draftee);
+
+                if (indexToRemove !== -1) {
+                    remainingDraftees.splice(indexToRemove, 1);
+                }
+
+                draftOrder += `${draftee} -> `;
+            } else {
+                draftOrder += `${remainingDraftees[0]}`
+                break;
+            }
+        }
+
+        setFirestoreDraftOrder(draftOrder);
+        setDraftOrder(draftOrder);
+    }
     
     return (
         <div className="container">
             <div className="draft">
+                <button className="draft-order-button" onClick={getDraftOrder}>
+                    Generate Draft Order
+                </button>
+                {draftOrder && <div className="draft-order">{draftOrder}</div>}
                 <h1>Draftable Pokemon</h1>
                 <div className="draft-pokemon-container">
                     
