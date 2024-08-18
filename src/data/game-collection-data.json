@@ -816,9 +816,9 @@
                 },
                 {
                     "title": "Mario vs. Donkey Kong 2: March of the Minis",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "NDS/MarioVsDonkeyKong2.webp",
                     "releaseDate": "September 25, 2006"
@@ -1091,9 +1091,9 @@
                 },
                 {
                     "title": "Paper Mario: Sticker Star",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "3DS/StickerStar.webp",
                     "releaseDate": "November 11, 2012"
