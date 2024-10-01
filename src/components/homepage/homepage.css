@@ -89,8 +89,9 @@ a {
 }
 
 .nes-top-right {
+    display: none;
     background-color: rgb(197, 196, 193);
-    height: 20rem;
+    height: 12rem;
     width: 15vw;
 }
 
@@ -115,11 +116,11 @@ a {
 }
 
 .nes-bottom-right {
+    display: none;
     /* background-color: rgb(137, 137, 137); */
     background: rgb(111,111,111);
     background: linear-gradient(0deg, rgba(111,111,111,1) 0%, rgba(137,137,137,1) 100%);
-    height: 20rem;
-    width: 15vw;
+    height: 12rem;
 }
 
 .typewriter {
@@ -257,6 +258,10 @@ a {
     border-radius: 10px;
 }
 
+.second-controller-port {
+    display: none;
+}
+
 .controller-port-connector {
     width: 1rem;
     height: 1rem;
@@ -379,4 +384,174 @@ a {
 .cloud.appear {
     transform: translateX(0);
     opacity: 1;
+}
+
+@media only screen and (min-width: 480px) {}
+
+@media only screen and (min-width: 768px) {
+    .nes-top-left, .nes-bottom-left {
+        width: 65%;
+        flex: 0 0 65%;
+    }
+
+    .nes-top-middle, .nes-bottom-middle {
+        width: 20%;
+        flex: 0 0 20%;
+    }
+
+    .second-controller-port, .nes-top-right, .nes-bottom-right {
+        display: flex;
+    }
+
+    .nes-top-right, .nes-bottom-right {
+        width: 15%;
+        flex: 0 0 15%;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+
+    .typewriter {
+        font-size: 50px;
+    }
+
+    .title {
+        min-height: 5.5rem;
+    }
+
+    .buttons {
+        margin-inline-start: 4rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .nes-top-left, .nes-top-middle, .nes-top-right, .nes-bottom-left, .nes-bottom-middle, .nes-bottom-right {
+        height: 16rem;
+    }
+
+    .nes-top-left, .nes-bottom-left {
+        width: 70%;
+        flex: 0 0 70%;
+    }
+
+    .nes-top-middle, .nes-bottom-middle {
+        width: 15%;
+        flex: 0 0 15%;
+    }
+
+    .nes-top-right, .nes-bottom-right {
+        width: 15%;
+        flex: 0 0 15%;
+    }
+
+    .name {
+        font-size: 40px;
+    }
+
+    .typewriter {
+        font-size: 60px;
+    }
+
+    .title {
+        min-height: 6.5rem;
+    }
+
+    .nes-buttons {
+        width: 8rem;
+        height: 4rem;
+    }
+
+    .buttons {
+        margin-inline-start: 6rem;
+    }
+
+    .nes-buttons-text {
+        font-size: 2rem;
+        margin-inline-end: 6px;
+        margin-block-end: 6px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .nes-top-left, .nes-top-middle, .nes-top-right, .nes-bottom-left, .nes-bottom-middle, .nes-bottom-right {
+        height: 20rem;
+    }
+
+    .nes-top-left, .nes-bottom-left {
+        width: 70%;
+        flex: 0 0 70%;
+    }
+
+    .nes-top-middle, .nes-bottom-middle {
+        width: 15%;
+        flex: 0 0 15%;
+    }
+
+    .nes-top-right, .nes-bottom-right {
+        width: 15%;
+        flex: 0 0 15%;
+    }
+
+    .name {
+        font-size: 50px;
+    }
+
+    .typewriter {
+        font-size: 70px;
+    }
+
+    .title {
+        min-height: 6.5rem;
+    }
+
+    .nes-buttons {
+        width: 8rem;
+        height: 4rem;
+    }
+
+    .buttons {
+        margin-inline-start: 8rem;
+    }
+
+    .nes-buttons-text {
+        font-size: 2.25rem;
+        margin-inline-end: 6px;
+        margin-block-end: 6px;
+    }
+
+    .power-light {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .controller-ports {
+        gap: 1.5rem;
+    }
+
+    .controller-port-container {
+        width: 4.5rem;
+        height: 9rem;
+    }
+
+    .controller-port {
+        height: 8.5rem;
+        width: 4rem;
+    }
+
+    .connector-row {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .cart-slot-text {
+        margin-inline-start: 5%;
+    }
+
+    .cart-slot-outline {
+        margin-inline-start: 10%;
+    }
 }

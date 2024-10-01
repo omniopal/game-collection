@@ -4,7 +4,6 @@ import clsx from "clsx";
 import Typewriter from 'typewriter-effect';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import { useMediaQuery, useTheme } from "@mui/material";
 
 type HomepageProps = {};
 
@@ -13,19 +12,17 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
     const [poweredOn, setPoweredOn] = useState(false);
     const [resetButtonClicked, setResetButtonClicked] = useState(false);
     const [resetButtonKey, setResetButtonKey] = useState(0);
-    const theme = useTheme();
-    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
 
     const handlePowerButtonMouseDown = () => {
         setPoweredOn(!poweredOn);
     }
 
-    const handleResetButtonMouseDown = () => {
+    const handleResetButtonDown = () => {
         setResetButtonKey(resetButtonKey + 1);
         setResetButtonClicked(true);
     }
 
-    const handleResetButtonMouseUp = () => {
+    const handleResetButtonUp = () => {
         setResetButtonClicked(false);
     }
 
@@ -110,7 +107,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                         </div>
                     </div>
                     <div className="nes-top-middle"></div>
-                    {!isSmallBreakpoint && <div className="nes-top-right"></div>}
+                    <div className="nes-top-right"></div>
                 </div>
                 <div className="nes-middle" />
                 <div className="nes-bottom">
@@ -125,8 +122,10 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                             </div>
                             <div 
                                 className={clsx("reset-button", "nes-buttons", resetButtonClicked && "nes-buttons-pushed")}
-                                onMouseDown={handleResetButtonMouseDown}
-                                onMouseUp={handleResetButtonMouseUp}
+                                onMouseDown={handleResetButtonDown}
+                                onTouchStart={handleResetButtonDown}
+                                onMouseUp={handleResetButtonUp}
+                                onTouchEnd={handleResetButtonUp}
                             >
                                 <div className="nes-buttons-text">Reset</div>
                             </div>
@@ -168,7 +167,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            {!isSmallBreakpoint && <div className="controller-port-container">
+                            <div className="controller-port-container second-controller-port">
                                 <div className="controller-port">
                                     <div className="connector-row">
                                         <div className="controller-port-connector">
@@ -201,10 +200,10 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>}
+                            </div>
                         </div>
                     </div>
-                    {!isSmallBreakpoint && <div className="nes-bottom-right"></div>}
+                    <div className="nes-bottom-right"></div>
                 </div>
             </div>
             {/* About me */}
