@@ -1332,10 +1332,10 @@
                 },
                 {
                     "title": "Captain Toad: Treasure Tracker",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
+                    "hasPlayed": true,
                     "boxArt": "WiiU/TreasureTracker.webp",
                     "releaseDate": "December 5, 2014"
                 },
