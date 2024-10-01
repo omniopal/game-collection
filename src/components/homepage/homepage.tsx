@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Typewriter from 'typewriter-effect';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
+import { NavBar } from "../navbar/navbar";
 
 type HomepageProps = {};
 
@@ -63,26 +64,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
 
     return (
         <>
-            {/* Nav Bar */}
-            {/* <div className="navbar">
-                <div className="home">
-                    <img className="me-pic" src="/images/mepic2.webp" alt="pic" />
-                    <a>Jacob Mauro</a>
-                </div>
-                <nav>
-                    <ul className="navbar-list">
-                        <li className="navbar-list-item">
-                            <a>About</a>
-                        </li>
-                        <li className="navbar-list-item">
-                            <a>Projects</a>
-                        </li>
-                        <li className="navbar-list-item">
-                            <a>Blog</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> */}
+            <NavBar />
             {/* NES */}
             <div className="hero">
                 <div className="nes-top">

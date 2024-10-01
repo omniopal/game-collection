@@ -8,27 +8,6 @@
     src: url('/fonts/Pretendo.woff');
 }
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    background-color: rgb(2, 6, 23);
-    /* background-color: rgb(30, 30, 30); */
-}
-
-.navbar-list {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 4rem;
-}
-
-a {
-    color: white;
-}
-
 .nes-top {
     display: flex;
     flex-direction: row;
@@ -292,18 +271,6 @@ a {
     background-color: white;
 }
 
-.me-pic {
-    width: 50px;
-    margin-block: 0.25rem;
-}
-
-.home {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-}
-
 .about-me-text {
     color: black;
     font-weight: 700;
@@ -511,7 +478,7 @@ a {
     }
 
     .buttons {
-        margin-inline-start: 8rem;
+        margin-inline-start: 10rem;
     }
 
     .nes-buttons-text {
