@@ -1,0 +1,382 @@
+@font-face {
+    font-family: 'NES Controller';
+    src: url('/fonts/NES.woff');
+}
+
+@font-face {
+    font-family: 'Pretendo';
+    src: url('/fonts/Pretendo.woff');
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(2, 6, 23);
+    /* background-color: rgb(30, 30, 30); */
+}
+
+.navbar-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 4rem;
+}
+
+a {
+    color: white;
+}
+
+.nes-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.nes-middle {
+    height: 0.25rem;
+    background-color: rgb(40,42,41);
+}
+
+.nes-bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.nes-top-left {
+    background-color: rgb(197, 196, 193);
+    /* height: 20rem; */
+    height: 12rem;
+    /* width: 95vw; */
+    width: 80%;
+    flex: 0 0 80%;
+}
+
+.cart-slot-outline {
+    height: 90%;
+    border-left: 0.25rem solid rgb(40,42,41);
+    border-bottom: 0.25rem solid rgb(40,42,41);
+    border-bottom-left-radius: 1rem;
+    /* margin-inline-start: 20%; */
+    margin-inline-start: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cart-slot-text {
+    /* margin-inline-start: 4rem; */
+    margin-inline-start: 10%;
+}
+
+.title {
+    /* margin-block-end: 4rem; */
+    margin-block-end: 1rem;
+    min-height: 4.5rem;
+}
+
+.nes-top-middle {
+    background-color: rgb(40,42,41);
+    /* height: 20rem; */
+    height: 12rem;
+    width: 20%;
+    flex: 0 0 20%;
+    /* min-width: 9rem; */
+}
+
+.nes-top-right {
+    background-color: rgb(197, 196, 193);
+    height: 20rem;
+    width: 15vw;
+}
+
+.nes-bottom-left {
+    background: rgb(111,111,111);
+    background: linear-gradient(0deg, rgba(111,111,111,1) 0%, rgba(137,137,137,1) 100%);
+    /* height: 20rem; */
+    height: 12rem;
+    width: 80%;
+    flex: 0 0 80%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.nes-bottom-middle {
+    background-color: rgb(40,42,41);
+    /* height: 20rem; */
+    height: 12rem;
+    width: 20%;
+    flex: 0 0 20%;
+}
+
+.nes-bottom-right {
+    /* background-color: rgb(137, 137, 137); */
+    background: rgb(111,111,111);
+    background: linear-gradient(0deg, rgba(111,111,111,1) 0%, rgba(137,137,137,1) 100%);
+    height: 20rem;
+    width: 15vw;
+}
+
+.typewriter {
+    color: rgb(225, 1, 1);
+    /* font-size: 80px; */
+    font-size: 40px;
+    font-family: 'NES Controller';
+    /* height: 20px; */
+
+    /* align-self: flex-start;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 100%;
+    overflow-y: auto; */
+
+}
+
+.typewriter-cursor {
+    color: rgb(225, 1, 1);
+    font-size: 40px;
+    line-height: 4px;
+}
+
+.name {
+    color: rgb(225, 1, 1);
+    font-family: 'Pretendo';
+    /* font-size: 50px; */
+    font-size: 24px;
+}
+
+.power-light {
+    /* width: 2.5rem;
+    height: 2.5rem; */
+    width: 2rem;
+    height: 2rem;
+    transition: all ease-in-out 0.1s;
+}
+
+.powered-on {
+    background-color: rgba(255, 1, 1, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.3),  /* Outer glow */
+        inset 0 0 20px rgba(255, 255, 255, 0.2);  /* Inner highlight */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+.powered-off {
+    background-color: rgba(40, 42, 41, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);  /* Inner highlight */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+.nes-buttons {
+    /* width: 8rem; */
+    width: 6rem;
+    /* height: 4rem; */
+    height: 3rem;
+    border: 2px solid rgb(40,42,41);
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    user-select: none; /* Disable text selection on power/reset buttons */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.nes-buttons:hover {
+    cursor: pointer;
+}
+
+.nes-buttons-pushed {
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.8);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-inline-start: 16rem; */
+    margin-inline-start: 1rem;
+    gap: 1rem;
+    color: rgb(225, 1, 1);
+}
+
+.nes-buttons-text {
+    font-family: 'NES Controller';
+    font-size: 1.75rem;
+    /* margin-inline-end: 0.5rem;
+    margin-block-end: 0.5rem; */
+    margin-inline-end: 4px;
+    margin-block-end: 4px;
+}
+
+.controller-ports {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.controller-port-container {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 3.5rem;
+    height: 7rem;
+    background-color: black;
+    clip-path: polygon(43% 0, 100% 35%, 100% 100%, 0 100%, 0 0);
+    border-radius: 10px;
+}
+
+.controller-port {
+    position: absolute;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    left: 0.25rem;
+    right: 0.25rem;
+    width: 3rem;
+    height: 6.5rem;
+    background-color: rgb(56, 56, 56);
+    clip-path: polygon(43% 0, 100% 35%, 100% 100%, 0 100%, 0 0);
+    border-radius: 10px;
+}
+
+.controller-port-connector {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connector-row {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.hidden-connector {
+    opacity: 0;
+}
+
+.pin {
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.me-pic {
+    width: 50px;
+    margin-block: 0.25rem;
+}
+
+.home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.about-me-text {
+    color: black;
+    font-weight: 700;
+    font-size: large;
+    width: 50rem;
+    margin-block-start: 2rem;
+    margin-inline-start: 5rem;
+}
+
+.about-me {
+    color: black;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.about-me-container {
+    background-color: rgb(93, 148, 251);
+    padding: 10px;
+    /* background-image: url('/images/1-1-2.webp'); */
+    background-size: cover;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: row;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.about-me-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-block-start: 10rem; */
+    margin-inline-start: 5rem;
+    gap: 1rem;
+}
+
+.mario-thinking-image {
+    width: 4rem;
+}
+
+.each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 550px;
+    border-radius: 20px;
+}
+
+.each-slide-effect span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+}
+
+.pics {
+    width: 30rem;
+    /* margin-block-start: 16rem; */
+    margin-inline-start: 5rem;
+}
+
+.about-me-container-2 {
+    background-color: rgb(93, 148, 251);
+    height: 1000px;
+}
+
+.cloud {
+    transform: translateX(250%);
+    opacity: 0;
+    transition: opacity 600ms ease-in, transform 800ms ease-in;
+}
+
+.cloud.appear {
+    transform: translateX(0);
+    opacity: 1;
+}
