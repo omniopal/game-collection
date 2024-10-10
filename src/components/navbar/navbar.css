@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(2, 6, 23);
+    /* background-color: rgb(2, 6, 23); */
+    background-color: rgb(40,42,41);
     padding-inline-start: 2rem;
     padding-inline-end: 2rem;
 }

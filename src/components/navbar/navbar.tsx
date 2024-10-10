@@ -22,8 +22,8 @@ export const NavBar: React.FC<NavBarProps> = () => {
     return (
         <div className="navbar">
             <div className="home">
-                <img className="me-pic" src="/images/mepic2.webp" alt="pic" />
-                <a className="jacob-mauro">Jacob Mauro</a>
+                <img className="me-pic" src="/images/finalMePic.webp" alt="pic" />
+                <Link style={{ textDecoration: 'none' }} href="/homepage">Jacob Mauro</Link>
             </div>
             {isSmallBreakpoint ? (
                 <div>
@@ -80,9 +80,6 @@ export const NavBar: React.FC<NavBarProps> = () => {
             ) : (
                 <nav>
                     <ul className="navbar-list">
-                        <li className="navbar-list-item">
-                            <Link style={{ textDecoration: 'none' }} href="/homepage">Home</Link>
-                        </li>
                         <li className="navbar-list-item">
                             <Link style={{ textDecoration: 'none' }} href="/">Video Game Collection</Link>
                         </li>
