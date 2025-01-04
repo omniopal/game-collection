@@ -564,7 +564,7 @@
                     "title": "Classic NES Series: Dr. Mario",
                     "hasGame": true,
                     "hasCase": true,
-                    "hasManual": false,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "GBA/DrMario.webp",
                     "releaseDate": "October 4, 2004"
@@ -637,9 +637,9 @@
                 },
                 {
                     "title": "Mario Party 4",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "GC/MP4.webp",
                     "releaseDate": "October 21, 2002"
@@ -686,9 +686,9 @@
                 },
                 {
                     "title": "Mario Power Tennis",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "GC/MPT.webp",
                     "releaseDate": "November 8, 2004"
@@ -762,9 +762,9 @@
                 },
                 {
                     "title": "Yoshi Touch & Go",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "NDS/YoshiTouchAndGo.webp",
                     "releaseDate": "March 14, 2005"
@@ -843,9 +843,9 @@
                 },
                 {
                     "title": "Mario & Sonic at the Olympic Games",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "NDS/MarioAndSonic.webp",
                     "releaseDate": "January 22, 2008"
@@ -862,8 +862,8 @@
                 {
                     "title": "Mario & Sonic at the Olympic Winter Games",
                     "hasGame": true,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": true,
                     "boxArt": "NDS/WinterGames.webp",
                     "releaseDate": "October 13, 2009"
