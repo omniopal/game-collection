@@ -1610,17 +1610,17 @@
                 },
                 {
                     "title": "Super Paper Mario Jamboree",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/Jamboree.webp",
                     "releaseDate": "October 17, 2024"
                 },
                 {
                     "title": "Mario & Luigi: Brothership",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasPlayed": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasPlayed": true,
                     "boxArt": "Switch/Brothership.webp",
                     "releaseDate": "November 7, 2024"
                 }
