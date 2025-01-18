@@ -553,9 +553,9 @@
                 },
                 {
                     "title": "Mario Pinball Land",
-                    "hasGame": false,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasGame": true,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": false,
                     "boxArt": "GBA/MarioPinballLand.webp",
                     "releaseDate": "October 4, 2004"
