@@ -247,7 +247,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                             <Reveal width="fit-content" withSlide>
                                 <div className="about-me-item">
                                     <div className="about-me-item-img">
-                                        <img className="me-img" src="images/AboutMe/gameboy2.png" alt="bday" />
+                                        <img className="me-img" src="images/AboutMe/retro.webp" alt="bday" />
                                     </div>
                                     <div className="thing-about-me">Retro Video Game Collector</div>
                                 </div>
