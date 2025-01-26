@@ -80,7 +80,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                                     options={{
                                         wrapperClassName: 'typewriter',
                                         cursorClassName: 'typewriter-cursor',
-                                        strings: ['Software Engineer', 'Scrum Master', 'Bug Basher', 'Video Game Collector'],
+                                        strings: ['Software Engineer', 'UI/UX Enthusiast ', 'Video Game Collector', 'Husband'],
                                         autoStart: true,
                                         loop: true,
                                         cursor: '_',
@@ -205,10 +205,7 @@ export const Homepage: React.FC<HomepageProps> = (props) => {
                 </div>
                 <div className="about-me-right">
                     <Reveal width="fit-content" withSlide>
-                        <>
-                            <div className="about-me-title">A little bit about me</div>
-                            <div className="about-me-subtitle">I'll keep it brief, because who actually reads the wordy "About Me" sections anyways...</div>
-                        </>
+                        <div className="about-me-title">A little bit about me</div>
                     </Reveal>
                     {/* <Reveal width="fit-content" withSlide> */}
                         <div className="about-me-content">

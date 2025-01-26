@@ -1476,7 +1476,7 @@
                     "title": "Super Mario Maker 2",
                     "hasGame": false,
                     "hasCase": false,
-                    "hasPlayed": false,
+                    "hasPlayed": true,
                     "boxArt": "Switch/SMM2.webp",
                     "releaseDate": "June 28, 2019"
                 },
