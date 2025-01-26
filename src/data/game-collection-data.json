@@ -62,8 +62,8 @@
                 {
                     "title": "Super Mario Bros. 2",
                     "hasGame": true,
-                    "hasCase": false,
-                    "hasManual": false,
+                    "hasCase": true,
+                    "hasManual": true,
                     "hasPlayed": true,
                     "boxArt": "NES/SuperMarioBros2.jpeg",
                     "releaseDate": "October 14, 1988"
