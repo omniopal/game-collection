@@ -38,7 +38,7 @@ export const NES: React.FC<NESProps> = () => {
                                 options={{
                                     wrapperClassName: 'typewriter',
                                     cursorClassName: 'typewriter-cursor',
-                                    strings: ['Software Engineer', 'UI/UX Enthusiast ', 'Video Game Collector', 'Husband'],
+                                    strings: ['Software Engineer', 'UI/UX Enthusiast', 'Video Game Collector', 'Husband'],
                                     autoStart: true,
                                     loop: true,
                                     cursor: '_',
