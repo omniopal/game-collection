@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './NES.css';
 import clsx from "clsx";
-import Typewriter from 'typewriter-effect';
+// import Typewriter from 'typewriter-effect';
 
 type NESProps = {};
 
@@ -33,7 +33,7 @@ export const NES: React.FC<NESProps> = () => {
                             I am Jacob Mauro
                         </div>
                         <div className="cart-slot-text title">
-                            <Typewriter
+                            {/* <Typewriter
                                 key={resetButtonKey}
                                 options={{
                                     wrapperClassName: 'typewriter',
@@ -43,7 +43,7 @@ export const NES: React.FC<NESProps> = () => {
                                     loop: true,
                                     cursor: '_',
                                 }}
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>
