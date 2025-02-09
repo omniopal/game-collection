@@ -180,14 +180,14 @@ const PokemonMap = () => {
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
     const center = isSmallBreakpoint ? new LatLng(800, 2102) : new LatLng(725, 2202);
     const zoom = isSmallBreakpoint ? -2 : -1;
-    const height = isSmallBreakpoint ? "400px" : "500px";
+    const height = isSmallBreakpoint ? "360px" : "500px";
 
     return (
         <>
             <div className="header">
                 <h2>Region: Kanto</h2>
                 <div className="score-container">
-                    <p>Score: </p>
+                    <p className="score-label">Score: </p>
                     <p className="score">{score}</p>
                 </div>
             </div>
