@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import './pokemon-map.css';
-import { Circle, ImageOverlay, LayerGroup, MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
+import { Circle, ImageOverlay, LayerGroup, MapContainer } from 'react-leaflet';
 import L, { LatLng, LatLngBounds } from 'leaflet';
 import { alpha, styled, Switch, useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
