@@ -36,6 +36,18 @@ div {
     color: hsl(198, 50%, 90%);
 }
 
+.town-name-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4px;
+}
+
+.town-name {
+    font-weight: 600;
+    color: hsl(138, 80%, 80%);
+}
+
 .stuff {
     display: flex;
     align-items: center;

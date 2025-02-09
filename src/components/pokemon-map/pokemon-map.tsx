@@ -213,7 +213,7 @@ const PokemonMap = () => {
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div>
                     <StyledSwitch checked={showTownNames} onChange={() => setShowTownNames(!showTownNames)}/>
-                    <label>Show town names after click</label>
+                    <label>Show town names after selection</label>
                 </div>
                 <div className="buttons">
                     <button className="button" onClick={playRandomSound}>
@@ -224,7 +224,12 @@ const PokemonMap = () => {
                     </button>
                 </div>
                 <div className="results">
-                    {showTownNames && <div>You just clicked on: {lastClickedTown}</div>}
+                    {showTownNames && 
+                        <div className="town-name-display">
+                            <p>Last town selected: </p>
+                            <p className="town-name">{lastClickedTown}</p>
+                        </div>
+                    }
                     {result && <div className={clsx(result === 'Correct!' ? "correct" : "wrong")}>{result}</div>}
                 </div>
             </div>
