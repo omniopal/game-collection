@@ -1,34 +1,15 @@
 'use client'
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './pokemon-map.css';
 import { Circle, ImageOverlay, LayerGroup, MapContainer } from 'react-leaflet';
 import L, { LatLng, LatLngBounds } from 'leaflet';
-import { alpha, styled, Switch, useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
-
-const StyledSwitch = styled(Switch)(({ theme }) => ({
-    '& .MuiSwitch-switchBase.Mui-checked': {
-      color: 'hsl(138, 80%, 80%)',
-      '&:hover': {
-        backgroundColor: alpha('hsl(138, 80%, 80%)', theme.palette.action.hoverOpacity),
-      },
-    },
-    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-      backgroundColor: 'hsl(138, 80%, 80%)',
-    },
-    '& .MuiSwitch-track': {
-      backgroundColor: 'hsl(138, 80%, 80%)',
-    },
-    '& .MuiSwitch-switchBase': {
-      color: 'hsl(138, 80%, 80%)',
-      '&:hover': {
-        backgroundColor: alpha('hsl(138, 80%, 80%)', theme.palette.action.hoverOpacity),
-      },
-      
-    },
-    
-  }));
+import { themes } from './themes';
+import { towns } from './towns';
+import { StyledSwitch } from './StyledSwitch';
+import { RegionFilter } from './filter';
 
 const PokemonMap = () => {
 
@@ -39,102 +20,17 @@ const PokemonMap = () => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [currentTheme, setCurrentTheme] = useState<string | null>(null);
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
+    const [time, setTime] = useState(0); // Time in milliseconds
+    const [isRunning, setIsRunning] = useState(false);
+    const [incorrectGuesses, setIncorrectGuesses] = useState(0);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const [filterValue, setFilterValue] = useState<RegionFilter>('Kanto');
+
 
     const bounds: LatLngBounds = new LatLngBounds(
         [0, 0], // Southwest
         [1600, 4405]  // Northeast
     );
-
-    const towns = [
-        {
-            name: "Celadon City",
-            coords: new LatLng(835, 2165),
-        },
-        {
-            name: "Saffron City",
-            coords: new LatLng(835, 2365),
-        },
-        {
-            name: "Lavender Town",
-            coords: new LatLng(835, 2632),
-        },
-        {
-            name: "Cerulean City",
-            coords: new LatLng(1036, 2364),
-        },
-        {
-            name: "Vermilion City",
-            coords: new LatLng(635, 2364),
-        },
-        {
-            name: "Fuchsia City",
-            coords: new LatLng(435, 2232),
-        },
-        {
-            name: "Cinnabar Island",
-            coords: new LatLng(300, 1697),
-        },
-        {
-            name: "Pallet Town",
-            coords: new LatLng(503, 1697),
-        },
-        {
-            name: "Viridian City",
-            coords: new LatLng(703, 1697),
-        },
-        {
-            name: "Pewter City",
-            coords: new LatLng(970, 1697),
-        },
-        {
-            name: "Indigo Plateau",
-            coords: new LatLng(1035, 1561),
-        },
-    ];
-
-    const themes = [
-        {
-            name: "Viridian City/Pewter City/Saffron City Theme",
-            file: "/audio/viridian.mp3",
-            towns: ["Viridian City", "Pewter City", "Saffron City"],
-        },
-        {
-            name: "Celadon Theme",
-            file: "/audio/celadon.mp3",
-            towns: ["Celadon City"],
-        },
-        {
-            name: "Lavender Town Theme",
-            file: "/audio/lavender.mp3",
-            towns: ["Lavender Town"],
-        },
-        {
-            name: "Cerulean City/Fucshia City Theme",
-            file: "/audio/cerulean.mp3",
-            towns: ["Cerulean City", "Fucshia City"],
-        },
-        {
-            name: "Vermilion City Theme",
-            file: "/audio/vermilion.mp3",
-            towns: ["Vermilion City"],
-        },
-        {
-            name: "Cinnabar Island Theme",
-            file: "/audio/cinnabar.mp3",
-            towns: ["Cinnabar Island"],
-        },
-        {
-            name: "Pallet Town",
-            file: "/audio/pallet.mp3",
-            towns: ["Pallet Town"],
-        },
-        {
-            name: "Indigo Plateau",
-            file: "/audio/indigo.mp3",
-            towns: ["Indigo Plateau"],
-        }
-
-    ];
 
     const playRandomSound = () => {
         if (audioRef.current) {
@@ -156,6 +52,8 @@ const PokemonMap = () => {
         audioRef.current = newAudio;
         setCurrentTheme(randomTheme.name);
         setCorrectTowns(randomTheme.towns);
+        setIncorrectGuesses(0);
+        // startTimer();
     };
 
     const handleTownClick = (townName: string) => {
@@ -165,11 +63,14 @@ const PokemonMap = () => {
         console.log(townName);
 
         if (correctTowns.includes(townName)) {
+
             console.log("Correct!");
             setResult('Correct!');
             setScore(score + 1);
             audioRef.current?.pause();
             playRandomSound();
+            // stopTimer();
+            // startTimer();
         } else {
             console.log("Wrong!");
             setResult('Wrong');
@@ -182,14 +83,54 @@ const PokemonMap = () => {
     const zoom = isSmallBreakpoint ? -2 : -1;
     const height = isSmallBreakpoint ? "360px" : "500px";
 
+    // Format time as MM:SS.t
+    const formatTime = (ms: number) => {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        const tenths = Math.floor((ms % 1000) / 100);
+
+        return `${minutes}:${seconds.toString().padStart(2, "0")}.${tenths}`;
+    };
+
+    const startTimer = () => {
+        setTime(0);
+        setIsRunning(true);
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+        }
+
+        timerRef.current = setInterval(() => {
+            setTime((prevTime) => prevTime + 100); 
+        }, 100);
+    };
+
+    const stopTimer = () => {
+        setIsRunning(false);
+        if (timerRef.current) {
+            clearInterval(timerRef.current);
+        }
+    };
+
+    useEffect(() => {
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, []);
+
+    const onFilterChange = (filter: RegionFilter) => {
+        setFilterValue(filter);
+    }
+
     return (
         <>
             <div className="header">
-                <h2>Region: Kanto</h2>
+                <h2>Region: {filterValue}</h2>
                 <div className="score-container">
                     <p className="score-label">Score: </p>
                     <p className="score">{score}</p>
                 </div>
+                <RegionFilter onFilterChange={onFilterChange} />
             </div>
             <MapContainer style={{ height: height, width: "100vw" }} crs={L.CRS.Simple} center={center} minZoom={-2} zoom={zoom}>
                 <ImageOverlay url="/images/new kanto map4.webp" bounds={bounds} />
@@ -231,6 +172,11 @@ const PokemonMap = () => {
                         </div>
                     }
                     {result && <div className={clsx(result === 'Correct!' ? "correct" : "wrong")}>{result}</div>}
+                </div>
+                <div>Time: {formatTime(time)}</div>
+                <div className="timer-controls">
+                    <button className="button" onClick={startTimer}>Start New Round</button>
+                    <button className="button" onClick={stopTimer}>Stop Timer</button>
                 </div>
             </div>
         </>

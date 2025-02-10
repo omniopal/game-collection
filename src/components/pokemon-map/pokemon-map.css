@@ -96,7 +96,7 @@ div {
 }
 
 .button:hover {
-    transform: translateY(-2px);
+    filter: brightness(80%);
 }
 
 .results {
@@ -116,6 +116,12 @@ div {
     color: hsl(348, 70%, 50%);
     font-size: 24px;
     font-weight: 700;
+}
+
+.timer-controls {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
 
 :root {
