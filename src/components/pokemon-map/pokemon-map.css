@@ -136,6 +136,16 @@ div {
     color: yellow;
 }
 
+.theme-version-toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.play-original-theme {
+    margin-block-end: 4px;
+}
+
 :root {
     --color-primary: hsl(198, 50%, 90%);
     --color-secondary: hsl(198, 50%, 10%);

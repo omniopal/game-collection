@@ -10,6 +10,7 @@ import { Region, RegionSelector } from './region-selector';
 import { KantoMap } from './kanto/kanto-map';
 import { JohtoMap } from './johto/johto-map';
 import { regionSizes } from './region-sizes';
+import { StyledSwitch } from './StyledSwitch';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -29,6 +30,7 @@ const PokemonMap = () => {
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
     const [region, setRegion] = useState<Region>('Kanto');
     const [guesses, setGuesses] = useState<string[]>([]);
+    const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
 
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
@@ -42,15 +44,23 @@ const PokemonMap = () => {
     );
 
     const playRandomSound = () => {
-        if (!regionThemes[region] || regionThemes[region].length === 0) return;
+        if (!regionThemes[region]) return;
 
         if (audioRef.current) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
 
-        const currentRegionThemes = regionThemes[region];
-        const randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
+        const currentRegionThemes = regionThemes[region].theme;
+        const currentRegionOgThemes = regionThemes[region].ogTheme;
+        // const currentVersionOfTheme = shouldPlayOGTheme ? currentRegionThemes.ogTheme : currentRegionThemes.theme;
+        // const randomTheme = currentVersionOfTheme[Math.floor(Math.random() * currentVersionOfTheme.length)];
+        let randomTheme;
+        if (shouldPlayOGTheme) {
+            randomTheme = currentRegionOgThemes[Math.floor(Math.random() * currentRegionOgThemes.length)];
+        } else {
+            randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
+        }
 
         if (randomTheme.name === currentTheme) {
             playRandomSound();
@@ -163,6 +173,13 @@ const PokemonMap = () => {
                     <button className="button" onClick={() => audioRef.current?.pause()}>
                         Stop music
                     </button>
+                </div>
+                <div className="theme-version-toggle">
+                    <div className="play-original-theme">Play original themes</div>
+                    <StyledSwitch onChange={() => {
+                        setShouldPlayOGTheme(!shouldPlayOGTheme);
+                        audioRef.current?.pause();
+                    }} />
                 </div>
                 <div className="results">
                     <div className="town-name-display">
