@@ -1,31 +1,40 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './pokemon-map.css';
-import { Circle, ImageOverlay, LayerGroup, MapContainer } from 'react-leaflet';
-import L, { LatLng, LatLngBounds } from 'leaflet';
+import { LatLng, LatLngBounds } from 'leaflet';
 import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
-import { themes } from './themes';
-import { towns } from './towns';
-import { StyledSwitch } from './StyledSwitch';
-import { RegionFilter } from './filter';
+import { regionThemes } from './region-themes';
+import { Region, RegionSelector } from './region-selector';
+import { KantoMap } from './kanto/kanto-map';
+import { JohtoMap } from './johto/johto-map';
+import { regionSizes } from './region-sizes';
+
+export type MapProps = {
+    handleTownClick: (townName: string) => void;
+    height: string;
+    bounds: LatLngBounds;
+    guesses: string[];
+    center: LatLng,
+    zoom: number,
+};
 
 const PokemonMap = () => {
-
     const [lastClickedTown, setLastClickedTown] = useState<string>('');
     const [result, setResult] = useState<'Correct!' | 'Wrong' | ''>('');
     const [score, setScore] = useState<number>(0);
-    const [showTownNames, setShowTownNames] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [currentTheme, setCurrentTheme] = useState<string | null>(null);
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
-    const [time, setTime] = useState(0); // Time in milliseconds
-    const [isRunning, setIsRunning] = useState(false);
-    const [incorrectGuesses, setIncorrectGuesses] = useState(0);
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
-    const [filterValue, setFilterValue] = useState<RegionFilter>('Kanto');
+    const [region, setRegion] = useState<Region>('Kanto');
+    const [guesses, setGuesses] = useState<string[]>([]);
 
+    const theme = useTheme();
+    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
+    const center = isSmallBreakpoint ? new LatLng(800, 2102) : new LatLng(725, 2202);
+    const zoom = isSmallBreakpoint ? -2 : -1;
+    const height = isSmallBreakpoint ? "360px" : "500px";
 
     const bounds: LatLngBounds = new LatLngBounds(
         [0, 0], // Southwest
@@ -33,12 +42,15 @@ const PokemonMap = () => {
     );
 
     const playRandomSound = () => {
+        if (!regionThemes[region] || regionThemes[region].length === 0) return;
+
         if (audioRef.current) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
 
-        const randomTheme = themes[Math.floor(Math.random() * themes.length)];
+        const currentRegionThemes = regionThemes[region];
+        const randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
 
         if (randomTheme.name === currentTheme) {
             playRandomSound();
@@ -52,8 +64,6 @@ const PokemonMap = () => {
         audioRef.current = newAudio;
         setCurrentTheme(randomTheme.name);
         setCorrectTowns(randomTheme.towns);
-        setIncorrectGuesses(0);
-        // startTimer();
     };
 
     const handleTownClick = (townName: string) => {
@@ -62,100 +72,90 @@ const PokemonMap = () => {
 
         console.log(townName);
 
+        // Correct guess
         if (correctTowns.includes(townName)) {
-
-            console.log("Correct!");
             setResult('Correct!');
+
+            // TODO use this scoring structure or something similar for daily scores
+            // const currentRegionSize = regionSizes[region];
+            // const currentRoundScore = currentRegionSize - guesses.length;
+            // setScore(score + currentRoundScore);
+
             setScore(score + 1);
+            setGuesses([]);
             audioRef.current?.pause();
             playRandomSound();
-            // stopTimer();
-            // startTimer();
+
+        // Incorrect guess
         } else {
-            console.log("Wrong!");
+            if (!guesses.includes(townName)) {
+                const updatedGuesses = [...guesses, townName];
+                setGuesses(updatedGuesses);
+            }
+
             setResult('Wrong');
         }
     };
 
-    const theme = useTheme();
-    const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
-    const center = isSmallBreakpoint ? new LatLng(800, 2102) : new LatLng(725, 2202);
-    const zoom = isSmallBreakpoint ? -2 : -1;
-    const height = isSmallBreakpoint ? "360px" : "500px";
-
-    // Format time as MM:SS.t
-    const formatTime = (ms: number) => {
-        const totalSeconds = Math.floor(ms / 1000);
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        const tenths = Math.floor((ms % 1000) / 100);
-
-        return `${minutes}:${seconds.toString().padStart(2, "0")}.${tenths}`;
-    };
-
-    const startTimer = () => {
-        setTime(0);
-        setIsRunning(true);
-        if (timerRef.current) {
-            clearInterval(timerRef.current);
-        }
-
-        timerRef.current = setInterval(() => {
-            setTime((prevTime) => prevTime + 100); 
-        }, 100);
-    };
-
-    const stopTimer = () => {
-        setIsRunning(false);
-        if (timerRef.current) {
-            clearInterval(timerRef.current);
-        }
-    };
-
-    useEffect(() => {
-        return () => {
-            if (timerRef.current) clearInterval(timerRef.current);
-        };
-    }, []);
-
-    const onFilterChange = (filter: RegionFilter) => {
-        setFilterValue(filter);
+    const onSelectorChange = (filter: Region) => {
+        audioRef.current?.pause();
+        setRegion(filter);
+        setScore(0);
+        setLastClickedTown('');
     }
 
     return (
         <>
             <div className="header">
-                <h2>Region: {filterValue}</h2>
+                <div className="region">
+                    <h2>Region:</h2>
+                    <RegionSelector region={region} onSelectorChange={onSelectorChange} />
+                </div>
                 <div className="score-container">
                     <p className="score-label">Score: </p>
                     <p className="score">{score}</p>
                 </div>
-                <RegionFilter onFilterChange={onFilterChange} />
             </div>
-            <MapContainer style={{ height: height, width: "100vw" }} crs={L.CRS.Simple} center={center} minZoom={-2} zoom={zoom}>
-                <ImageOverlay url="/images/new kanto map4.webp" bounds={bounds} />
-                <LayerGroup>
-                    {towns.map((town) => (
-                        <Circle 
-                            key={town.name}
-                            center={town.coords}
-                            pathOptions={{ fillColor: "blue", color: "blue" }}
-                            radius={35}
-                            eventHandlers={{
-                                click: () => handleTownClick(town.name),
-                                mouseover: (e) => e.target.setStyle({ fillColor: "red", color: "red" }),
-                                mouseout: (e) => e.target.setStyle({ fillColor: "blue", color: "blue" }),
-                            }}
-                        />
-                    ))}
-                </LayerGroup>
-            </MapContainer>
+            {region === 'Kanto' &&
+                <KantoMap
+                handleTownClick={handleTownClick}
+                height={height}
+                bounds={bounds}
+                guesses={guesses}
+                center={center}
+                zoom={zoom}
+            />
+            }
+            {region === 'Johto' &&
+                <JohtoMap
+                handleTownClick={handleTownClick}
+                height={height}
+                bounds={bounds}
+                guesses={guesses}
+                center={center}
+                zoom={zoom}
+            />
+            }
+            {region === 'Hoenn' &&
+                <>
+                    <h1 className="construction">Under construction</h1>
+                    <h3 className="construction">Come back soon :)</h3>
+                </>
+            }
+            {region === 'Sinnoh' &&
+                <>
+                    <h1 className="construction">Under construction</h1>
+                    <h3 className="construction">Come back soon :)</h3>
+                </>
+            }
+            {region === 'Unova' &&
+                <>
+                <h1 className="construction">Under construction</h1>
+                <h3 className="construction">Come back soon :)</h3>
+                </>
+            }
             <div className="stuff">
                 <p>Play a random theme and then click on which location it belongs to!</p>
-                <div>
-                    <StyledSwitch checked={showTownNames} onChange={() => setShowTownNames(!showTownNames)}/>
-                    <label>Show town names after selection</label>
-                </div>
                 <div className="buttons">
                     <button className="button" onClick={playRandomSound}>
                         Play Random Theme
@@ -165,18 +165,11 @@ const PokemonMap = () => {
                     </button>
                 </div>
                 <div className="results">
-                    {showTownNames && 
-                        <div className="town-name-display">
-                            <p>Last town selected: </p>
-                            <p className="town-name">{lastClickedTown}</p>
-                        </div>
-                    }
+                    <div className="town-name-display">
+                        <p>Last town selected: </p>
+                        <p className="town-name">{lastClickedTown || 'awaiting selection...'}</p>
+                    </div>
                     {result && <div className={clsx(result === 'Correct!' ? "correct" : "wrong")}>{result}</div>}
-                </div>
-                <div>Time: {formatTime(time)}</div>
-                <div className="timer-controls">
-                    <button className="button" onClick={startTimer}>Start New Round</button>
-                    <button className="button" onClick={stopTimer}>Stop Timer</button>
                 </div>
             </div>
         </>

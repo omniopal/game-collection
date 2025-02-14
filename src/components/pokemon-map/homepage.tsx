@@ -8,17 +8,17 @@ export const Homepage = () => {
     
     return (
         <>
-        <div className="homepage">
-            <img className="logo" src="/images/logo3.png" alt="" />
-            <h1>Region{isSmallBreakpoint && <br />}Rhythms</h1>
-            <div className="options">
-                <Link className="link" href="/freeplay">Free Play</Link>
-                <Link className="link" href="/">Daily</Link>
+            <div className="homepage">
+                <img className="logo" src="/images/logo3.png" alt="" />
+                <h1>Poké{isSmallBreakpoint && <br />}Melody</h1>
+                <div className="options">
+                    <Link className="link" href="/freeplay">Free Play</Link>
+                    <Link className="link" href="/">Daily<br />(Not done yet)</Link>
+                </div>
             </div>
-        </div>
-        <footer>
-            contact@regionrhythms.com
-        </footer>
+            <footer>
+                contact@pokemelody.com
+            </footer>
         </>
     );
 };
