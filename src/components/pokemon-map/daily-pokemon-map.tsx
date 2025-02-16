@@ -52,11 +52,13 @@ const DailyPokemonMap = () => {
         const index = localStorage.getItem('themeIndex');
         if (index) {
             const numIndex = Number.parseInt(index);
+            console.log('0');
             const townName = dailyThemes[numIndex - 1]?.towns[0];
             console.log(townName);
             const region = getRegionFromTown(townName);
             setRegion(region);
         } else {
+            console.log('1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
             setRegion(region);
@@ -83,6 +85,7 @@ const DailyPokemonMap = () => {
 
             audioRef.current = newAudio;
             setCurrentTheme(theme.name);
+            console.log('2');
             setCorrectTowns(theme.towns);
         }
     };
@@ -128,6 +131,7 @@ const DailyPokemonMap = () => {
 
         const themes = shouldPlayOGTheme ? regionThemes[region].theme : regionThemes[region].ogTheme;
         themes?.forEach((theme) => {
+            console.log('4');
             if (theme.towns.includes(correctTowns[0])) {
                 const newAudio = new Audio(theme.file);
                 newAudio.volume = 0.05;
@@ -155,11 +159,13 @@ const DailyPokemonMap = () => {
         const index = localStorage.getItem('themeIndex');
         if (index) {
             const numIndex = Number.parseInt(index);
+            console.log('5');
             const townName = dailyThemes[numIndex - 1]?.towns[0];
             console.log(townName);
             const region = getRegionFromTown(townName);
             setRegion(region);
         } else {
+            console.log('6');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
             setRegion(region);
