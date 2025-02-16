@@ -13,7 +13,7 @@ export const Homepage = () => {
                 <h1>Poké{isSmallBreakpoint && <br />}Melody</h1>
                 <div className="options">
                     <Link className="link" href="/freeplay">Free Play</Link>
-                    <Link className="link" href="/">Daily<br />(Not done yet)</Link>
+                    <Link className="link" href="/daily">Daily<br />(Not done yet)</Link>
                 </div>
             </div>
             <footer>

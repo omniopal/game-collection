@@ -1,16 +1,17 @@
 'use client'
 
-import React, { useRef, useState } from 'react';
-import './pokemon-map.css';
+import React, { useEffect, useRef, useState } from 'react';
+import './daily-pokemon-map.css';
 import { LatLng, LatLngBounds } from 'leaflet';
 import { useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
-import { regionThemes } from './region-themes';
-import { Region, RegionSelector } from './region-selector';
+import { regionThemes, Theme } from './region-themes';
+import { Region } from './region-selector';
 import { KantoMap } from './kanto/kanto-map';
 import { JohtoMap } from './johto/johto-map';
-import { regionSizes } from './region-sizes'; // will be used for score
 import { StyledSwitch } from './StyledSwitch';
+import seedrandom from 'seedrandom';
+import { getRegionFromTown } from './get-region-from-town';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -21,7 +22,7 @@ export type MapProps = {
     zoom: number,
 };
 
-const PokemonMap = () => {
+const DailyPokemonMap = () => {
     const [lastClickedTown, setLastClickedTown] = useState<string>('');
     const [result, setResult] = useState<'Correct!' | 'Wrong' | ''>('');
     const [score, setScore] = useState<number>(0);
@@ -31,6 +32,10 @@ const PokemonMap = () => {
     const [region, setRegion] = useState<Region>('Kanto');
     const [guesses, setGuesses] = useState<string[]>([]);
     const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
+    const [dailyThemes, setDailyThemes] = useState<Theme[]>([]);
+    const index = localStorage.getItem('themeIndex') ?? '1';
+    const start = Number.parseInt(index);
+    const [dailyThemeIndex, setDailyThemeIndex] = useState<number>(start - 1);
 
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
@@ -43,7 +48,24 @@ const PokemonMap = () => {
         [1600, 4405]  // Northeast
     );
 
-    const playRandomSound = () => {
+    useEffect(() => {
+        const index = localStorage.getItem('themeIndex');
+        if (index) {
+            const numIndex = Number.parseInt(index);
+            const townName = dailyThemes[numIndex - 1]?.towns[0];
+            console.log(townName);
+            const region = getRegionFromTown(townName);
+            setRegion(region);
+        } else {
+            const townName = dailyThemes[0].towns[0];
+            const region = getRegionFromTown(townName);
+            setRegion(region);
+        }
+
+        playTheme();
+    }, [dailyThemeIndex]);
+
+    const playTheme = () => {
         if (!regionThemes[region]) return;
 
         if (audioRef.current) {
@@ -51,27 +73,18 @@ const PokemonMap = () => {
             audioRef.current.currentTime = 0;
         }
 
-        let randomTheme;
-        if (shouldPlayOGTheme && regionThemes[region].ogTheme) {
-            const currentRegionOgThemes = regionThemes[region].ogTheme;
-            randomTheme = currentRegionOgThemes[Math.floor(Math.random() * currentRegionOgThemes.length)];
-        } else {
-            const currentRegionThemes = regionThemes[region].theme;
-            randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
+        if (dailyThemeIndex < dailyThemes.length && dailyThemes.length > 0) {
+            console.log(`index: ${dailyThemeIndex}`);
+            const theme = dailyThemes[dailyThemeIndex];
+
+            const newAudio = new Audio(theme.file);
+            newAudio.volume = 0.05;
+            newAudio.play();
+
+            audioRef.current = newAudio;
+            setCurrentTheme(theme.name);
+            setCorrectTowns(theme.towns);
         }
-
-        if (randomTheme.name === currentTheme) {
-            playRandomSound();
-            return;
-        }
-
-        const newAudio = new Audio(randomTheme.file);
-        newAudio.volume = 0.05;
-        newAudio.play();
-
-        audioRef.current = newAudio;
-        setCurrentTheme(randomTheme.name);
-        setCorrectTowns(randomTheme.towns);
     };
 
     const handleTownClick = (townName: string) => {
@@ -83,17 +96,17 @@ const PokemonMap = () => {
         // Correct guess
         if (correctTowns.includes(townName)) {
             setResult('Correct!');
-
-            // TODO use this scoring structure or something similar for daily scores
-            // const currentRegionSize = regionSizes[region];
-            // const currentRoundScore = currentRegionSize - guesses.length;
-            // setScore(score + currentRoundScore);
-
             setScore(score + 1);
             setGuesses([]);
             audioRef.current?.pause();
-            playRandomSound();
 
+            const index = localStorage.getItem('themeIndex');
+            if (index) {
+                const numIndex = Number.parseInt(index);
+                localStorage.setItem('themeIndex', `${numIndex + 1}`);
+            }
+
+            setDailyThemeIndex(dailyThemeIndex + 1);
         // Incorrect guess
         } else {
             if (!guesses.includes(townName)) {
@@ -104,17 +117,6 @@ const PokemonMap = () => {
             setResult('Wrong');
         }
     };
-
-    const onSelectorChange = (filter: Region) => {
-        audioRef.current?.pause();
-        setRegion(filter);
-        setScore(0);
-        setLastClickedTown('');
-
-        if (region === 'Hoenn' || region === 'Sinnoh' || region === 'Unova') {
-            setShouldPlayOGTheme(false);
-        }
-    }
 
     const onThemeVersionToggle = () => {
         setShouldPlayOGTheme(!shouldPlayOGTheme);
@@ -136,16 +138,43 @@ const PokemonMap = () => {
         })
     }
 
+    const getDailyThemes = () => {
+        const today = new Date().toISOString().split('T')[0];
+        const rng = seedrandom(today);
+        const allThemes = Object.values(regionThemes).flatMap(region => region.theme);
+        const shuffledThemes = allThemes.sort(() => rng() - 0.5);
+        
+        return shuffledThemes.slice(0, 5);
+    };
+
+    useEffect(() => {
+        const dailyThemes = getDailyThemes();
+        console.log(dailyThemes);
+        setDailyThemes(dailyThemes);
+
+        const index = localStorage.getItem('themeIndex');
+        if (index) {
+            const numIndex = Number.parseInt(index);
+            const townName = dailyThemes[numIndex - 1]?.towns[0];
+            console.log(townName);
+            const region = getRegionFromTown(townName);
+            setRegion(region);
+        } else {
+            const townName = dailyThemes[0].towns[0];
+            const region = getRegionFromTown(townName);
+            setRegion(region);
+        }
+    }, []);
+
     return (
         <>
             <div className="header">
                 <div className="region">
                     <h2>Region:</h2>
-                    <RegionSelector region={region} onSelectorChange={onSelectorChange} />
                 </div>
                 <div className="score-container">
-                    <p className="score-label">Score: </p>
-                    <p className="score">{score}</p>
+                    <p className="score-label">Round: </p>
+                    <p className="score">{localStorage.getItem('themeIndex')} / {dailyThemes.length}</p>
                 </div>
             </div>
             {region === 'Kanto' &&
@@ -189,11 +218,17 @@ const PokemonMap = () => {
             <div className="stuff">
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
-                    <button className="button" onClick={playRandomSound}>
-                        Play Random Theme
+                    <button className="button" onClick={playTheme}>
+                        Play Theme
                     </button>
                     <button className="button" onClick={() => audioRef.current?.pause()}>
                         Stop music
+                    </button>
+                    <button className="button" onClick={() => {
+                        localStorage.setItem('themeIndex', '1');
+                        setDailyThemeIndex(0); 
+                    }}>
+                        Reset
                     </button>
                 </div>
                 {regionThemes[region]?.ogTheme &&
@@ -216,4 +251,4 @@ const PokemonMap = () => {
     )
 }
 
-export default PokemonMap;
+export default DailyPokemonMap;
