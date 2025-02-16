@@ -54,7 +54,7 @@ const PokemonMap = () => {
         let randomTheme;
         if (shouldPlayOGTheme && regionThemes[region].ogTheme) {
             const currentRegionOgThemes = regionThemes[region].ogTheme;
-            randomTheme = currentRegionOgThemes[Math.floor(Math.random() * currentRegionOgThemes.length)];
+            randomTheme = currentRegionOgThemes?.[Math.floor(Math.random() * currentRegionOgThemes.length)];
         } else {
             const currentRegionThemes = regionThemes[region].theme;
             randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
@@ -118,7 +118,7 @@ const PokemonMap = () => {
 
     const onThemeVersionToggle = () => {
         setShouldPlayOGTheme(!shouldPlayOGTheme);
-        
+
         if (audioRef.current) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
