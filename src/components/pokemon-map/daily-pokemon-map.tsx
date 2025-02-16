@@ -57,7 +57,7 @@ const DailyPokemonMap = () => {
             console.log(townName);
             const region = getRegionFromTown(townName);
             setRegion(region);
-        } else {
+        } else if (dailyThemes[0].towns) {
             console.log('1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
