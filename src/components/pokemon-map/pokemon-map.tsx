@@ -60,18 +60,20 @@ const PokemonMap = () => {
             randomTheme = currentRegionThemes[Math.floor(Math.random() * currentRegionThemes.length)];
         }
 
-        if (randomTheme.name === currentTheme) {
-            playRandomSound();
-            return;
+        if (randomTheme) {
+            if (randomTheme.name === currentTheme) {
+                playRandomSound();
+                return;
+            }
+    
+            const newAudio = new Audio(randomTheme.file);
+            newAudio.volume = 0.05;
+            newAudio.play();
+    
+            audioRef.current = newAudio;
+            setCurrentTheme(randomTheme.name);
+            setCorrectTowns(randomTheme.towns);
         }
-
-        const newAudio = new Audio(randomTheme.file);
-        newAudio.volume = 0.05;
-        newAudio.play();
-
-        audioRef.current = newAudio;
-        setCurrentTheme(randomTheme.name);
-        setCorrectTowns(randomTheme.towns);
     };
 
     const handleTownClick = (townName: string) => {
