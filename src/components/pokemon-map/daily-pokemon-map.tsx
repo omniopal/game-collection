@@ -156,6 +156,8 @@ const DailyPokemonMap = () => {
         console.log(dailyThemes);
         setDailyThemes(dailyThemes);
 
+
+
         const index = localStorage.getItem('themeIndex');
         if (index) {
             const numIndex = Number.parseInt(index);
@@ -166,6 +168,7 @@ const DailyPokemonMap = () => {
             setRegion(region);
         } else {
             console.log('6');
+            localStorage.setItem('themeIndex', '1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
             setRegion(region);
