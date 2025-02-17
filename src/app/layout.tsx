@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../index.css';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
     title: "Jacob's Games",
@@ -29,6 +30,7 @@ export default function RootLayout({
           </head>
         <body>
             <div id="root">{children}</div>
+            <GoogleAnalytics gaId={`${process.env.GOOGLE_ANALYTICS_ID}`}/>
         </body>
         </html>
 
