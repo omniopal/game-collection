@@ -235,6 +235,8 @@ const DailyPokemonMap = () => {
         }
     }, []);
 
+    const today = new Date().toISOString().split('T')[0];
+
     return (
         <>
             <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
@@ -288,6 +290,7 @@ const DailyPokemonMap = () => {
                 </>
             }
             <div className="stuff">
+                <p>Date: {today}</p>
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
                     <button className="button" onClick={playTheme}>

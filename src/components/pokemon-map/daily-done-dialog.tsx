@@ -32,9 +32,9 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
                 const numGuess = Number.parseInt(guess);
                 for (let i = 0; i < numGuess; i++) {
                     if (numGuess - 1 === i) {
-                        currentRound = currentRound + '🟢\n';
+                        currentRound = currentRound + '✅\n';
                     } else {
-                       currentRound = currentRound + '🔴'; 
+                       currentRound = currentRound + '❌'; 
                     }
                 }
                 
