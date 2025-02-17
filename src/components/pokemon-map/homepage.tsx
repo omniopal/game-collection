@@ -17,7 +17,7 @@ export const Homepage = () => {
                 </div>
             </div>
             <footer>
-                contact@pokemelody.com
+                <a className="created-by" href="https://x.com/JacobMauro4">Created by OmniOpal</a>
             </footer>
         </>
     );

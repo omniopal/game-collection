@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react';
 import './pokemon-map.css';
 import { LatLng, LatLngBounds } from 'leaflet';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Link, useMediaQuery, useTheme } from '@mui/material';
 import clsx from 'clsx';
 import { regionThemes } from './region-themes';
 import { Region, RegionSelector } from './region-selector';
@@ -140,6 +140,9 @@ const PokemonMap = () => {
 
     return (
         <>
+            <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
+                <img className="logo" src="/images/logo3.png" alt="PokeMelody logo" />
+            </Link>
             <div className="header">
                 <div className="region">
                     <h2>Region:</h2>

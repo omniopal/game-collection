@@ -146,6 +146,16 @@ div {
     margin-block-end: 4px;
 }
 
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    width: 60px;
+}
+
 :root {
     --color-primary: hsl(198, 50%, 90%);
     --color-secondary: hsl(198, 50%, 10%);
