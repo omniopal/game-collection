@@ -8,7 +8,7 @@ export type Theme = {
     towns: string[];
 }
 
-export const regionThemes: Record<Region, { ogTheme?: Theme[], theme: Theme[] }> = {
-    Kanto: {ogTheme: ogKantoThemes, theme: kantoThemes },
+export const regionThemes: Record<Region, { ogTheme: Theme[], theme: Theme[] }> = {
+    Kanto: { ogTheme: ogKantoThemes, theme: kantoThemes },
     Johto: { ogTheme: ogJohtoThemes, theme: johtoThemes },
 };

@@ -34,7 +34,7 @@ const DailyPokemonMap = () => {
     const [currentRoundGuesses, setCurrentRoundGuesses] = useState<string[]>([]);
     const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
     const [dailyThemes, setDailyThemes] = useState<Theme[]>([]);
-    const [ogDailyThemes, setOgDailyThemes] = useState<(Theme | undefined)[]>([]);
+    const [ogDailyThemes, setOgDailyThemes] = useState<Theme[]>([]);
     const index = localStorage.getItem('themeIndex') ?? '1';
     const start = Number.parseInt(index);
     const [dailyThemeIndex, setDailyThemeIndex] = useState<number>(start - 1);
@@ -172,22 +172,33 @@ const DailyPokemonMap = () => {
         })
     }
 
+    const fisherYatesShuffle = (themes: Theme[], rng: seedrandom.PRNG) => {
+        const shuffledArray = [...themes]; // Create a copy to avoid mutating the original
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(rng() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    };
+
     const getDailyThemes = () => {
         const today = new Date().toISOString().split('T')[0];
         const rng = seedrandom(today);
         const allThemes = Object.values(regionThemes).flatMap(region => region.theme);
-        const shuffledThemes = allThemes.sort(() => rng() - 0.5);
+        // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
         
-        return shuffledThemes.slice(0, 5);
+        // return shuffledThemes.slice(0, 5);
+        return fisherYatesShuffle(allThemes, rng).slice(0, 5);
     };
 
     const getOgDailyThemes = () => {
         const today = new Date().toISOString().split('T')[0];
         const rng = seedrandom(today);
         const allThemes = Object.values(regionThemes).flatMap(region => region.ogTheme);
-        const shuffledThemes = allThemes.sort(() => rng() - 0.5);
+        // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
         
-        return shuffledThemes.slice(0, 5);
+        // return shuffledThemes.slice(0, 5);
+        return fisherYatesShuffle(allThemes, rng).slice(0, 5);
     };
 
     useEffect(() => {
@@ -234,8 +245,6 @@ const DailyPokemonMap = () => {
             setRegion(region);
         }
     }, []);
-
-    const today = new Date().toISOString().split('T')[0];
 
     return (
         <>
@@ -290,7 +299,6 @@ const DailyPokemonMap = () => {
                 </>
             }
             <div className="stuff">
-                <p>Date: {today}</p>
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
                     <button className="button" onClick={playTheme}>
