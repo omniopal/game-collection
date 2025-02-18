@@ -11,6 +11,7 @@ import { KantoMap } from './kanto/kanto-map';
 import { JohtoMap } from './johto/johto-map';
 import { regionSizes } from './region-sizes'; // will be used for score
 import { StyledSwitch } from './StyledSwitch';
+import { HoennMap } from './hoenn/hoenn-map';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -28,7 +29,7 @@ const PokemonMap = () => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [currentTheme, setCurrentTheme] = useState<string | null>(null);
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
-    const [region, setRegion] = useState<Region>('Kanto');
+    const [region, setRegion] = useState<Region>('Hoenn');
     const [guesses, setGuesses] = useState<string[]>([]);
     const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
 
@@ -140,9 +141,9 @@ const PokemonMap = () => {
 
     return (
         <>
-            <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
+            {/* <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
                 <img className="logo" src="/images/logo3.png" alt="PokeMelody logo" />
-            </Link>
+            </Link> */}
             <div className="header">
                 <div className="region">
                     <h2>Region:</h2>
@@ -174,10 +175,14 @@ const PokemonMap = () => {
                 />
             }
             {region === 'Hoenn' &&
-                <>
-                    <h1 className="construction">Under construction</h1>
-                    <h3 className="construction">Come back soon :)</h3>
-                </>
+                <HoennMap
+                    handleTownClick={handleTownClick}
+                    height={height}
+                    bounds={bounds}
+                    guesses={guesses}
+                    center={center}
+                    zoom={zoom}
+                />
             }
             {region === 'Sinnoh' &&
                 <>
