@@ -13,6 +13,7 @@ import { StyledSwitch } from './StyledSwitch';
 import seedrandom from 'seedrandom';
 import { getRegionFromTown } from './get-region-from-town';
 import { DailyDoneDialog } from './daily-done-dialog';
+import { HoennMap } from './hoenn/hoenn-map';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -281,10 +282,14 @@ const DailyPokemonMap = () => {
                 />
             }
             {region === 'Hoenn' &&
-                <>
-                    <h1 className="construction">Under construction</h1>
-                    <h3 className="construction">Come back soon :)</h3>
-                </>
+                <HoennMap
+                    handleTownClick={handleTownClick}
+                    height={height}
+                    bounds={bounds}
+                    guesses={currentRoundGuesses}
+                    center={center}
+                    zoom={zoom}
+                />
             }
             {region === 'Sinnoh' &&
                 <>

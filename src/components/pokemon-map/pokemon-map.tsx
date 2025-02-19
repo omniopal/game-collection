@@ -141,9 +141,9 @@ const PokemonMap = () => {
 
     return (
         <>
-            {/* <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
+            <Link sx={{ marginBlockStart: '8px', marginInlineStart: '8px' }} className="logo-container" href="/pokemon">
                 <img className="logo" src="/images/logo3.png" alt="PokeMelody logo" />
-            </Link> */}
+            </Link>
             <div className="header">
                 <div className="region">
                     <h2>Region:</h2>
