@@ -182,6 +182,28 @@ const DailyPokemonMap = () => {
         return shuffledArray;
     };
 
+    const newGetDailyThemes = () => {
+        const today = new Date().toISOString().split('T')[0];
+        const rng = seedrandom(today);
+
+        const kantoThemes = regionThemes['Kanto'];
+        const kantoThemesLength = kantoThemes.theme.length;
+        const firstRandomKantoTheme = kantoThemes.theme[Math.floor(rng() * kantoThemesLength)];
+        const secondRandomKantoTheme = kantoThemes.theme[Math.floor(rng() * kantoThemesLength)];
+
+        const johtoThemes = regionThemes['Johto'];
+        const johtoThemesLength = johtoThemes.theme.length;
+        const firstRandomJohtoTheme = johtoThemes.theme[Math.floor(rng() * johtoThemesLength)];
+        const secondRandomJohtoTheme = johtoThemes.theme[Math.floor(rng() * johtoThemesLength)];
+
+        const hoennThemes = regionThemes['Hoenn'];
+        const hoennThemesLength = hoennThemes.theme.length;
+        const firstRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
+        const secondRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
+
+        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme];
+    }
+
     const getDailyThemes = () => {
         const today = new Date().toISOString().split('T')[0];
         const rng = seedrandom(today);
@@ -213,7 +235,7 @@ const DailyPokemonMap = () => {
         }
 
         // Always pop dialog when user has already completed today's puzzle
-        if (localDate === today && themeIndex === '5') {
+        if (localDate === today && themeIndex === '6') {
             setIsDialogOpen(true);
         }
 
@@ -224,7 +246,8 @@ const DailyPokemonMap = () => {
             localStorage.removeItem('guesses');
         }
 
-        const dailyThemes = getDailyThemes();
+        // const dailyThemes = getDailyThemes();
+        const dailyThemes = newGetDailyThemes();
         const ogDailyThemes = getOgDailyThemes();
         console.log(dailyThemes);
         setDailyThemes(dailyThemes);
@@ -295,12 +318,6 @@ const DailyPokemonMap = () => {
                 <>
                     <h1 className="construction">Under construction</h1>
                     <h3 className="construction">Come back soon :)</h3>
-                </>
-            }
-            {region === 'Unova' &&
-                <>
-                <h1 className="construction">Under construction</h1>
-                <h3 className="construction">Come back soon :)</h3>
                 </>
             }
             <div className="stuff">

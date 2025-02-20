@@ -2,7 +2,7 @@ import React from 'react';
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material"
 import './region-selector.css';
 
-export const REGIONS = ['Kanto', 'Johto', 'Hoenn', 'Sinnoh', 'Unova'];
+export const REGIONS = ['Kanto', 'Johto', 'Hoenn', 'Sinnoh'];
 export type Region = (typeof REGIONS)[number];
 
 export type RegionSelectorProps = {

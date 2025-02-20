@@ -114,7 +114,7 @@ const PokemonMap = () => {
         setScore(0);
         setLastClickedTown('');
 
-        if (region === 'Hoenn' || region === 'Sinnoh' || region === 'Unova') {
+        if (region === 'Hoenn' || region === 'Sinnoh') {
             setShouldPlayOGTheme(false);
         }
     }
@@ -188,12 +188,6 @@ const PokemonMap = () => {
                 <>
                     <h1 className="construction">Under construction</h1>
                     <h3 className="construction">Come back soon :)</h3>
-                </>
-            }
-            {region === 'Unova' &&
-                <>
-                <h1 className="construction">Under construction</h1>
-                <h3 className="construction">Come back soon :)</h3>
                 </>
             }
             <div className="stuff">
