@@ -204,15 +204,15 @@ const DailyPokemonMap = () => {
         return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme];
     }
 
-    const getDailyThemes = () => {
-        const today = new Date().toISOString().split('T')[0];
-        const rng = seedrandom(today);
-        const allThemes = Object.values(regionThemes).flatMap(region => region.theme);
-        // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
+    // const getDailyThemes = () => {
+    //     const today = new Date().toISOString().split('T')[0];
+    //     const rng = seedrandom(today);
+    //     const allThemes = Object.values(regionThemes).flatMap(region => region.theme);
+    //     // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
         
-        // return shuffledThemes.slice(0, 5);
-        return fisherYatesShuffle(allThemes, rng).slice(0, 5);
-    };
+    //     // return shuffledThemes.slice(0, 5);
+    //     return fisherYatesShuffle(allThemes, rng).slice(0, 5);
+    // };
 
     const getOgDailyThemes = () => {
         const today = new Date().toISOString().split('T')[0];
@@ -228,7 +228,9 @@ const DailyPokemonMap = () => {
         const localDate = localStorage.getItem('date');
         const today = new Date().toISOString().split('T')[0];
         const themeIndex = localStorage.getItem('themeIndex');
-
+        console.log("Local Date: " + localDate);
+        console.log("Today: " + today);
+        console.log("Theme Index: " + themeIndex);
         // Initialize local date (for first time players & after clearing application storage)
         if (!localDate) {
             localStorage.setItem('date', today);
@@ -240,7 +242,7 @@ const DailyPokemonMap = () => {
         }
 
         // Reset on new day
-        if (localDate != today) {
+        if (localDate && localDate != today) {
             localStorage.setItem('date', today);
             localStorage.setItem('themeIndex', '1');
             localStorage.removeItem('guesses');
@@ -253,16 +255,14 @@ const DailyPokemonMap = () => {
         setDailyThemes(dailyThemes);
         setOgDailyThemes(ogDailyThemes);
 
-        const index = localStorage.getItem('themeIndex');
-        if (index) {
-            const numIndex = Number.parseInt(index);
-            console.log('5');
+        const localIndex = localStorage.getItem('themeIndex');
+        if (localIndex) {
+            const numIndex = Number.parseInt(localIndex);
             const townName = dailyThemes[numIndex - 1]?.towns[0];
             console.log(townName);
             const region = getRegionFromTown(townName);
             setRegion(region);
         } else {
-            console.log('6');
             localStorage.setItem('themeIndex', '1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
@@ -333,7 +333,7 @@ const DailyPokemonMap = () => {
                         localStorage.setItem('themeIndex', '1');
                         setDailyThemeIndex(0);
                         setGuesses([]); 
-                        setIsDialogOpen(true);
+                        // setIsDialogOpen(true);
                     }}>
                         Reset
                     </button>

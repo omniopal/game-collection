@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Link, Snackbar, SnackbarCloseReason } from "@mui/material"
 import './daily-done-dialog.css';
 import ShareIcon from '@mui/icons-material/Share';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 type DialogDoneDialogProps = {
     isOpen: boolean;
@@ -21,14 +22,15 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
     }, [isOpen])
 
     const onShareButtonClick = async () => {
-        let results = 'PokéMelody #1 Results:\n';
+        const iteration = getPokeMelodyIteration();
+        let results = `PokéMelody #${iteration} Results:\n`;
 
         const localGuesses = localStorage.getItem('guesses');
         if (localGuesses) {
             const guessesArray = localGuesses.split(',');
             setLocalGuesses(guessesArray);
             guessesArray.forEach((guess, index) => {
-                let currentRound = `🎵 ${index + 1}: `;
+                let currentRound = `🎵 #${index + 1}: `;
                 const numGuess = Number.parseInt(guess);
                 for (let i = 0; i < numGuess; i++) {
                     if (numGuess - 1 === i) {
@@ -70,6 +72,16 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
         return total;
     }
 
+    function getPokeMelodyIteration() {
+            const start = new Date('2025-02-18').getTime();
+            const correctStart = new Date().toLocaleDateString('en-CA', {
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            });
+            const today = new Date(correctStart).getTime()
+            const timeDiff = Math.abs(start - today);
+            return Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
+          }
+
     return (
         <Dialog className="dialog" open={isOpen} PaperProps={{ sx: { backgroundColor: 'hsl(198, 50%, 10%)' } }}>
             <Snackbar
@@ -90,12 +102,15 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
                 <p>Thanks for playing today!</p>
             </DialogTitle>
             <DialogContent className="dialog-content">
-                <h3 className="your-results">Your results:</h3>
+                <h3 className="your-results">Your PokéMelody {getPokeMelodyIteration()} results:</h3>
                 <table className="table">
                     <tbody>
                         {localGuesses.map((guess, index) => (
-                            <tr key={index}>
-                                <td>🎵 #{index + 1}:</td>
+                            <tr className="tr" key={index}>
+                                <td className="td">
+                                    <MusicNoteIcon sx={{ dispaly: 'flex', color: 'hsl(258, 80%, 80%)' }}/>
+                                    <div>#{index + 1}:</div>
+                                </td>
                                 <td>{guess} {Number.parseInt(guess) === 1 ? 'guess' : 'guesses'}</td>
                             </tr>
                         ))}
@@ -105,12 +120,15 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
                 <button className="share-button" onClick={onShareButtonClick}>
                     Copy <ShareIcon fontSize='small'/>
                 </button>
-            </DialogContent>
-            <DialogActions>
                 <Link sx={{ textDecoration: 'none', color: 'hsl(198, 50%, 10%)', fontWeight: 600, padding: 0 }} className="link" href="/freeplay" onClick={() => setIsDialogOpen(false)}>
                     Go to Free Play
                 </Link>
-            </DialogActions>
+            </DialogContent>
+            {/* <DialogActions>
+                <Link sx={{ textDecoration: 'none', color: 'hsl(198, 50%, 10%)', fontWeight: 600, padding: 0 }} className="link" href="/freeplay" onClick={() => setIsDialogOpen(false)}>
+                    Go to Free Play
+                </Link>
+            </DialogActions> */}
         </Dialog>
     )
 }

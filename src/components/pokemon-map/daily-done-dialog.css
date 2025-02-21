@@ -48,7 +48,9 @@
     line-height: 1;
     transition: transform 200ms;
     gap: 8px;
-    width: 120px;
+    width: 160px;
+    height: 40px;
+    margin-block-end: 12px;
 }
 
 .link {
@@ -74,6 +76,7 @@
 
 .your-results {
     color: hsl(138, 80%, 80%);
+    font-weight: 500;
 }
 
 .total-guesses {
@@ -88,6 +91,20 @@
 
 h3 {
     margin-block-start: 0;
+}
+
+td {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-block-end: 4px;
 }
 
 .link:hover {
