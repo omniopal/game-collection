@@ -217,18 +217,43 @@ const DailyPokemonMap = () => {
     //     return fisherYatesShuffle(allThemes, rng).slice(0, 5);
     // };
 
-    const getOgDailyThemes = () => {
+    // const getOgDailyThemes = () => {
+    //     const correctStart = new Date().toLocaleDateString('en-CA', {
+    //         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    //     });
+    //     const today = new Date(correctStart).toISOString().split('T')[0];
+    //     const rng = seedrandom(today);
+    //     const allThemes = Object.values(regionThemes).flatMap(region => region.ogTheme);
+    //     // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
+        
+    //     // return shuffledThemes.slice(0, 5);
+    //     return fisherYatesShuffle(allThemes, rng).slice(0, 5);
+    // };
+
+    const newGetOgDailyThemes = () => {
         const correctStart = new Date().toLocaleDateString('en-CA', {
             timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         });
         const today = new Date(correctStart).toISOString().split('T')[0];
         const rng = seedrandom(today);
-        const allThemes = Object.values(regionThemes).flatMap(region => region.ogTheme);
-        // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
-        
-        // return shuffledThemes.slice(0, 5);
-        return fisherYatesShuffle(allThemes, rng).slice(0, 5);
-    };
+
+        const kantoThemes = regionThemes['Kanto'];
+        const kantoThemesLength = kantoThemes.ogTheme.length;
+        const firstRandomKantoTheme = kantoThemes.ogTheme[Math.floor(rng() * kantoThemesLength)];
+        const secondRandomKantoTheme = kantoThemes.ogTheme[Math.floor(rng() * kantoThemesLength)];
+
+        const johtoThemes = regionThemes['Johto'];
+        const johtoThemesLength = johtoThemes.ogTheme.length;
+        const firstRandomJohtoTheme = johtoThemes.ogTheme[Math.floor(rng() * johtoThemesLength)];
+        const secondRandomJohtoTheme = johtoThemes.ogTheme[Math.floor(rng() * johtoThemesLength)];
+
+        const hoennThemes = regionThemes['Hoenn'];
+        const hoennThemesLength = hoennThemes.ogTheme.length;
+        const firstRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
+        const secondRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
+
+        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme];
+    }
 
     useEffect(() => {
         const localDate = localStorage.getItem('date');
@@ -260,19 +285,22 @@ const DailyPokemonMap = () => {
 
         // const dailyThemes = getDailyThemes();
         const dailyThemes = newGetDailyThemes();
-        const ogDailyThemes = getOgDailyThemes();
+        const ogDailyThemes = newGetOgDailyThemes();
         console.log(dailyThemes);
         setDailyThemes(dailyThemes);
         setOgDailyThemes(ogDailyThemes);
 
+        // Haven't finished today's, left and came back mid-way through
         const localIndex = localStorage.getItem('themeIndex');
-        if (localIndex) {
+        if (localIndex && Number.parseInt(localIndex) < 6) {
             const numIndex = Number.parseInt(localIndex);
             const townName = dailyThemes[numIndex - 1]?.towns[0];
             console.log(townName);
             const region = getRegionFromTown(townName);
             setRegion(region);
-        } else {
+        }
+        
+        if (!localIndex) {
             localStorage.setItem('themeIndex', '1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);

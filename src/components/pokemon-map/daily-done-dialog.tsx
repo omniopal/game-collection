@@ -102,7 +102,7 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
                 <p>Thanks for playing today!</p>
             </DialogTitle>
             <DialogContent className="dialog-content">
-                <h3 className="your-results">Your PokéMelody {getPokeMelodyIteration()} results:</h3>
+                <h3 className="your-results">Your PokéMelody #{getPokeMelodyIteration()} results:</h3>
                 <table className="table">
                     <tbody>
                         {localGuesses.map((guess, index) => (
