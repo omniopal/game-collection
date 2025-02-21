@@ -183,7 +183,10 @@ const DailyPokemonMap = () => {
     };
 
     const newGetDailyThemes = () => {
-        const today = new Date().toISOString().split('T')[0];
+        const correctStart = new Date().toLocaleDateString('en-CA', {
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        });
+        const today = new Date(correctStart).toISOString().split('T')[0];
         const rng = seedrandom(today);
 
         const kantoThemes = regionThemes['Kanto'];
@@ -215,7 +218,10 @@ const DailyPokemonMap = () => {
     // };
 
     const getOgDailyThemes = () => {
-        const today = new Date().toISOString().split('T')[0];
+        const correctStart = new Date().toLocaleDateString('en-CA', {
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        });
+        const today = new Date(correctStart).toISOString().split('T')[0];
         const rng = seedrandom(today);
         const allThemes = Object.values(regionThemes).flatMap(region => region.ogTheme);
         // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
@@ -226,7 +232,11 @@ const DailyPokemonMap = () => {
 
     useEffect(() => {
         const localDate = localStorage.getItem('date');
-        const today = new Date().toISOString().split('T')[0];
+        const correctStart = new Date().toLocaleDateString('en-CA', {
+            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        });
+        const today = new Date(correctStart).toISOString().split('T')[0];
+        
         const themeIndex = localStorage.getItem('themeIndex');
         console.log("Local Date: " + localDate);
         console.log("Today: " + today);
