@@ -40,9 +40,9 @@ export const hoennThemes = [
         towns: ["Slateport City"],
     },
     {
-        name: "Pacifidlog Town Theme",
+        name: "Pacifidlog Town & Ever Grande City Theme",
         file: "/audio/hoenn/pacifidlog.mp3",
-        towns: ["Pacifidlog Town"],
+        towns: ["Pacifidlog Town", "Ever Grande City"],
     },
     {
         name: "Fortree City Theme",
@@ -58,11 +58,6 @@ export const hoennThemes = [
         name: "Sootopolis City Theme",
         file: "/audio/hoenn/sootopolis.mp3",
         towns: ["Sootopolis City"],
-    },
-    {
-        name: "Ever Grande City Theme",
-        file: "/audio/hoenn/ever grande.mp3",
-        towns: ["Ever Grande City"],
     },
     {
         name: "Battle Frontier Theme",

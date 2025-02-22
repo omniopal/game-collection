@@ -36,9 +36,7 @@ const DailyPokemonMap = () => {
     const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
     const [dailyThemes, setDailyThemes] = useState<Theme[]>([]);
     const [ogDailyThemes, setOgDailyThemes] = useState<Theme[]>([]);
-    const index = localStorage.getItem('themeIndex') ?? '1';
-    const start = Number.parseInt(index);
-    const [dailyThemeIndex, setDailyThemeIndex] = useState<number>(start - 1);
+    const [dailyThemeIndex, setDailyThemeIndex] = useState<number>(0);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const theme = useTheme();
@@ -68,7 +66,9 @@ const DailyPokemonMap = () => {
             setRegion(region);
         }
 
-        playTheme();
+        if (dailyThemeIndex > 1) {
+            playTheme();
+        }
     }, [dailyThemeIndex]);
 
     const playTheme = () => {
@@ -79,12 +79,13 @@ const DailyPokemonMap = () => {
             audioRef.current.currentTime = 0;
         }
 
-        if (!shouldPlayOGTheme && dailyThemeIndex < dailyThemes.length && dailyThemes.length > 0) {
+        if (!shouldPlayOGTheme && dailyThemeIndex <= dailyThemes.length && dailyThemes.length > 0) {
             console.log(`index: ${dailyThemeIndex}`);
-            const theme = dailyThemes[dailyThemeIndex];
+            const theme = dailyThemes[dailyThemeIndex-1];
 
             const newAudio = new Audio(theme.file);
             newAudio.volume = 0.05;
+            newAudio.autoplay = true;
             newAudio.play();
 
             audioRef.current = newAudio;
@@ -93,12 +94,13 @@ const DailyPokemonMap = () => {
             setCorrectTowns(theme.towns);
         }
 
-        if (shouldPlayOGTheme && dailyThemeIndex < ogDailyThemes.length && ogDailyThemes.length > 0) {
+        if (shouldPlayOGTheme && dailyThemeIndex <= ogDailyThemes.length && ogDailyThemes.length > 0) {
             console.log(`index: ${dailyThemeIndex}`);
-            const theme = ogDailyThemes[dailyThemeIndex];
+            const theme = ogDailyThemes[dailyThemeIndex-1];
 
             const newAudio = new Audio(theme?.file);
             newAudio.volume = 0.05;
+            newAudio.autoplay = true;
             newAudio.play();
 
             audioRef.current = newAudio;
@@ -128,7 +130,7 @@ const DailyPokemonMap = () => {
 
             console.log('dailyThemeIndex: ' + dailyThemeIndex);
             console.log(`other: ${dailyThemes.length - 1}`);
-            if (dailyThemeIndex === dailyThemes.length - 1) {
+            if (dailyThemeIndex === dailyThemes.length) {
                 localStorage.setItem('guesses', updatedGuesses.toString());
                 setIsDialogOpen(true);
             } else {
@@ -166,6 +168,7 @@ const DailyPokemonMap = () => {
             if (theme.towns.includes(correctTowns[0])) {
                 const newAudio = new Audio(theme.file);
                 newAudio.volume = 0.05;
+                newAudio.autoplay = true;
                 newAudio.play();
                 audioRef.current = newAudio;
                 return;
@@ -263,6 +266,13 @@ const DailyPokemonMap = () => {
         const today = new Date(correctStart).toISOString().split('T')[0];
         
         const themeIndex = localStorage.getItem('themeIndex');
+
+        if (themeIndex) {
+            setDailyThemeIndex(Number.parseInt(themeIndex));
+        } else {
+            setDailyThemeIndex(0);
+        }
+
         console.log("Local Date: " + localDate);
         console.log("Today: " + today);
         console.log("Theme Index: " + themeIndex);

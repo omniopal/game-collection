@@ -74,6 +74,7 @@ const PokemonMap = () => {
             audioRef.current = newAudio;
             setCurrentTheme(randomTheme.name);
             setCorrectTowns(randomTheme.towns);
+            setGuesses([]);
         }
     };
 
