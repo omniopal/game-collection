@@ -56,7 +56,10 @@ div {
 
 .button {
     -webkit-appearance: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px 12px 16px;
     outline: 0;
     border: 0;
     cursor: pointer;
@@ -154,6 +157,10 @@ div {
 
 .logo {
     width: 60px;
+}
+
+.button-icon {
+    color: hsl(198, 50%, 10%);
 }
 
 :root {

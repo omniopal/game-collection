@@ -16,6 +16,8 @@ import { HoennMap } from './hoenn/hoenn-map';
 import { SinnohMap } from './sinnoh/sinnoh-map';
 import { getDailyThemes, getOgDailyThemes } from './utils/get-daily-themes';
 import { getRemasteredGameNamesFromRegion } from './utils/get-game-names-from-region';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -311,20 +313,20 @@ const DailyPokemonMap = () => {
             }
             <div className="stuff">
                 <div className="buttons">
-                    <button className="button" onClick={playTheme}>
-                        Play Theme
+                    <button className="daily-button" onClick={playTheme}>
+                        <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play Theme
                     </button>
-                    <button className="button" onClick={() => audioRef.current?.pause()}>
-                        Stop music
+                    <button className="daily-button" onClick={() => audioRef.current?.pause()}>
+                        <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause music
                     </button>
-                    <button className="button" onClick={() => {
+                    {/* <button className="button" onClick={() => {
                         localStorage.setItem('themeIndex', '1');
                         setDailyThemeIndex(0);
                         setGuesses([]); 
                         // setIsDialogOpen(true);
                     }}>
                         Reset
-                    </button>
+                    </button> */}
                 </div>
                 {regionThemes[region]?.ogTheme &&
                     <div className="theme-version-toggle">

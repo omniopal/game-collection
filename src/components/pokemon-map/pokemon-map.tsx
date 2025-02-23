@@ -9,11 +9,12 @@ import { regionThemes } from './region-themes';
 import { Region, RegionSelector } from './region-selector';
 import { KantoMap } from './kanto/kanto-map';
 import { JohtoMap } from './johto/johto-map';
-import { regionSizes } from './region-sizes'; // will be used for score
 import { StyledSwitch } from './StyledSwitch';
 import { HoennMap } from './hoenn/hoenn-map';
 import { SinnohMap } from './sinnoh/sinnoh-map';
 import { getRemasteredGameNamesFromRegion } from './utils/get-game-names-from-region';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -201,10 +202,10 @@ const PokemonMap = () => {
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
                     <button className="button" onClick={playRandomSound}>
-                        Play Random Theme
+                    <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play Random Theme
                     </button>
                     <button className="button" onClick={() => audioRef.current?.pause()}>
-                        Stop music
+                    <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause music
                     </button>
                 </div>
                 {regionThemes[region]?.ogTheme &&
