@@ -13,6 +13,7 @@ import { regionSizes } from './region-sizes'; // will be used for score
 import { StyledSwitch } from './StyledSwitch';
 import { HoennMap } from './hoenn/hoenn-map';
 import { SinnohMap } from './sinnoh/sinnoh-map';
+import { getRemasteredGameNamesFromRegion } from './utils/get-game-names-from-region';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -32,7 +33,7 @@ const PokemonMap = () => {
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
     const [region, setRegion] = useState<Region>('Kanto');
     const [guesses, setGuesses] = useState<string[]>([]);
-    const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
+    const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(true);
 
     const theme = useTheme();
     const isSmallBreakpoint = useMediaQuery(theme.breakpoints.down(700));
@@ -208,7 +209,7 @@ const PokemonMap = () => {
                 </div>
                 {regionThemes[region]?.ogTheme &&
                     <div className="theme-version-toggle">
-                        <div className="play-original-theme">Play original themes</div>
+                        <div className="play-original-theme">Play remastered {getRemasteredGameNamesFromRegion(region)} themes</div>
                         <StyledSwitch
                             onChange={onThemeVersionToggle}
                         />

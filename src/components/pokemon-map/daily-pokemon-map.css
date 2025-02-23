@@ -92,6 +92,7 @@ div {
     display: flex;
     gap: 8px;
     margin-block-end: 8px;
+    margin-block-start: 12px;
 }
 
 .button:hover {
@@ -154,6 +155,11 @@ div {
 
 .logo {
     width: 60px;
+}
+
+.region-name {
+    color: hsl(138, 80%, 80%);
+    margin-inline-start: 8px;
 }
 
 :root {

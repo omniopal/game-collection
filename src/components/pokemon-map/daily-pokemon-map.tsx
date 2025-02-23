@@ -10,11 +10,12 @@ import { Region } from './region-selector';
 import { KantoMap } from './kanto/kanto-map';
 import { JohtoMap } from './johto/johto-map';
 import { StyledSwitch } from './StyledSwitch';
-import seedrandom from 'seedrandom';
-import { getRegionFromTown } from './get-region-from-town';
+import { getRegionFromTown } from './utils/get-region-from-town';
 import { DailyDoneDialog } from './daily-done-dialog';
 import { HoennMap } from './hoenn/hoenn-map';
 import { SinnohMap } from './sinnoh/sinnoh-map';
+import { getDailyThemes, getOgDailyThemes } from './utils/get-daily-themes';
+import { getRemasteredGameNamesFromRegion } from './utils/get-game-names-from-region';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -34,7 +35,7 @@ const DailyPokemonMap = () => {
     const [region, setRegion] = useState<Region>('Kanto');
     const [guesses, setGuesses] = useState<number[]>([]);
     const [currentRoundGuesses, setCurrentRoundGuesses] = useState<string[]>([]);
-    const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
+    const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(true);
     const [dailyThemes, setDailyThemes] = useState<Theme[]>([]);
     const [ogDailyThemes, setOgDailyThemes] = useState<Theme[]>([]);
     const [dailyThemeIndex, setDailyThemeIndex] = useState<number>(0);
@@ -69,7 +70,7 @@ const DailyPokemonMap = () => {
 
         // Auto-play the next track when the user has already started the game
         // Don't auto-play once the daily game is done (if they re-visit the page)
-        if (dailyThemeIndex > 1 && dailyThemeIndex < 8) {
+        if (dailyThemeIndex > 1 && dailyThemeIndex <= 8) {
             playTheme();
         }
     }, [dailyThemeIndex]);
@@ -141,9 +142,14 @@ const DailyPokemonMap = () => {
                 if (index) {
                     const numIndex = Number.parseInt(index);
                     localStorage.setItem('themeIndex', `${numIndex + 1}`);
+                    localStorage.setItem('guesses', updatedGuesses.toString());
                 }
 
                 setDailyThemeIndex(dailyThemeIndex + 1);
+                
+                if (dailyThemeIndex % 2 === 0) {
+                    setLastClickedTown('');
+                }
             }
             
         // Incorrect guess
@@ -179,112 +185,21 @@ const DailyPokemonMap = () => {
         })
     }
 
-    const fisherYatesShuffle = (themes: Theme[], rng: seedrandom.PRNG) => {
-        const shuffledArray = [...themes]; // Create a copy to avoid mutating the original
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
-            const j = Math.floor(rng() * (i + 1));
-            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-        }
-        return shuffledArray;
-    };
-
-    const newGetDailyThemes = () => {
-        const correctStart = new Date().toLocaleDateString('en-CA', {
-            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        });
-        const today = new Date(correctStart).toISOString().split('T')[0];
-        const rng = seedrandom(today);
-
-        const kantoThemes = regionThemes['Kanto'];
-        const kantoThemesLength = kantoThemes.theme.length;
-        const firstRandomKantoTheme = kantoThemes.theme[Math.floor(rng() * kantoThemesLength)];
-        const secondRandomKantoTheme = kantoThemes.theme[Math.floor(rng() * kantoThemesLength)];
-
-        const johtoThemes = regionThemes['Johto'];
-        const johtoThemesLength = johtoThemes.theme.length;
-        const firstRandomJohtoTheme = johtoThemes.theme[Math.floor(rng() * johtoThemesLength)];
-        const secondRandomJohtoTheme = johtoThemes.theme[Math.floor(rng() * johtoThemesLength)];
-
-        const hoennThemes = regionThemes['Hoenn'];
-        const hoennThemesLength = hoennThemes.theme.length;
-        const firstRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
-        const secondRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
-
-        const sinnohThemes = regionThemes['Sinnoh'];
-        const sinnohThemesLength = sinnohThemes.theme.length;
-        const firstRandomSinnohTheme = sinnohThemes.theme[Math.floor(rng() * sinnohThemesLength)];
-        const secondRandomSinnohTheme = sinnohThemes.theme[Math.floor(rng() * sinnohThemesLength)];
-
-        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme, firstRandomSinnohTheme, secondRandomSinnohTheme];
-    }
-
-    // const getDailyThemes = () => {
-    //     const today = new Date().toISOString().split('T')[0];
-    //     const rng = seedrandom(today);
-    //     const allThemes = Object.values(regionThemes).flatMap(region => region.theme);
-    //     // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
-        
-    //     // return shuffledThemes.slice(0, 5);
-    //     return fisherYatesShuffle(allThemes, rng).slice(0, 5);
-    // };
-
-    // const getOgDailyThemes = () => {
-    //     const correctStart = new Date().toLocaleDateString('en-CA', {
-    //         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    //     });
-    //     const today = new Date(correctStart).toISOString().split('T')[0];
-    //     const rng = seedrandom(today);
-    //     const allThemes = Object.values(regionThemes).flatMap(region => region.ogTheme);
-    //     // const shuffledThemes = allThemes.sort(() => rng() - 0.5);
-        
-    //     // return shuffledThemes.slice(0, 5);
-    //     return fisherYatesShuffle(allThemes, rng).slice(0, 5);
-    // };
-
-    const newGetOgDailyThemes = () => {
-        const correctStart = new Date().toLocaleDateString('en-CA', {
-            timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        });
-        const today = new Date(correctStart).toISOString().split('T')[0];
-        const rng = seedrandom(today);
-
-        const kantoThemes = regionThemes['Kanto'];
-        const kantoThemesLength = kantoThemes.ogTheme.length;
-        const firstRandomKantoTheme = kantoThemes.ogTheme[Math.floor(rng() * kantoThemesLength)];
-        const secondRandomKantoTheme = kantoThemes.ogTheme[Math.floor(rng() * kantoThemesLength)];
-
-        const johtoThemes = regionThemes['Johto'];
-        const johtoThemesLength = johtoThemes.ogTheme.length;
-        const firstRandomJohtoTheme = johtoThemes.ogTheme[Math.floor(rng() * johtoThemesLength)];
-        const secondRandomJohtoTheme = johtoThemes.ogTheme[Math.floor(rng() * johtoThemesLength)];
-
-        const hoennThemes = regionThemes['Hoenn'];
-        const hoennThemesLength = hoennThemes.ogTheme.length;
-        const firstRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
-        const secondRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
-
-        const sinnohThemes = regionThemes['Sinnoh'];
-        const sinnohThemesLength = sinnohThemes.ogTheme.length;
-        const firstRandomSinnohTheme = sinnohThemes.ogTheme[Math.floor(rng() * sinnohThemesLength)];
-        const secondRandomSinnohTheme = sinnohThemes.ogTheme[Math.floor(rng() * sinnohThemesLength)];
-
-        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme, firstRandomSinnohTheme, secondRandomSinnohTheme];
-    }
-
     useEffect(() => {
         const localDate = localStorage.getItem('date');
         const correctStart = new Date().toLocaleDateString('en-CA', {
             timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         });
         const today = new Date(correctStart).toISOString().split('T')[0];
-        
-        const themeIndex = localStorage.getItem('themeIndex');
 
-        if (themeIndex) {
-            setDailyThemeIndex(Number.parseInt(themeIndex));
-        } else {
-            setDailyThemeIndex(0);
+        // Reset on new day
+        if (localDate && localDate != today) {
+            localStorage.setItem('date', today);
+            localStorage.setItem('themeIndex', '1');
+            localStorage.removeItem('guesses');
         }
+
+        const themeIndex = localStorage.getItem('themeIndex');
 
         console.log("Local Date: " + localDate);
         console.log("Today: " + today);
@@ -299,16 +214,9 @@ const DailyPokemonMap = () => {
             setIsDialogOpen(true);
         }
 
-        // Reset on new day
-        if (localDate && localDate != today) {
-            localStorage.setItem('date', today);
-            localStorage.setItem('themeIndex', '1');
-            localStorage.removeItem('guesses');
-        }
-
         // const dailyThemes = getDailyThemes();
-        const dailyThemes = newGetDailyThemes();
-        const ogDailyThemes = newGetOgDailyThemes();
+        const dailyThemes = getDailyThemes();
+        const ogDailyThemes = getOgDailyThemes();
         console.log(dailyThemes);
         setDailyThemes(dailyThemes);
         setOgDailyThemes(ogDailyThemes);
@@ -329,6 +237,22 @@ const DailyPokemonMap = () => {
             const region = getRegionFromTown(townName);
             setRegion(region);
         }
+
+        const localGuesses = localStorage.getItem('guesses');
+        if (localGuesses) {
+            const guessesArray = localGuesses.split(',');
+            let numGuessesArray: number[] = [];
+            guessesArray.forEach((strGuess) => {
+                numGuessesArray.push(Number.parseInt(strGuess));
+            });
+            setGuesses(numGuessesArray);
+        }
+
+        if (localIndex && Number.parseInt(localIndex) < 8) {
+            setDailyThemeIndex(Number.parseInt(localIndex));
+        } else {
+            setDailyThemeIndex(0);
+        }
     }, []);
 
     return (
@@ -338,7 +262,7 @@ const DailyPokemonMap = () => {
             </Link>
             <div className="header">
                 <div className="region">
-                    <h2>Region: {region}</h2>
+                    <h2>Region: <span className="region-name">{region}</span></h2>
                 </div>
                 <div className="score-container">
                     <p className="score-label">Round: </p>
@@ -386,7 +310,6 @@ const DailyPokemonMap = () => {
                 />
             }
             <div className="stuff">
-                <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
                     <button className="button" onClick={playTheme}>
                         Play Theme
@@ -405,7 +328,7 @@ const DailyPokemonMap = () => {
                 </div>
                 {regionThemes[region]?.ogTheme &&
                     <div className="theme-version-toggle">
-                        <div className="play-original-theme">Play original themes</div>
+                        <div className="play-original-theme">Play remastered {getRemasteredGameNamesFromRegion(region)} themes</div>
                         <StyledSwitch
                             onChange={onThemeVersionToggle}
                         />
