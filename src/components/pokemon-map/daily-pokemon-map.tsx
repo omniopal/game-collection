@@ -14,6 +14,7 @@ import seedrandom from 'seedrandom';
 import { getRegionFromTown } from './get-region-from-town';
 import { DailyDoneDialog } from './daily-done-dialog';
 import { HoennMap } from './hoenn/hoenn-map';
+import { SinnohMap } from './sinnoh/sinnoh-map';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -66,7 +67,9 @@ const DailyPokemonMap = () => {
             setRegion(region);
         }
 
-        if (dailyThemeIndex > 1) {
+        // Auto-play the next track when the user has already started the game
+        // Don't auto-play once the daily game is done (if they re-visit the page)
+        if (dailyThemeIndex > 1 && dailyThemeIndex < 8) {
             playTheme();
         }
     }, [dailyThemeIndex]);
@@ -207,7 +210,12 @@ const DailyPokemonMap = () => {
         const firstRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
         const secondRandomHoennTheme = hoennThemes.theme[Math.floor(rng() * hoennThemesLength)];
 
-        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme];
+        const sinnohThemes = regionThemes['Sinnoh'];
+        const sinnohThemesLength = sinnohThemes.theme.length;
+        const firstRandomSinnohTheme = sinnohThemes.theme[Math.floor(rng() * sinnohThemesLength)];
+        const secondRandomSinnohTheme = sinnohThemes.theme[Math.floor(rng() * sinnohThemesLength)];
+
+        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme, firstRandomSinnohTheme, secondRandomSinnohTheme];
     }
 
     // const getDailyThemes = () => {
@@ -255,7 +263,12 @@ const DailyPokemonMap = () => {
         const firstRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
         const secondRandomHoennTheme = hoennThemes.ogTheme[Math.floor(rng() * hoennThemesLength)];
 
-        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme];
+        const sinnohThemes = regionThemes['Sinnoh'];
+        const sinnohThemesLength = sinnohThemes.ogTheme.length;
+        const firstRandomSinnohTheme = sinnohThemes.ogTheme[Math.floor(rng() * sinnohThemesLength)];
+        const secondRandomSinnohTheme = sinnohThemes.ogTheme[Math.floor(rng() * sinnohThemesLength)];
+
+        return [firstRandomKantoTheme, secondRandomKantoTheme, firstRandomJohtoTheme, secondRandomJohtoTheme, firstRandomHoennTheme, secondRandomHoennTheme, firstRandomSinnohTheme, secondRandomSinnohTheme];
     }
 
     useEffect(() => {
@@ -282,7 +295,7 @@ const DailyPokemonMap = () => {
         }
 
         // Always pop dialog when user has already completed today's puzzle
-        if (localDate === today && themeIndex === '6') {
+        if (localDate === today && themeIndex === '8') {
             setIsDialogOpen(true);
         }
 
@@ -302,7 +315,7 @@ const DailyPokemonMap = () => {
 
         // Haven't finished today's, left and came back mid-way through
         const localIndex = localStorage.getItem('themeIndex');
-        if (localIndex && Number.parseInt(localIndex) < 6) {
+        if (localIndex && Number.parseInt(localIndex) < 8) {
             const numIndex = Number.parseInt(localIndex);
             const townName = dailyThemes[numIndex - 1]?.towns[0];
             console.log(townName);
@@ -363,10 +376,14 @@ const DailyPokemonMap = () => {
                 />
             }
             {region === 'Sinnoh' &&
-                <>
-                    <h1 className="construction">Under construction</h1>
-                    <h3 className="construction">Come back soon :)</h3>
-                </>
+                <SinnohMap
+                    handleTownClick={handleTownClick}
+                    height={height}
+                    bounds={bounds}
+                    guesses={currentRoundGuesses}
+                    center={center}
+                    zoom={zoom}
+                />
             }
             <div className="stuff">
                 <p>Play a random theme and then click on which location it belongs to!</p>

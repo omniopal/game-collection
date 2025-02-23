@@ -12,6 +12,7 @@ import { JohtoMap } from './johto/johto-map';
 import { regionSizes } from './region-sizes'; // will be used for score
 import { StyledSwitch } from './StyledSwitch';
 import { HoennMap } from './hoenn/hoenn-map';
+import { SinnohMap } from './sinnoh/sinnoh-map';
 
 export type MapProps = {
     handleTownClick: (townName: string) => void;
@@ -29,7 +30,7 @@ const PokemonMap = () => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [currentTheme, setCurrentTheme] = useState<string | null>(null);
     const [correctTowns, setCorrectTowns] = useState<string[]>([]);
-    const [region, setRegion] = useState<Region>('Hoenn');
+    const [region, setRegion] = useState<Region>('Kanto');
     const [guesses, setGuesses] = useState<string[]>([]);
     const [shouldPlayOGTheme, setShouldPlayOGTheme] = useState(false);
 
@@ -186,10 +187,14 @@ const PokemonMap = () => {
                 />
             }
             {region === 'Sinnoh' &&
-                <>
-                    <h1 className="construction">Under construction</h1>
-                    <h3 className="construction">Come back soon :)</h3>
-                </>
+                <SinnohMap
+                    handleTownClick={handleTownClick}
+                    height={height}
+                    bounds={bounds}
+                    guesses={guesses}
+                    center={center}
+                    zoom={zoom}
+                />
             }
             <div className="stuff">
                 <p>Play a random theme and then click on which location it belongs to!</p>
