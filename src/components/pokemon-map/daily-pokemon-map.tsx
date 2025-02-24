@@ -111,7 +111,7 @@ const DailyPokemonMap = () => {
         if (shouldPlayOGTheme && dailyThemeIndex <= ogDailyThemes.length && ogDailyThemes.length > 0) {
             console.log('tres');
             console.log(`index: ${dailyThemeIndex}`);
-            const theme = ogDailyThemes[dailyThemeIndex-1];
+            const theme = ogDailyThemes[dailyThemeIndex];
 
             const newAudio = new Audio(theme?.file);
             newAudio.volume = 0.05;
@@ -153,10 +153,11 @@ const DailyPokemonMap = () => {
                 const index = localStorage.getItem('themeIndex');
                 if (index) {
                     const numIndex = Number.parseInt(index);
+                    console.log('apples');
                     localStorage.setItem('themeIndex', `${numIndex + 1}`);
                     localStorage.setItem('guesses', updatedGuesses.toString());
                 }
-
+                console.log('kiwis');
                 setDailyThemeIndex(dailyThemeIndex + 1);
                 
                 if (dailyThemeIndex % 2 === 0) {
@@ -207,6 +208,7 @@ const DailyPokemonMap = () => {
         // Reset on new day
         if (localDate && localDate != today) {
             localStorage.setItem('date', today);
+            console.log('bananas');
             localStorage.setItem('themeIndex', '1');
             localStorage.removeItem('guesses');
         }
@@ -245,6 +247,7 @@ const DailyPokemonMap = () => {
         }
         
         if (!localIndex) {
+            console.log('oranges');
             localStorage.setItem('themeIndex', '1');
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
@@ -262,8 +265,10 @@ const DailyPokemonMap = () => {
         }
 
         if (localIndex && Number.parseInt(localIndex) < 8) {
+            console.log('peaches');
             setDailyThemeIndex(Number.parseInt(localIndex));
         } else {
+            console.log('pears')
             setDailyThemeIndex(0);
         }
     }, []);
