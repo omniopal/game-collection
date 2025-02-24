@@ -249,6 +249,7 @@ const DailyPokemonMap = () => {
         if (!localIndex) {
             console.log('oranges');
             localStorage.setItem('themeIndex', '1');
+            setDailyThemeIndex(1);
             const townName = dailyThemes[0].towns[0];
             const region = getRegionFromTown(townName);
             setRegion(region);
@@ -268,8 +269,8 @@ const DailyPokemonMap = () => {
             console.log('peaches');
             setDailyThemeIndex(Number.parseInt(localIndex));
         } else {
-            console.log('pears')
-            setDailyThemeIndex(0);
+            // console.log('pears')
+            // setDailyThemeIndex(0);
         }
     }, []);
 
