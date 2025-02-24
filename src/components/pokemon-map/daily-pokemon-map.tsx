@@ -78,10 +78,10 @@ const DailyPokemonMap = () => {
     }, [dailyThemeIndex]);
 
     const playTheme = () => {
-        const one = localStorage.get('themeIndex');
+        const one = localStorage.getItem('themeIndex');
         console.log('In playTheme -- themeIndex: ' + one);
 
-        const two = localStorage.get('date');
+        const two = localStorage.getItem('date');
         console.log('In playTheme -- date: ' + two);
 
         if (!regionThemes[region]) return;
