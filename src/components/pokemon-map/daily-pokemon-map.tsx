@@ -78,14 +78,22 @@ const DailyPokemonMap = () => {
     }, [dailyThemeIndex]);
 
     const playTheme = () => {
+        const one = localStorage.get('themeIndex');
+        console.log('In playTheme -- themeIndex: ' + one);
+
+        const two = localStorage.get('date');
+        console.log('In playTheme -- date: ' + two);
+
         if (!regionThemes[region]) return;
 
         if (audioRef.current) {
+            console.log('uno');
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
 
         if (!shouldPlayOGTheme && dailyThemeIndex <= dailyThemes.length && dailyThemes.length > 0) {
+            console.log('dos');
             console.log(`index: ${dailyThemeIndex}`);
             const theme = dailyThemes[dailyThemeIndex-1];
 
@@ -101,6 +109,7 @@ const DailyPokemonMap = () => {
         }
 
         if (shouldPlayOGTheme && dailyThemeIndex <= ogDailyThemes.length && ogDailyThemes.length > 0) {
+            console.log('tres');
             console.log(`index: ${dailyThemeIndex}`);
             const theme = ogDailyThemes[dailyThemeIndex-1];
 
@@ -111,6 +120,7 @@ const DailyPokemonMap = () => {
 
             audioRef.current = newAudio;
             if (theme) {
+                console.log('quatro');
                 setCurrentTheme(theme.name);
                 setCorrectTowns(theme.towns);
             }
@@ -203,13 +213,14 @@ const DailyPokemonMap = () => {
 
         const themeIndex = localStorage.getItem('themeIndex');
 
-        console.log("Local Date: " + localDate);
-        console.log("Today: " + today);
-        console.log("Theme Index: " + themeIndex);
         // Initialize local date (for first time players & after clearing application storage)
         if (!localDate) {
             localStorage.setItem('date', today);
         }
+
+        console.log("Local Date: " + localDate);
+        console.log("Today: " + today);
+        console.log("Theme Index: " + themeIndex);
 
         // Always pop dialog when user has already completed today's puzzle
         if (localDate === today && themeIndex === '8') {
