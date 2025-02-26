@@ -111,7 +111,7 @@ const DailyPokemonMap = () => {
         if (shouldPlayOGTheme && dailyThemeIndex <= ogDailyThemes.length && ogDailyThemes.length > 0) {
             console.log('tres');
             console.log(`index: ${dailyThemeIndex}`);
-            const theme = ogDailyThemes[dailyThemeIndex];
+            const theme = ogDailyThemes[dailyThemeIndex-1];
 
             const newAudio = new Audio(theme?.file);
             newAudio.volume = 0.05;
