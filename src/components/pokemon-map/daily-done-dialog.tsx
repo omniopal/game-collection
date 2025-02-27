@@ -20,29 +20,172 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
             setLocalGuesses(localGuesses.split(','));
         }
     }, [isOpen])
-
+ 
     const onShareButtonClick = async () => {
         const iteration = getPokeMelodyIteration();
-        let results = `PokéMelody #${iteration} Results:\n`;
+        let results = `🎵 PokéMelody #${iteration} results:\n`;
 
         const localGuesses = localStorage.getItem('guesses');
+        // if (localGuesses) {
+        //     const guessesArray = localGuesses.split(',');
+        //     setLocalGuesses(guessesArray);
+        //     guessesArray.forEach((guess, index) => {
+        //         let currentRound = `🎵 #${index + 1}: `;
+        //         const numGuess = Number.parseInt(guess);
+        //         for (let i = 0; i < numGuess; i++) {
+        //             if (numGuess - 1 === i) {
+        //                 currentRound = currentRound + '✅\n';
+        //             } else {
+        //                currentRound = currentRound + '❌'; 
+        //             }
+        //         }
+                
+        //         results = results + currentRound;
+        //     });
+        //     results = results + `Total guesses: ${getTotalGuesses(guessesArray)}`;
+        // }
+
         if (localGuesses) {
             const guessesArray = localGuesses.split(',');
             setLocalGuesses(guessesArray);
-            guessesArray.forEach((guess, index) => {
-                let currentRound = `🎵 #${index + 1}: `;
-                const numGuess = Number.parseInt(guess);
-                for (let i = 0; i < numGuess; i++) {
-                    if (numGuess - 1 === i) {
-                        currentRound = currentRound + '✅\n';
-                    } else {
-                       currentRound = currentRound + '❌'; 
+
+            for (let i = 0; i < guessesArray.length; i++) {
+                let numGuess = Number.parseInt(guessesArray[i]);
+
+                const test = '▁ ▂ ▃ ▄ ▅ ▆ ▇';
+
+                // Kanto
+                if (i === 0 || i === 1) {
+                    if (numGuess === 1) {
+                        results = results + '▁';
+                    }
+
+                    if (numGuess === 2 || numGuess === 3) {
+                        results = results + '▂';
+                    }
+
+                    if (numGuess === 4 || numGuess === 5) {
+                        results = results + '▃';
+                    }
+
+                    if (numGuess === 6) {
+                        results = results + '▄';
+                    }
+
+                    if (numGuess === 7 || numGuess === 8) {
+                        results = results + '▅';
+                    }
+
+                    if (numGuess === 9 || numGuess === 10) {
+                        results = results + '▆';
+                    }
+
+                    if (numGuess === 11) {
+                        results = results + '▇';
                     }
                 }
-                
-                results = results + currentRound;
-            });
-            results = results + `Total guesses: ${getTotalGuesses(guessesArray)}`;
+
+                // Johto
+                if (i === 2 || i === 3) {
+                    if (numGuess === 1) {
+                        results = results + '▁';
+                    }
+
+                    if (numGuess === 2 || numGuess === 3) {
+                        results = results + '▂';
+                    }
+
+                    if (numGuess === 4 || numGuess === 5) {
+                        results = results + '▃';
+                    }
+
+                    if (numGuess === 6 || numGuess === 7) {
+                        results = results + '▄';
+                    }
+
+                    if (numGuess === 8) {
+                        results = results + '▅';
+                    }
+
+                    if (numGuess === 9 || numGuess === 10) {
+                        results = results + '▆';
+                    }
+
+                    if (numGuess === 10) {
+                        results = results + '▇';
+                    }
+                }
+
+                // Hoenn
+                if (i === 4 || i === 5) {
+                    if (numGuess === 1 || numGuess === 2) {
+                        results = results + '▁';
+                    }
+
+                    if (numGuess === 3 || numGuess === 4) {
+                        results = results + '▂';
+                    }
+
+                    if (numGuess >= 5 && numGuess <= 7) {
+                        results = results + '▃';
+                    }
+
+                    if (numGuess >= 8 && numGuess <= 10) {
+                        results = results + '▄';
+                    }
+
+                    if (numGuess >= 11 && numGuess <= 13) {
+                        results = results + '▅';
+                    }
+
+                    if (numGuess === 14 || numGuess === 15) {
+                        results = results + '▆';
+                    }
+
+                    if (numGuess === 16 || numGuess === 17) {
+                        results = results + '▇';
+                    }
+                }
+
+                // Sinnoh
+                if (i === 6 || i === 7) {
+                    if (numGuess === 1 || numGuess === 2) {
+                        results = results + '▁';
+                    }
+
+                    if (numGuess === 3 || numGuess === 4) {
+                        results = results + '▂';
+                    }
+
+                    if (numGuess >= 5 && numGuess <= 7) {
+                        results = results + '▃';
+                    }
+
+                    if (numGuess >= 8 && numGuess <= 10) {
+                        results = results + '▄';
+                    }
+
+                    if (numGuess >= 11 && numGuess <= 13) {
+                        results = results + '▅';
+                    }
+
+                    if (numGuess === 14 || numGuess === 15) {
+                        results = results + '▆';
+                    }
+
+                    if (numGuess >= 16 && numGuess <= 18) {
+                        results = results + '▇';
+                    }
+                }
+
+                if (i === 7) {
+                    results = results + '\n';
+                } else {
+                    results = results + ' ';
+                }
+            }
+
+            results = results + `🏁 Total guesses: ${getTotalGuesses(guessesArray)}`;
         }
 
         try {
@@ -83,7 +226,11 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
           }
 
     return (
-        <Dialog className="dialog" open={isOpen} PaperProps={{ sx: { backgroundColor: 'hsl(198, 50%, 10%)' } }}>
+        <Dialog
+            className="dialog"
+            open={isOpen}
+            PaperProps={{ sx: { backgroundColor: 'hsl(198, 50%, 10%)', border: '1px solid hsl(258, 80%, 80%);', borderRadius: '24px' } }}
+        >
             <Snackbar
                 open={isSnackbarOpen}
                 autoHideDuration={3000}
