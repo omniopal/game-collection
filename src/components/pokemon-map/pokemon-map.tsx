@@ -50,6 +50,11 @@ const PokemonMap = () => {
     const playRandomSound = () => {
         if (!regionThemes[region]) return;
 
+        // if (audioRef.current?.paused) {
+        //     audioRef.current.play();
+        //     return;
+        // }
+
         if (audioRef.current) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
@@ -157,6 +162,10 @@ const PokemonMap = () => {
                     <p className="score-label">Score: </p>
                     <p className="score">{score}</p>
                 </div>
+                <div className="town-name-display">
+                        <p className="town-name-title">Last town selected: </p>
+                        <p className="town-name">{lastClickedTown || 'awaiting selection...'}</p>
+                </div>
             </div>
             {region === 'Kanto' &&
                 <KantoMap
@@ -201,11 +210,20 @@ const PokemonMap = () => {
             <div className="stuff">
                 <p>Play a random theme and then click on which location it belongs to!</p>
                 <div className="buttons">
-                    <button className="button" onClick={playRandomSound}>
-                    <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play Random Theme
+                    <button
+                        className="button"
+                        onClick={() => {
+                            if (audioRef.current?.paused) {
+                                audioRef.current.play();
+                            } else {
+                                playRandomSound();
+                            }
+                        }}
+                    >
+                        <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play Random Theme
                     </button>
                     <button className="button" onClick={() => audioRef.current?.pause()}>
-                    <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause music
+                        <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause
                     </button>
                 </div>
                 {regionThemes[region]?.ogTheme &&
@@ -216,13 +234,9 @@ const PokemonMap = () => {
                         />
                     </div>
                 }
-                <div className="results">
-                    <div className="town-name-display">
-                        <p>Last town selected: </p>
-                        <p className="town-name">{lastClickedTown || 'awaiting selection...'}</p>
-                    </div>
+                {/* <div className="results">
                     {result && <div className={clsx(result === 'Correct!' ? "correct" : "wrong")}>{result}</div>}
-                </div>
+                </div> */}
             </div>
         </>
     )

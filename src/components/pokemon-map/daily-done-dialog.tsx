@@ -118,11 +118,11 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
 
                 // Hoenn
                 if (i === 4 || i === 5) {
-                    if (numGuess === 1 || numGuess === 2) {
+                    if (numGuess === 1) {
                         results = results + '▁';
                     }
 
-                    if (numGuess === 3 || numGuess === 4) {
+                    if (numGuess >= 2 && numGuess <= 4) {
                         results = results + '▂';
                     }
 
@@ -149,11 +149,11 @@ export const DailyDoneDialog = (props: DialogDoneDialogProps) => {
 
                 // Sinnoh
                 if (i === 6 || i === 7) {
-                    if (numGuess === 1 || numGuess === 2) {
+                    if (numGuess === 1) {
                         results = results + '▁';
                     }
 
-                    if (numGuess === 3 || numGuess === 4) {
+                    if (numGuess >= 2 && numGuess <= 4) {
                         results = results + '▂';
                     }
 

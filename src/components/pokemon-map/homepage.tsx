@@ -18,6 +18,7 @@ export const Homepage = () => {
             </div>
             <footer>
                 <a className="created-by" href="https://x.com/JacobMauro4">Created by OmniOpal</a>
+                <p className="disclaimer">PokéMelody is an independent project and is not affiliated with or endorsed by Nintendo and does not own or claim any rights to Nintendo's trademarks or intellectual property.</p>
             </footer>
         </>
     );

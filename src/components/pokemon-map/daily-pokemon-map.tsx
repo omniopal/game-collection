@@ -87,13 +87,11 @@ const DailyPokemonMap = () => {
         if (!regionThemes[region]) return;
 
         if (audioRef.current) {
-            console.log('uno');
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
         }
 
         if (!shouldPlayOGTheme && dailyThemeIndex <= dailyThemes.length && dailyThemes.length > 0) {
-            console.log('dos');
             console.log(`index: ${dailyThemeIndex}`);
             const theme = dailyThemes[dailyThemeIndex-1];
 
@@ -104,12 +102,10 @@ const DailyPokemonMap = () => {
 
             audioRef.current = newAudio;
             setCurrentTheme(theme.name);
-            console.log('2');
             setCorrectTowns(theme.towns);
         }
 
         if (shouldPlayOGTheme && dailyThemeIndex <= ogDailyThemes.length && ogDailyThemes.length > 0) {
-            console.log('tres');
             console.log(`index: ${dailyThemeIndex}`);
             const theme = ogDailyThemes[dailyThemeIndex-1];
 
@@ -120,7 +116,6 @@ const DailyPokemonMap = () => {
 
             audioRef.current = newAudio;
             if (theme) {
-                console.log('quatro');
                 setCurrentTheme(theme.name);
                 setCorrectTowns(theme.towns);
             }
@@ -153,16 +148,14 @@ const DailyPokemonMap = () => {
                 const index = localStorage.getItem('themeIndex');
                 if (index) {
                     const numIndex = Number.parseInt(index);
-                    console.log('apples');
                     localStorage.setItem('themeIndex', `${numIndex + 1}`);
                     localStorage.setItem('guesses', updatedGuesses.toString());
                 }
-                console.log('kiwis');
                 setDailyThemeIndex(dailyThemeIndex + 1);
                 
-                if (dailyThemeIndex % 2 === 0) {
-                    setLastClickedTown('');
-                }
+                // if (dailyThemeIndex % 2 === 0) {
+                //     setLastClickedTown('');
+                // }
             }
             
         // Incorrect guess
@@ -186,7 +179,6 @@ const DailyPokemonMap = () => {
 
         const themes = shouldPlayOGTheme ? regionThemes[region].theme : regionThemes[region].ogTheme;
         themes?.forEach((theme) => {
-            console.log('4');
             if (theme.towns.includes(correctTowns[0])) {
                 const newAudio = new Audio(theme.file);
                 newAudio.volume = 0.05;
@@ -208,7 +200,6 @@ const DailyPokemonMap = () => {
         // Reset on new day
         if (localDate && localDate != today) {
             localStorage.setItem('date', today);
-            console.log('bananas');
             localStorage.setItem('themeIndex', '1');
             localStorage.removeItem('guesses');
         }
@@ -247,7 +238,6 @@ const DailyPokemonMap = () => {
         }
         
         if (!localIndex) {
-            console.log('oranges');
             localStorage.setItem('themeIndex', '1');
             setDailyThemeIndex(1);
             const townName = dailyThemes[0].towns[0];
@@ -286,6 +276,10 @@ const DailyPokemonMap = () => {
                 <div className="score-container">
                     <p className="score-label">Round: </p>
                     <p className="score">{localStorage.getItem('themeIndex')} / {dailyThemes.length}</p>
+                </div>
+                <div className="town-name-display">
+                        <p className="town-name-title">Last town selected: </p>
+                        <p className="town-name">{lastClickedTown || 'awaiting selection...'}</p>
                 </div>
             </div>
             {region === 'Kanto' &&
@@ -330,11 +324,20 @@ const DailyPokemonMap = () => {
             }
             <div className="stuff">
                 <div className="buttons">
-                    <button className="daily-button" onClick={playTheme}>
-                        <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play Theme
+                    <button
+                        className="daily-button"
+                        onClick={() => {
+                            if (audioRef.current?.paused) {
+                                audioRef.current.play();
+                            } else {
+                                playTheme();
+                            }
+                        }}
+                    >
+                        <span className="button-icon"><PlayArrowIcon fontSize="small" /></span>Play
                     </button>
                     <button className="daily-button" onClick={() => audioRef.current?.pause()}>
-                        <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause music
+                        <span className="button-icon"><PauseIcon fontSize="small" /></span>Pause
                     </button>
                     {/* <button className="button" onClick={() => {
                         localStorage.setItem('themeIndex', '1');
@@ -353,13 +356,9 @@ const DailyPokemonMap = () => {
                         />
                     </div>
                 }
-                <div className="results">
-                    <div className="town-name-display">
-                        <p>Last town selected: </p>
-                        <p className="town-name">{lastClickedTown || 'awaiting selection...'}</p>
-                    </div>
+                {/* <div className="results">
                     {result && <div className={clsx(result === 'Correct!' ? "correct" : "wrong")}>{result}</div>}
-                </div>
+                </div> */}
             </div>
             <DailyDoneDialog isOpen={isDialogOpen} setIsDialogOpen={setIsDialogOpen} />
         </>

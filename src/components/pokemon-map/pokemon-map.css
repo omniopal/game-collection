@@ -45,6 +45,11 @@ div {
 .town-name {
     font-weight: 600;
     color: hsl(138, 80%, 80%);
+    margin-block-end: 0;
+}
+
+.town-name-title {
+    margin-block-end: 0;
 }
 
 .stuff {

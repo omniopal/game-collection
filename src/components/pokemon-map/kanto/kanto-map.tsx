@@ -1,4 +1,4 @@
-import { Circle, ImageOverlay, LayerGroup, MapContainer } from "react-leaflet";
+import { Circle, ImageOverlay, LayerGroup, MapContainer, Rectangle } from "react-leaflet";
 import { MapProps } from "../pokemon-map";
 import { kantoTowns } from "./towns";
 import L from "leaflet";
@@ -18,11 +18,10 @@ export const KantoMap: React.FC<MapProps> = (props) => {
             <ImageOverlay url="/images/kanto map.webp" bounds={bounds} />
             <LayerGroup>
                 {kantoTowns.map((town) => (
-                    <Circle 
+                    <Rectangle 
                         key={town.name}
-                        center={town.coords}
+                        bounds={town.coords}
                         pathOptions={guesses.includes(town.name) ? { fillColor: "red", color: "red" } : { fillColor: "blue", color: "blue" }}
-                        radius={35}
                         eventHandlers={{
                             click: () => handleTownClick(town.name),
                             mouseover: (e) => e.target.setStyle({ fillColor: "red", color: "red" }),
